@@ -1,0 +1,51 @@
+body{
+    //background-color:red;
+    
+    
+}
+body .bg-light{
+    background-color: #0318189a !important;
+
+    .dropdown{
+        a{
+            :hover{
+                background-color: black;
+            }
+        }
+        .dropdown-menu{
+            background-color: #749476;
+            :hover{
+                background-color: black;
+            }
+            .dropdown-item{
+                :hover{
+                    background-color: black;
+                }
+                
+            }
+        }
+    }
+    
+}
+
+.dropdown-submenu {
+position: relative;
+//background-color: #749476;
+
+
+}
+
+.dropdown-submenu a::after {
+transform: rotate(-90deg);
+position: absolute;
+right: 6px;
+top: .8em;
+
+}
+
+.dropdown-submenu .dropdown-menu {
+top: 0;
+left: 100%;
+margin-left: .1rem;
+margin-right: .1rem;
+}

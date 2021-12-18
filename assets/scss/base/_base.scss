@@ -1,0 +1,59 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+.style-1{
+    border-radius: 15px;
+background: #e0e0e0;
+box-shadow:  5px 5px 9px #969696,
+             -5px -5px 9px #ffffff;
+             padding: 15px;
+}
+.style-1-bg{
+    background: #e0e0e0;
+    
+}
+.gra-button{
+    background-color: #262626;
+    color: #e0e0e0;
+    border: solid 1px #262626;
+    &:hover{
+        background-color: transparent;
+        color: #262626;
+        border: solid 1px #262626;
+    }
+}
+
+
+.page-login,.page-register,.home-page,.page-profile,.page-sell{
+    background: linear-gradient(-45deg, #c6cac9, #8dd1ec, #d7cfe4, #97e4d2);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@mixin gray-btn {
+    background-color: #262626;
+    color: #e0e0e0;
+    border: solid 1px #262626;
+    &:hover{
+        background-color: transparent;
+        color: #262626;
+        border: solid 1px #262626;
+    }
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.chat-byn{
+    input{
+        display: none;
+    }
+}
