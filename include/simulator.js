@@ -10,8 +10,28 @@ lens = {};
 
 lens.width = 20;
 
+function distance(x1, y1, x2, y2) {
+    return sqrt((x1 - x2)**2 + (y1 - y2)**2)
+}
+
+function mark(x, colour="white", d=10) {
+    stroke(colour);
+    line(675-d+x, 256-d, 675+d+x, 256+d);
+    line(675+d+x, 256-d, 675-d+x, 256+d);
+}
+
+function ray(x1, y1, x2, y2, v=true) {
+    m = (y2-y1)/(x2-x1);
+    stroke("yellow")
+    line(x1, y1, x2+1350, y2+1350*m);
+    if (v) {
+        stroke("green");
+        line(x1, y1, x1-1350, y1-1350*m);
+    }
+}
+
 function setup(){
-    createCanvas(1350,512)
+    createCanvas(1350,500)
     strokeWeight(1);
     noLoop();
     redraw();
@@ -23,20 +43,61 @@ function draw(){
 
     //principle axis
     stroke("Blue");
-    line(0, 250, 1350, 250);
+    line(0, 256, 1350, 256);
 
     //lens axis
     stroke("Blue");
     line(675, 0, 675, 675);
+    mark(-focalLength);
+    mark(-focalLength*2);
+    mark(focalLength*2);
+    mark(focalLength, "white");
+    fill("white");
+    stroke("red");
+    text(round(focalLength), 675+focalLength, 275);
 
+    //image placement
+    image.position = 1/(1/focalLength+1/object.position);
+    image.mag = -image.position/object.position;
+    image.width = image.mag*object.width;
+    image.height = image.mag*object.height;
+
+    
+
+
+    // Light Rays
+    // Line 1 - Through Focal Length distance
+    ray(675, 256-object.height, 675+focalLength, 256);
+    stroke("yellow");
+    line(675+object.position, 256-object.height, 675, 256-object.height);
+
+    // Line 2 - Through Optical axis
+    ray(675, 256, 675+image.position, 256+image.height);
+    stroke("lime");
+    line(675+object.position, 256-object.height, 675, 256);
+    
+    // Line 3 - Through F'
+    ray(675, 256+image.height, 675+image.position, 256+image.height);
+    stroke("yellow");
+    line(675+object.position, 256-object.height, 675, 256+image.height);
 
     //object
     fill("white");
+    stroke("red");
     rectMode(CENTER);
-    rect(500+object.position, 250-object.height/2, object.width, object.height);
+    rect(675+object.position, 256-object.height/2, object.width, object.height);
     fill("white");
-    text(round(object.position), 500+object.position, 250-object.height-object.height/abs(object.height)*50);
-    text(abs(round(object.height)), 500+object.position, 250-object.height-object.height/abs(object.height)*25);
+    stroke("blue");
+    text(round(object.position), 675+object.position, 256-object.height-object.height/abs(object.height)*50);
+    text(abs(round(object.height)), 675+object.position, 256-object.height-object.height/abs(object.height)*25);
+
+    // Image
+    fill("darkgray");
+    rect(675+image.position, 256+image.height/2, image.width, image.height);
+    fill("green");
+    stroke("green");
+    text(round(image.position), 675+image.position, 256+image.height+image.height/abs(image.height)*50);
+    text(abs(round(image.height*100)/100), 675+image.position, 256+image.height+image.height/abs(image.height)*25);
     
 
     //lens
@@ -48,22 +109,69 @@ function draw(){
     }
     if (focalLength > 0 ^ object.position > 0) {
         var angle = acos((focalLength*2)/(focalLength*2+lens.width));
-        lens.dotY = sin(PI-angle)*(focalLength*2+lens.width)
-        arc(675-focalLength*2, 250, focalLength*4+lens.width*2, focalLength*4+lens.width*2, (object.position > 0 ? PI : 0)-angle, (object.position > 0 ? PI : 0)+angle);
-        arc(675+focalLength*2, 250, focalLength*4+lens.width*2, focalLength*4+lens.width*2, (object.position > 0 ? 0 : PI)-angle, (object.position > 0 ? 0 : PI)+angle);
+        lens.dotY = sin(PI-angle)*(focalLength*2+lens.width);
+        stroke("blue");
+        arc(675-focalLength*2, 256, focalLength*4+lens.width*2, focalLength*4+lens.width*2, (object.position > 0 ? PI : 0)-angle, (object.position > 0 ? PI : 0)+angle);
+        arc(675+focalLength*2, 256, focalLength*4+lens.width*2, focalLength*4+lens.width*2, (object.position > 0 ? 0 : PI)-angle, (object.position > 0 ? 0 : PI)+angle);
     } else {
         lens.width /= 1.5;
         var angle = acos((focalLength*2)/(focalLength*2-lens.width));
         lens.dotX = cos(PI-angle)*(focalLength*2+lens.width)+focalLength*2
         lens.dotY = sin(PI-angle)*(focalLength*2+lens.width)
-        line(500-lens.dotX, 250+lens.dotY, 500+lens.dotX, 250+lens.dotY);
-        line(500-lens.dotX, 250-lens.dotY, 500+lens.dotX, 250-lens.dotY);
-        arc(500-focalLength*2, 250, focalLength*4+lens.width*2, focalLength*4+lens.width*2, (object.position > 0 ? 0 : PI)-angle, (object.position > 0 ? 0 : PI)+angle);
-        arc(500+focalLength*2, 250, focalLength*4+lens.width*2, focalLength*4+lens.width*2, (object.position > 0 ? PI : 0)-angle, (object.position > 0 ? PI : 0)+angle);
+        stroke("blue");
+        line(675-lens.dotX, 256+lens.dotY, 675+lens.dotX, 256+lens.dotY);
+        line(675-lens.dotX, 256-lens.dotY, 675+lens.dotX, 256-lens.dotY);
+        stroke("blue");
+        arc(675-focalLength*2, 256, focalLength*4+lens.width*2, focalLength*4+lens.width*2, (object.position > 0 ? 0 : PI)-angle, (object.position > 0 ? 0 : PI)+angle);
+        arc(675+focalLength*2, 256, focalLength*4+lens.width*2, focalLength*4+lens.width*2, (object.position > 0 ? PI : 0)-angle, (object.position > 0 ? PI : 0)+angle);
         lens.width *= 1.5;
     }
     if (object.position > 0) {
         lens.width = -lens.width;
         //focalLength = -focalLength;
     }
+
+    // SALT Table
+    /*
+    if (image.height > object.height) { 
+        $(".size").text("Size: Larger");
+    } else {
+        $(".size").text("Size: Smaller");
+    }
+
+    if (image.height > 0) { 
+        $(".attitude").text("Attitude: Upright");
+    } else { 
+        $(".attitude").text("Attitude: Inverted");
+    }
+
+    if (abs(image.position) > focalLength*2) { 
+        $(".location").text("Location: Past twice the focus");
+    } else if (abs(image.position) > focalLength) { 
+        $(".location").text("Location: Between the focus and twice the focus");
+    } else { 
+        $(".location").text("Location: Between optical centre and the focus");
+    }
+
+    if (image.position > 0) { 
+        $(".type").text("Type: Real");
+    } else { 
+        $(".type").text("Type: Virtual");
+    }*/
+
+}
+function mouseDragged() {
+    if (distance(675+object.position, 256-object.height, mouseX, mouseY) < 80) {
+        object.position = mouseX-675;
+        object.height = 256-mouseY;
+        if (abs(256-mouseY) > abs(lens.dotY)) {
+            object.height *= abs(lens.dotY)/abs(object.height);
+        }
+    }
+
+    if (distance(675+focalLength, 256, mouseX, mouseY) < 40) {
+        focalLength = mouseX-675;
+    } 
+
+    redraw();
 }
