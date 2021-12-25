@@ -1,0 +1,59 @@
+.add-btn{
+    float: right;
+}
+
+.table-responsive{
+    text-align: center;
+}
+#ViewAccount{
+    float: left;
+}
+
+/*
+dashboard
+ */
+
+ .countsInfo{
+     background-color: var(--headerColor);
+
+}
+
+.card-deck .card-header{
+    /*background-color: var(--headerColor);*/
+    color:  var(--buttonColor);
+ }
+
+.card-body .table{
+    background-color: var(--headerColor);
+    color: white;
+}
+.card .card-body{
+    /*background-color: var(--extraColor);*/
+    color: white;
+}
+
+/*
+all buttons (expect add buttons)
+ */
+
+.btn{
+    color: white;
+}
+
+/*
+search drop down list
+
+.search-dropdown-list{
+    display: block;
+    color: var(--buttonColor);
+    background-color: var(--extraColor);
+
+    transition: 0.3s all ease-in-out;
+
+}
+ */
+
+.tenor-gif-embed{
+    width: 100px;
+    height: 100px;
+}
