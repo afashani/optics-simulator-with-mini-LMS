@@ -327,26 +327,3 @@ require_once '../Includes/Admin-header.php';
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<?php
-//message for log in after data changes
-
-if(isset( $_SESSION['status_account_data_err'])){
-
-    $error_data= $_SESSION['status_account_data_err'];
-    ?>
-
-    <script type="application/javascript">
-        swal({
-            title: "<?php echo  $_SESSION['status_account_data_err_code']?>",
-            text: "<?php echo $error_data[0] ?>",
-            icon: "warning",
-            button: "Ok",
-        });
-    </script>
-
-    <?php
-}
-
-unset($_SESSION['status_account_data_err_code']);
-unset($_SESSION['status_account_data_err']);
-?>
