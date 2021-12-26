@@ -1,0 +1,50 @@
+
+.navbar{
+  background-color:white;
+}
+
+body{
+  background-color: white;
+
+  .vl {
+
+    border-left: 3px solid green;
+    height: 600px;
+  }
+
+  .back-img{
+    // background-image: url("../../assets/images/background/register-background.jpg");
+    // background-color: #0318189a;
+    //opacity: 0.8;
+    img{
+      height: 500px;
+      width: 100%;
+    }
+  }
+
+  .register-btn {
+    background-color: green;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    //border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+    //opacity: 0.9;
+
+    &:hover {
+      background-color: white;
+      //border-radius: 0%;
+      border-color: green;
+      color: black;
+      //opacity:1;
+    }
+  }
+
+  .bg-blue{
+    background-color: black;
+    width: 100%;
+  }
+}
+

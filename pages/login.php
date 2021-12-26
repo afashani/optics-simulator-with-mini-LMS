@@ -1,3 +1,25 @@
+<?php
+
+if(isset($_POST['studentlogin'])){
+    $email= $_POST['email'];
+    $password=$_POST['password'];
+
+    print_r($_POST);
+    if($email =="example@gmail.com" && $password =="password"){
+        header("Location: Student/assets/Pages/dashboard.php" );
+
+    }
+
+    $_POST['email']='';
+    $_POST['password']='';
+}
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,21 +68,21 @@
 	                    </div>
 						<div class="row mb-4 px-3">
 	                    	<small class="font-weight-bold">Don't have an account ?
-	                    		<a href="../register/" style="color: green;">Create one here</a>
+	                    		<a href="register.php" style="color: green;">Create one here</a>
 	                    	</small>
 	                    </div>
-	                <form action="" method="">    
+	                <form action="login.php" method="post" class="was-validated">
 	                    <div class="row px-3">
 	                    	<label class="mb-1">
 	                            <h6 class="mb-0 text-sm">Email Address</h6>
 	                        </label>
-	                        <input class="mb-4" type="text" name="farmer_nic" placeholder="Enter Your Email Address">
+	                        <input class="mb-4" type="text" name="email" placeholder="Enter Your Email Address" required>
 	                    </div>
 	                    <div class="row px-3">
 	                    	<label class="mb-1">
 	                            <h6 class="mb-0 text-sm">Password</h6> 
 	                        </label>
-	                        <input type="password" name="farmer_password" placeholder="Enter Your password">
+	                        <input type="password" name="password" placeholder="Enter Your password" required>
 	                    </div>
 	                    <!-- <div class="row px-3 mb-4">
 	                        <div class="custom-control custom-checkbox custom-control-inline">
@@ -70,7 +92,7 @@
 	                        <a href="#" class="ml-auto mb-0 text-sm" style="color: #333;">Forgot Password?</a>
 	                    </div> -->
 	                    <div class="row mb-3 px-3" style="margin-top: 20px;">
-	                    	<button type="submit" name="submit" class="btn btn-blue text-center">Login</button>
+	                    	<button type="submit" name="studentlogin" class="btn btn-blue text-center">Login</button>
 	                    </div>
 	                </form>    
 	                    
