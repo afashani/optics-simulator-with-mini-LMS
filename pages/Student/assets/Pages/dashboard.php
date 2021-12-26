@@ -57,40 +57,49 @@ require_once '../Includes/header.php';
 <div class="row mt-5 mb-2">
     <div class="col-12 ">
 
-                    <div id="carouselExampleCaptions" class="carousel slide text-dark bg-success " data-ride="carousel">
-                        <ol class="carousel-indicators text-dark">
+                    <div id="carouselExampleCaptions" class="carousel slide text-dark " data-ride="carousel">
+                        <ol class="carousel-indicators text-dark bg-dark">
                             <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                             <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner text-dark">
                             <div class="carousel-item active justify-content-center">
-                                <img src="../../Inc/Img/a.jpg" class="d-block  image1 mb-2" alt="...">
-                                <div class="carousel-caption d-none d-md-block text-dark mt-2 pt-2">
-                                    <h2>First slide label</h2>
-                                    <p>Some representative placeholder content for the first slide.</p>
+                                <img src="../../Inc/Img/simu.jpg" class="d-block  image1 mb-2" alt="...">
+                                <div class="carousel-caption d-none d-md-block text-dark mt-2 pt-2 bg-success">
+                                    <h2 class="text-light">Simulator</h2>
+                                    <p class=text-light>Some representative placeholder content for the first slide.</p>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item  justify-content-center">
+                                <img src="../../Inc/Img/activity.png" class="d-block  image1 mb-2" alt="...">
+                                <div class="carousel-caption d-none d-md-block bg-success mt-2 pt-2">
+                                    <h2 class="text-light">Activity</h2>
+                                    <p class="text-light">Some representative placeholder content for the first slide.</p>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item  justify-content-center">
+                                <img src="../../Inc/Img/tutorial.png" class="d-block  image1 mb-2" alt="...">
+                                <div class="carousel-caption d-none d-md-block bg-success mt-2 pt-2">
+                                    <h2 class="text-light">Tutorials</h2>
+                                    <p class="text-light">Some representative placeholder content for the first slide.</p>
                                 </div>
                             </div>
                             <div class="carousel-item  justify-content-center">
-                                <img src="../../Inc/Img/activity.jpeg" class="d-block  image1 mb-2" alt="...">
-                                <div class="carousel-caption d-none d-md-block text-dark mt-2 pt-2">
-                                    <h2>First slide label</h2>
-                                    <p>Some representative placeholder content for the first slide.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item  justify-content-center">
-                                <img src="../../Inc/Img/marks.jpeg" class="d-block  image1 nb-2" alt="...">
-                                <div class="carousel-caption d-none d-md-block text-dark mt-2 pt-2">
-                                    <h2>First slide label</h2>
+                                <img src="../../Inc/Img/msheet.png" class="d-block  image1 nb-2" alt="...">
+                                <div class="carousel-caption d-none d-md-block text-light mt-2 pt-2 bg-success">
+                                    <h2>Mark Sheets</h2>
                                     <p>Some representative placeholder content for the first slide.</p>
                                 </div>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
+                        <button class="carousel-control-prev text-success bg-success" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
+                        <button class="carousel-control-next bg-success"" type="button" data-target="#carouselExampleCaptions" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </button>

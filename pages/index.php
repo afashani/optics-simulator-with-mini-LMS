@@ -75,8 +75,8 @@
     <!-- Content -->
 	<div class="content">
 		<h1 class="heading">Welcome To Optics Simulator</h1>
-		<button class="sign-in" style="margin: 15px;">Sign In</button>
-		<button class="sign-up" style="margin: 15px;">Sign Up</button>
+		<a class="sign-in" style="margin: 15px;" href="login.php">Sign In</a>
+		<a class="sign-up" style="margin: 15px;" href="register.php">Sign Up</a>
 	</div>
 
 

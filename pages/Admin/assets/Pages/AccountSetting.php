@@ -5,17 +5,16 @@ require_once '../Includes/Admin-header.php';
 
 
 
-print_r($_POST);
 
-if(isset($_POST['accountsetting'])){
-
-    echo "data got";
-
-
-
-}else{
-    echo "data not fopund";
-}
+//if(isset($_POST['accountsetting'])){
+//
+//    echo "data got";
+//
+//
+//
+//}else{
+//    echo "data not fopund";
+//}
 ?>
 
 <html>
@@ -85,17 +84,24 @@ if(isset($_POST['accountsetting'])){
                     </tr>
                     <tr>
                         <td>Last Name</td>
-                        <td>Admin</td>
+                        <td>
+                            <input type="text" name="lname" value="Admin"/>
+
+                        </td>
 
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td>admin@example.com</td>
+                        <td>
+                            <input type="text" name="email" value="example@email.com"/>
+                        </td>
 
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td>************</td>
+                        <td>
+                            <input type="text" name="password" value="***********"/>
+                        </td>
 
 
                     </tr>
