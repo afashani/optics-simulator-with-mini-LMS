@@ -85,7 +85,7 @@
                 </a>
 
                 <!-- Simulator -->
-                <a  class="list-group-item list-group-flush admin-main-link bg-success" href='../Pages/G12.php' id="nav-student" >
+                <a  class="list-group-item list-group-flush admin-main-link bg-success" href='../../../simulator.html' id="nav-student" >
                     <i class="fas fa-user-friends"></i>&nbsp;&nbsp; Simulator
                 </a>
 

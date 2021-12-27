@@ -62,31 +62,23 @@ require_once '../Includes/header.php';
                     <tr>
                         <td class="col-5">First Name</td>
                         <td class="col-5">name</td>
-                        <td class="col-2">Change Button</td>
+
 
                     </tr>
                     <tr>
                         <td>Last Name</td>
                         <td>name</td>
-                        <td> <a
-<!--                                    href='mod.php?type={$buttonType}&id={$adminId}'-->
 
-                                    class='btn btn-danger mb-2 text-light fnamechange'
-
-
-                            >
-                                Change
-                            </a></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td>name</td>
-                        <td>Change Button</td>
+                        <td>example@email.com</td>
+
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td>name</td>
-                        <td>Change Button</td>
+                        <td>***********</td>
+
                     </tr>
 
                     </thead>
@@ -94,7 +86,17 @@ require_once '../Includes/header.php';
 
                     </tbody>
                     </table>
+                    <div class=" d-flex justify-content-center" >
 
+                        <button
+                                class='btn btn-danger mb-2 text-light'
+                                type='submit'
+                                name="accountsetting"
+                        >
+                            Change
+                        </button>
+                        <button class="btn bg-warning text-dark mb-2 ml-2" type="reset" id="resetUserName" name="resetUserName">Reset</button>
+                    </div>
 
                 </div>
             </div>
