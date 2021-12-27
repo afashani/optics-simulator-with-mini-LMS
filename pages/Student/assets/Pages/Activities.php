@@ -111,47 +111,7 @@ require_once '../Includes/header.php';
             </div>
 
             <div class="card-footer">
-                <!-- Center-aligned -->
-                <ul class="pagination justify-content-center">
-                    <li class="page-item <?php echo ($page==1) ? 'disabled':''?>" >
-                        <a class="page-link"
-                           href="G12.php?page=<?php echo $prev?>">
-                            Previous
-                        </a>
-                    </li>
-                    <!---->
-                    <!--                    --><?php
-                    //
-                    //                    for($i=$start+1 ; $i <= $end ;$i++){
-                    //                        echo  "
-                    //                          <li class='page-item'>
-                    //                            <a class='page-link' href='orders.php?page={$i}'>
-                    //                            {$i}
-                    //                            </a>
-                    //                          </li>
-                    //                        ";
-                    //                    }
-                    //
-                    //                    if($page ==$noOfPages){
-                    //
-                    //                        echo  "
-                    //                          <li class='page-item'>
-                    //                            <a class='page-link' href='orders.php?page={$prev}'>
-                    //                            {$prev}
-                    //                            </a>
-                    //                          </li>
-                    //                        ";
-                    //
-                    //                    }
-                    //                    ?>
-                    <!---->
-                    <!---->
-                    <!--                    <li class="page-item --><?php //echo ($page==$noOfPages) ? 'disabled':''?><!--">-->
-                    <!--                        <a class="page-link "-->
-                    <!--                           href="orders.php?page=--><?php //echo $next?><!--">-->
-                    <!--                            Next</a>-->
-                    <!--                    </li>-->
-                    <!--                </ul>-->
+
             </div>
         </div>
     </div>

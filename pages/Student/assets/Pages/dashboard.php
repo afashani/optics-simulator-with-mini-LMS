@@ -65,34 +65,42 @@ require_once '../Includes/header.php';
                         </ol>
                         <div class="carousel-inner text-dark">
                             <div class="carousel-item active justify-content-center">
-                                <img src="../../Inc/Img/simu.jpg" class="d-block  image1 mb-2" alt="...">
-                                <div class="carousel-caption d-none d-md-block text-dark mt-2 pt-2 bg-success">
-                                    <h2 class="text-light">Simulator</h2>
-                                    <p class=text-light>Some representative placeholder content for the first slide.</p>
-                                </div>
+                                <a href="../../../simulator.html">
+                                    <img src="../../Inc/Img/simu.jpg" class="d-block  image1 mb-2" alt="...">
+                                    <div class="carousel-caption d-none d-md-block text-dark mt-2 pt-2 bg-success">
+                                        <h2 class="text-light">Simulator</h2>
+                                        <p class=text-light>Some representative placeholder content for the first slide.</p>
+                                    </div>
+                                </a>
                             </div>
 
                             <div class="carousel-item  justify-content-center">
-                                <img src="../../Inc/Img/activity.png" class="d-block  image1 mb-2" alt="...">
-                                <div class="carousel-caption d-none d-md-block bg-success mt-2 pt-2">
-                                    <h2 class="text-light">Activity</h2>
-                                    <p class="text-light">Some representative placeholder content for the first slide.</p>
-                                </div>
+                                <a href="../Pages/Activities.php">
+                                    <img src="../../Inc/Img/activity.png" class="d-block  image1 mb-2" alt="...">
+                                    <div class="carousel-caption d-none d-md-block bg-success mt-2 pt-2">
+                                        <h2 class="text-light">Activity</h2>
+                                        <p class="text-light">Some representative placeholder content for the first slide.</p>
+                                    </div>
+                                </a>
                             </div>
 
                             <div class="carousel-item  justify-content-center">
-                                <img src="../../Inc/Img/tutorial.png" class="d-block  image1 mb-2" alt="...">
-                                <div class="carousel-caption d-none d-md-block bg-success mt-2 pt-2">
-                                    <h2 class="text-light">Tutorials</h2>
-                                    <p class="text-light">Some representative placeholder content for the first slide.</p>
-                                </div>
+                                <a href="../Pages/Tutorial.php">
+                                    <img src="../../Inc/Img/tutorial.png" class="d-block  image1 mb-2" alt="...">
+                                    <div class="carousel-caption d-none d-md-block bg-success mt-2 pt-2">
+                                        <h2 class="text-light">Tutorials</h2>
+                                        <p class="text-light">Some representative placeholder content for the first slide.</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="carousel-item  justify-content-center">
-                                <img src="../../Inc/Img/msheet.png" class="d-block  image1 nb-2" alt="...">
-                                <div class="carousel-caption d-none d-md-block text-light mt-2 pt-2 bg-success">
-                                    <h2>Mark Sheets</h2>
-                                    <p>Some representative placeholder content for the first slide.</p>
-                                </div>
+                                <a href="../Pages/Marksheet.php">
+                                    <img src="../../Inc/Img/msheet.png" class="d-block  image1 nb-2" alt="...">
+                                    <div class="carousel-caption d-none d-md-block text-light mt-2 pt-2 bg-success">
+                                        <h2>Mark Sheets</h2>
+                                        <p>Some representative placeholder content for the first slide.</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                         <button class="carousel-control-prev text-success bg-success" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
