@@ -1,48 +1,12 @@
 <?php
-//require_once '../Includes/functions.php';
-//require_once '../Classes/Administrator.Class.php';
-//require_once '../Includes/Config.php';
-//
-////connection object
-//$newConnection=new Config();
-////create connection
-//$conn=$newConnection ->createConnection();
-//
-////function for requires founds
-//function my_autoloadHeader($className){
-//    require_once '../Classes/'.$className.'.Class.php';
-//
-//}
-////require files checker inbuild function
-//spl_autoload_register('my_autoloadHeader');
-////get account details
-//
-//$func=new Functions();
-//$admin=new Administrator();
-//
-////if(!isset($_SESSION['admintype'])){
-////
-////  header('location:../../Admin/dashboard.php');
-////
-////}
-//
-////when click view account button add viewProfile page
-//if(isset($_GET['viewAccount'])){
-//    require_once '../Includes/Admin-header-modal.php';
-//}
-//
-//global $isDashboard;
-//
-//
-//////check whether current page is dashboard or not
-//////assign url to variable
-////$dashBoardURL="localhost:63342/hiking_club/Admin/assets/Pages/admin-dashboard.php" ;
-////
-//////get current age url
-////$CurrentPageURL=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-//
-////for dissable mod page for moderators
-// $_SESSION['admintype']=="m" ?$modPageDisable="disabled":$modPageDisable="";
+//check whether user log in or not
+session_start();
+if(!isset($_SESSION['stdId'])) {
+    header('location:../../../login.php');
+    exit();
+}
+
+
 
 ?>
 

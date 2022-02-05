@@ -2,26 +2,6 @@
 
 class Functions
 {
-    private mysqli $conn;
-
-    public function createConnection()
-    {
-        try {
-            $servername = 'localhost';
-            $username = 'root';
-            $password = 'admin123';
-            $this->conn = new mysqli($servername, $username, $password);
-            echo "databse connected succesfully";
-        } catch (Exception $exception) {
-            echo 'Error: ' . $exception->getMessage();
-            echo "databse not connected succesfully";
-
-        } finally {
-
-            return $this->conn;
-
-        }
-    }
 
     public function inputSanitizer($data){
 
@@ -108,6 +88,9 @@ class Functions
 
         return( md5($input) );
     }
+
+
+
 
 
 }
