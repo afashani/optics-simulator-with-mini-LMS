@@ -1,10 +1,10 @@
 <?php
 //require_once '../Includes/functions.php';
 //require_once '../Classes/Administrator.Class.php';
-//require_once '../Includes/Config.php';
+//require_once '../Includes/ConfigDB.php';
 //
 ////connection object
-//$newConnection=new Config();
+//$newConnection=new ConfigDB();
 ////create connection
 //$conn=$newConnection ->createConnection();
 //

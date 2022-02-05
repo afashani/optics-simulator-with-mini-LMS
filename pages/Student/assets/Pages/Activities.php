@@ -76,7 +76,7 @@ require_once '../Includes/header.php';
                         <td>Introduction to octical Simulator</td>
                         <td>12</td>
                         <td>2021-12-30</td>
-                        <td>View</td>
+                        <td><a class="btn btn-success" href="viewActivity.php"> View Activity </a></td>
 
 
                     </tr>
@@ -86,7 +86,7 @@ require_once '../Includes/header.php';
                         <td>Introduction to octical Simulator</td>
                         <td>12</td>
                         <td>2021-12-30</td>
-                        <td>View</td>
+                        <td><a class="btn btn-success"> View Activity </a></td>
 
 
                     </tr>
@@ -96,7 +96,7 @@ require_once '../Includes/header.php';
                         <td>Introduction to octical Simulator</td>
                         <td>12</td>
                         <td>2021-12-30</td>
-                        <td>View</td>
+                        <td><a class="btn btn-success"> View Activity </a></td>
 
 
                     </tr>

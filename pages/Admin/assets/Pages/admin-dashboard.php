@@ -5,12 +5,12 @@
 ////require header
 //$isDashboard=true;
 require_once '../Includes/Admin-header.php';
-//require_once '../Includes/Config.php';
+//require_once '../Includes/ConfigDB.php';
 //
 //
 //
 ////connection object
-//$newConnection=new Config();
+//$newConnection=new ConfigDB();
 ////create connection
 //$conn=$newConnection ->createConnection();
 //
