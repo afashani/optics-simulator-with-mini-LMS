@@ -1,21 +1,80 @@
 <?php
 
-if(isset($_POST['studentlogin'])){
-    $email= $_POST['email'];
-    $password=$_POST['password'];
+require_once 'Student/assets/Includes/ConfigDB.php';
+require_once 'Student/assets/Includes/Functions.php';
 
-    print_r($_POST);
-    if($email =="example@gmail.com" && $password =="password"){
-        header("Location: Student/assets/Pages/dashboard.php" );
+//session_start();
+//connection object
+$newConnection=new ConfigDB();
+//create connection
+$conn=$newConnection ->createConnection();
 
+$func=new Functions();
+
+////check whether user log in or not
+//if(isset($_SESSION['stdId'])) {
+//    header('location:assets/Pages/dashboard.php');
+//    exit();
+//}
+
+
+//form sumbsiion login
+if(isset($_POST['studentlogin'])) {
+
+    $errors = [];
+
+
+
+    //check set username and password
+    if (!isset($_POST['email']) & strlen(trim($_POST['email'])) < 1) {
+
+        $errors[] = "Email is Missing /Invalid";
     }
 
-    $_POST['email']='';
-    $_POST['password']='';
+    if (!isset($_POST['password']) & strlen(trim($_POST['password']))) {
+
+        $errors[] = "Password is Missing /Invalid";
+    }
+
+    if (empty($errors)) {
+
+        //sanitize inputs
+
+        $email = $func->inputSanitizer($_POST['email']);
+        $password = $func->inputSanitizer($_POST['password']);
+
+
+     //   $hpassword = $func->encryptInput($password);
+
+        $std = $func->vertifyStudent($conn, $email, $password);
+        echo $std;
+
+        if (!$std) {
+
+            $errors[] = "username or password incorrect";
+
+        } else {
+
+            $message = "details are correct";
+
+
+            //redirect
+            sleep(3);
+            header('location:Student/assets/Pages/dashboard.php');
+            exit();
+        }
+
+    // print_r($_POST);
+
+        $_POST['email'] = '';
+        $_POST['password'] = '';
+    }
+  //  print_r( $errors);
+
 }
 
 
-
+print_r( $_SESSION);
 
 ?>
 
@@ -72,6 +131,19 @@ if(isset($_POST['studentlogin'])){
 	                    	</small>
 	                    </div>
 	                <form action="login.php" method="post" class="was-validated">
+
+                        <div >
+
+                            <?php
+                            if (isset($errors) && !empty($errors)) {
+                                foreach ($errors as $error){
+                                    echo "<pre class='text-capitalize bg-danger text-light'>".$error."</pre>";
+                                }
+                                $errors=[];
+                            }
+                            ?>
+
+                        </div>
 	                    <div class="row px-3">
 	                    	<label class="mb-1">
 	                            <h6 class="mb-0 text-sm">Email Address</h6>

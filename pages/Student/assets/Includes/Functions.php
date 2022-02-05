@@ -109,5 +109,25 @@ class Functions
         return( md5($input) );
     }
 
+    //get account details
+    function vertifyStudent($connection, $email, $pw): bool
+    {
+
+        $status=false;
+        $query= "select student_id  from student where student.email='{$email}' AND student.password='{$pw}'";
+
+        $result = mysqli_query($connection, $query);
+        $resultSet = $connection->query( $query );
+
+        if(mysqli_num_rows($result) > 0){
+            $status=true;
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION['stdId']=$row['student_id'];
+        }
+        echo $status;
+        return $status;
+    }
+
+
 
 }
