@@ -18,14 +18,17 @@ function mark(x, colour="white", d=10) {
     stroke(colour);
     line(675-d+x, 256-d, 675+d+x, 256+d);
     line(675+d+x, 256-d, 675-d+x, 256+d);
+    
 }
 
 function ray(x1, y1, x2, y2, v=true) {
     m = (y2-y1)/(x2-x1);
-    stroke("yellow")
+    stroke("yellow");
+       
     line(x1, y1, x2+1350, y2+1350*m);
     if (v) {
-        stroke("green");
+        stroke("lime");
+        drawingContext.setLineDash([5, 15]);
         line(x1, y1, x1-1350, y1-1350*m);
     }
 }
@@ -52,9 +55,15 @@ function draw(){
     mark(-focalLength*2);
     mark(focalLength*2);
     mark(focalLength, "white");
+    
     fill("white");
     stroke("red");
-    text(round(focalLength), 675+focalLength, 275);
+    textAlign(CENTER);
+    // Focal length labelling
+    text('F = '+ round(focalLength), 675+focalLength, 280);
+    text('2F', 675+focalLength*2, 280);
+    text('-F', 675-focalLength, 280);
+    text('-2F', 675-focalLength*2, 280);
 
     //image placement
     image.position = 1/(1/focalLength+1/object.position);
@@ -69,16 +78,20 @@ function draw(){
     // Line 1 - Through Focal Length distance
     ray(675, 256-object.height, 675+focalLength, 256);
     stroke("yellow");
+    drawingContext.setLineDash([]);
+    
     line(675+object.position, 256-object.height, 675, 256-object.height);
 
     // Line 2 - Through Optical axis
     ray(675, 256, 675+image.position, 256+image.height);
-    stroke("lime");
+    stroke("yellow");
+    drawingContext.setLineDash([]);
     line(675+object.position, 256-object.height, 675, 256);
     
     // Line 3 - Through F'
     ray(675, 256+image.height, 675+image.position, 256+image.height);
     stroke("yellow");
+    drawingContext.setLineDash([]);
     line(675+object.position, 256-object.height, 675, 256+image.height);
 
     //object
@@ -88,16 +101,16 @@ function draw(){
     rect(675+object.position, 256-object.height/2, object.width, object.height);
     fill("white");
     stroke("blue");
-    text(round(object.position), 675+object.position, 256-object.height-object.height/abs(object.height)*50);
-    text(abs(round(object.height)), 675+object.position, 256-object.height-object.height/abs(object.height)*25);
+    text('D = '+ round(object.position), 675+object.position, 256-object.height-object.height/abs(object.height)*50);
+    text('H = '+ abs(round(object.height)), 675+object.position, 256-object.height-object.height/abs(object.height)*25);
 
     // Image
     fill("darkgray");
     rect(675+image.position, 256+image.height/2, image.width, image.height);
     fill("green");
     stroke("green");
-    text(round(image.position), 675+image.position, 256+image.height+image.height/abs(image.height)*50);
-    text(abs(round(image.height*100)/100), 675+image.position, 256+image.height+image.height/abs(image.height)*25);
+    text('D = '+ round(image.position), 675+image.position, 256+image.height+image.height/abs(image.height)*50);
+    text('H = '+ abs(round(image.height*100)/100), 675+image.position, 256+image.height+image.height/abs(image.height)*25);
     
 
     //lens
