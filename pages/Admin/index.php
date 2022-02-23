@@ -1,73 +1,77 @@
 <?php
 
+
+
+require_once 'assets/Includes/ConfigDB.php';
 require_once 'assets/Includes/Functions.php';
 
-//create function object
+//session_start();
+//connection object
+$newConnection=new ConfigDB();
+//create connection
+$conn=$newConnection ->createConnection();
 
-$func1=new Functions();
+$func=new Functions();
 
-if(isset($_POST['submit'])) {
+////check whether user log in or not
+//if(isset($_SESSION['stdId'])) {
+//    header('location:assets/Pages/dashboard.php');
+//    exit();
+//}
 
-    $errors=[];
+
+//form sumbsiion login
+if(isset($_POST['adminLogin'])) {
+
+    $errors = [];
+
+
 
     //check set username and password
-    if((!isset($_POST['username'])) || strlen(trim($_POST['username'])) <1  ) {
+    if (!isset($_POST['email']) & strlen(trim($_POST['email'])) < 1) {
 
-        $errors[] = "Username is Missing /Invalid";
+        $errors[] = "Email is Missing /Invalid";
     }
 
-    if((!isset($_POST['password'])) || strlen(trim($_POST['password'])) <1 ){
+    if (!isset($_POST['password']) & strlen(trim($_POST['password']))) {
 
         $errors[] = "Password is Missing /Invalid";
     }
 
- //   print_r($errors);
-
-    if(empty($errors)){
+    if (empty($errors)) {
 
         //sanitize inputs
 
-        $username=$func1-> inputSanitizer($_POST['username']);
-        $password=$func1 ->inputSanitizer($_POST['password']);
+        $email = $func->inputSanitizer($_POST['email']);
+        $password = $func->inputSanitizer($_POST['password']);
 
-        //create object from Adminintarator class
-//        $Admin= new Administrator();
-//        $user=new User();
 
-     //   $hpassword= $func1 -> encryptInput($password);
+        //   $hpassword = $func->encryptInput($password);
 
-//        $adminId=$Admin-> vertifyLogin($username, $hpassword,$conn);
+        $adminStd = $func->vertifyAdmin($conn, $email, $password);
+        echo $adminStd;
 
-//        if($adminId ==0 ){
-//
-//            $errors[] ="username or password incorrect";
-//
-//        }else{
-//
-//            $message= "details are correct";
-//
-//            $setLastActiveStaus=$user ->setLastActive($conn,$adminId);
-//
-//            //redirect
-//            sleep(3);
-//            header('location:assets/Pages/admin-dashboard.php');
-//            exit();
-//        }
+        if (!$adminStd) {
 
-        if($username=="admin" & $password=="pw"){
+            $errors[] = "username or password incorrect";
 
-                header('location:assets/Pages/admin-dashboard.php');
+        } else {
 
-        }else{
-            $errors[] ="username or password incorrect";
+            $message = "details are correct";
+
+
+            //redirect
+            sleep(3);
+            header('location:assets/Pages/admin-dashboard.php');
+            exit();
         }
 
-    //    print_r($_POST);
+       //  print_r($_POST);
 
-        $_POST['username']='';
-        $_POST['password']='';
+        $_POST['email'] = '';
+        $_POST['password'] = '';
     }
-  //  print_r($errors);
+    //  print_r( $errors);
 
 }
 
@@ -131,20 +135,18 @@ if(isset($_POST['submit'])) {
                                 <?php
                                 if (isset($errors) && !empty($errors)) {
                                     foreach ($errors as $error){
-                                        echo "<pre class='text-capitalize'>".$error."</pre>";
+                                        echo "<pre class='text-capitalize bg-danger text-light'>".$error."</pre>";
                                     }
-                                    $error=[];
+                                    $errors=[];
                                 }
-
-
+                                $errors=[];
                                 ?>
-
                             </div>
                             <form action='index.php' method='post' class='px-3' id='admin-login-form' >
                                 
                                 <div class='form-group loginInputs'>
 
-                                    <input type='text' name='username' class='form-control form-control-lg rounded-0' id='username' placeholder='Username' required autofocus value=''>
+                                    <input type='text' name='email' class='form-control form-control-lg rounded-0' id='email' placeholder='Email' required autofocus value=''>
 
                                 </div>
 
@@ -157,7 +159,7 @@ if(isset($_POST['submit'])) {
                                 <div class='form-group text-dark' id='loginButton'>
 
 
-                                    <input type='submit' name='submit' class='btn btn-block btn-lg rounded-0 text-light'  value='Login' id='adminLoginBtn'  >
+                                    <input type='submit' name='adminLogin' class='btn btn-block btn-lg rounded-0 text-light'  value='Admin Login' id='adminLoginBtn'  >
 
                                 </div>
 
