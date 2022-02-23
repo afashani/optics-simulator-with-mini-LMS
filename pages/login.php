@@ -74,7 +74,7 @@ if(isset($_POST['studentlogin'])) {
 }
 
 
-print_r( $_SESSION);
+//print_r( $_SESSION);
 
 ?>
 
