@@ -90,7 +90,24 @@ class Functions
     }
 
 
+//get account details
+    function vertifyAdmin($connection, $email, $pw): bool
+    {
 
+        $status=false;
+        $query= "select admin_id from `admin` where email='{$email}' AND password='{$pw}'";
+
+        $result = mysqli_query($connection, $query);
+
+
+        if(mysqli_num_rows($result) > 0){
+            $status=true;
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION['admin_id']=$row['admin_id'];
+        }
+        echo $status;
+        return $status;
+    }
 
 
 }

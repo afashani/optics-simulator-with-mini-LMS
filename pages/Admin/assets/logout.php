@@ -5,6 +5,5 @@
 session_start();
 
 //remove session and redirect to log In
-unset($_SESSION['admintype']);
-unset($_SESSION['adminId']);
+unset($_SESSION['admin_id']);
 header('location:../index.php');
