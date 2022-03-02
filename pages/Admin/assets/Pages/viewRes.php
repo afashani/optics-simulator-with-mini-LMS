@@ -15,7 +15,17 @@ $conn=$newConnection ->createConnection();
 
 $func=new Functions();
 
-$tableData= viewActivities($conn);
+$tableData=viewAnswerScripts($conn,0);
+if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
+
+    if($_GET['res_type']=="ac"){
+        $activityId=$_GET['res_id'];
+        $tableData=viewAnswerScripts($conn,$activityId);
+    }
+
+
+}
+
 ?>
 
 <html>
@@ -49,18 +59,10 @@ $tableData= viewActivities($conn);
                 <div class="row">
 
                     <div class="col-lg-8">
-                        <h4>Activities</h4>
+                        <h4>Add Activity </h4>
                     </div>
 
-                    <div class="col-lg-4">
-                        <h4 class="mt-2">
-                        <a class="btn-dark p-2  text-center text-light font-weight-bolder border border-secondary border-2"
-                            href="addActivity.php"
-                        >Add Activity
 
-                        </a>
-                        </h4>
-                    </div>
                 </div>
             </div>
 
@@ -80,23 +82,28 @@ $tableData= viewActivities($conn);
 
 
                 <div class="table-responsive" id="showAllUsers">
-                    <table class="table table-striped text-dark " id="dataTable">
-                    <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Deadline</th>
-                        <th>View Activity</th>
-                        <th>View Marksheet</th>
-                        <th>Delete</th>
+                    <?php if(!empty($tableData)){
+                        echo "
+                    <table class='table table-striped text-dark ' id='dataTable'>
+                        <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Upload Time</th>
+                            <th>Overdue</th>
+                            <th>View Answer</th>
 
-                    </tr>
-                    </thead>
-                    <tbody class="">
+                        </tr>
+                        </thead>
+                        <tbody>".
 
-                    <?php echo $tableData; ?>
+                             $tableData;
+                        }else{
+                            echo "<h2>No submission yet</h2>";
+                        }
+                         ?>
 
 
-                    </tbody>
+                        </tbody>
                     </table>
 
 

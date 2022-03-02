@@ -3,6 +3,19 @@
 ////add header
 require_once '../Includes/Admin-header.php';
 
+require_once '../Includes/ConfigDB.php';
+require_once '../Includes/Functions.php';
+require_once '../Includes/studentfunc.php';
+
+
+//connection object
+$newConnection=new ConfigDB();
+//create connection
+$conn=$newConnection ->createConnection();
+
+$func=new Functions();
+
+$tableData= viewStudent($conn,12);
 ?>
 
 <html>
@@ -46,8 +59,8 @@ require_once '../Includes/Admin-header.php';
                 <div class="search-container mb-2">
                     <form action="G12.php"  method="get">
                         <div class="input-group rounded">
-                            <input type="search" class="form-control rounded searchBar" placeholder="Enter Student Id or Name" aria-label="Search"
-                                   aria-describedby="search-addon" id="searchOrder" name="searchOrder"/>
+                            <input type="search" class="form-control rounded searchBar" placeholder="Enter Student Name, Mobile or Email Address" aria-label="Search"
+                                   aria-describedby="search-addon" />
                             <button class="input-group-text border-0" id="search-addon" name="searchOrderButton">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -57,42 +70,21 @@ require_once '../Includes/Admin-header.php';
 
 
             <div class="table-responsive" id="showAllUsers">
-                 <table class="table table-striped text-dark" id="dataTable">
+                 <table class=" table table-striped text-dark text-center" id="dataTable">
                         <thead>
                         <tr>
-                            <th>Student Id</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th>Name</th>
+                            <th>Mobile</th>
+                            <th>Email</th>
                             <th>View</th>
                         </tr>
                         </thead>
-                        <tbody>
+                     <tbody class="text-center ">
 
-                        <tr>
-                            <td>S001</td>
-                            <td>Amal</td>
-                            <td>Perera</td>
-                            <td>Button</td>
+                     <?php echo $tableData; ?>
 
-                        </tr>
 
-                        <tr>
-                            <td>S001</td>
-                            <td>Amal</td>
-                            <td>Perera</td>
-                            <td>Button</td>
-
-                        </tr>
-
-                        <tr>
-                            <td>S001</td>
-                            <td>Amal</td>
-                            <td>Perera</td>
-                            <td>Button</td>
-
-                        </tr>
-
-                        </tbody>
+                     </tbody>
                     </table>
 
 
@@ -101,48 +93,7 @@ require_once '../Includes/Admin-header.php';
 
             <div class="card-footer">
                 <!-- Center-aligned -->
-                <ul class="pagination justify-content-center">
-                    <li class="page-item <?php echo ($page==1) ? 'disabled':''?>" >
-                        <a class="page-link"
-                           href="G12.php?page=<?php echo $prev?>">
-                            Previous
-                        </a>
-                    </li>
-<!---->
-<!--                    --><?php
-//
-//                    for($i=$start+1 ; $i <= $end ;$i++){
-//                        echo  "
-//                          <li class='page-item'>
-//                            <a class='page-link' href='orders.php?page={$i}'>
-//                            {$i}
-//                            </a>
-//                          </li>
-//                        ";
-//                    }
-//
-//                    if($page ==$noOfPages){
-//
-//                        echo  "
-//                          <li class='page-item'>
-//                            <a class='page-link' href='orders.php?page={$prev}'>
-//                            {$prev}
-//                            </a>
-//                          </li>
-//                        ";
-//
-//                    }
-//                    ?>
-<!---->
-<!---->
-<!--                    <li class="page-item --><?php //echo ($page==$noOfPages) ? 'disabled':''?><!--">-->
-<!--                        <a class="page-link "-->
-<!--                           href="orders.php?page=--><?php //echo $next?><!--">-->
-<!--                            Next</a>-->
-<!--                    </li>-->
-<!--                </ul>-->
             </div>
-        </div>
     </div>
 </div>
 
