@@ -2,145 +2,29 @@
 <!doctype html>
 <?php
 
-////require header
-//$isDashboard=true;
 require_once '../Includes/Admin-header.php';
-//require_once '../Includes/ConfigDB.php';
-//
-//
-//
-////connection object
-//$newConnection=new ConfigDB();
-////create connection
-//$conn=$newConnection ->createConnection();
-//
-////function for requires founds
-//function my_autoload($className){
-//    require_once '../Classes/'.$className.'.Class.php';
-//
-//}
-//
-////require files checker inbuild function
-//spl_autoload_register('my_autoload');
-//
-////function object
-//
-//
-//
-//$mod=new Moderators();
-//$user=new RegisteredUser();
-//$blog=new Blog();
-//$order=new Order();
-//$product=new Product();
-//
-////set mod count
-//
-//    //all mod =active + non active
-//    $modCount=$mod ->countOfModerators($conn);
-//    $modActiveCount=$mod -> countOfActiveModerators($conn);
-//    $modNonActiveCount=$modCount-$modActiveCount;
-//
-//    //all user count =active+ non active
-//    $userCount=$user -> countUsers($conn);
-//    $userActiveCount=$user -> countActiveUsers($conn);
-//    $userNonActiveCount=$userCount-$userActiveCount;
-//
-//    //all blog count = approved+pending
-//
-//    $blogApprovedCount=$blog -> countAllBlog($conn);
-//    $blogAllCount=$blog -> countApprovedBlog($conn);
-//    $blogPendingCount=$blogAllCount-$blogApprovedCount;
-//
-//    echo $blogApprovedCount."blogApprovedCount  ";
-//    echo $blogAllCount."blogAllCount  ";
-//    echo $blogPendingCount."blogPendingCount  ";
-//
-//
-//    //get totak eanings
-//    $productIds=$order -> getAllOrderDetailsProIds($conn);
-//    $productQtys=$order -> getAllOrderDetailsProductsQty($conn);
-//
-//    $totalEarning=0;
-//
-//for($i=0 ; $i < count($productIds) ;$i++) {
-//
-//    $pid = $productIds[$i];
-//    $qty = (int)$productQtys[$i];
-//    $productData = $product->viewSingleProduct($conn, $pid);
-//    $productPrice = $productData[6];
-//
-//    //single total amount*qty
-//    $singleTotal = $productPrice * $qty;
-//    //single qty and unit price
-//    $totalEarning += $singleTotal;
-//}
-//
-//$soldItems=$order -> getTotalSoldItems($conn);
-//
-////total orders
-//$totalOrders=$order -> getTotalOrders($conn);
-//
-////get item list and qty
-//$itemListAndQty=$product -> countProductItems($conn);
-//
-////sumbit data
-//
-//$admin=new Administrator();
-//
-//if(isset($_SESSION['adminId'])){
-//    $adminId=$_SESSION['adminId'];
-//}
-//$accountDetails=$admin -> getAccountDetails($conn, $adminId);
-//
-////header model operations
-//if(isset($_POST['resetUserName'])){
-//    $Username=$accountDetails[4];
-//}
-//if(isset($_POST['resetEmail'])){
-//    $Email=$accountDetails[2];
-//}
-//if(isset($_POST['resetPassword'])){
-//    $passwordText="**********";
-//}
-//
-//$Fname=$accountDetails[0];
-//$Lname=$accountDetails[1];
-//$Email=$accountDetails[2];
-//$Type=$accountDetails[3];
-//$Username=$accountDetails[4];
-//$passwordText="**********";
-//
-////mod data
-//
-//$chartData1=($modActiveCount/$modCount)*100;
-//$chartData2=($modNonActiveCount/$modCount)*100;
-//
-////user data
-//$dataPoints = array(
-//    array("label"=>"Active", "y"=>$chartData1),
-//    array("label"=>"Deleted", "y"=>$chartData2),
-//
-//);
-//
-////reg data
-//$chartData3=($userActiveCount/$userCount)*100;
-//$chartData4=($userNonActiveCount/$userCount)*100;
-//$dataPoints2= array(
-//    array("label"=>"Active", "y"=>$chartData3),
-//    array("label"=>"Deleted", "y"=>$chartData4),
-//
-//);
-//
-////all data
-//$chartData5=($userCount/($userCount+$modCount))*100;
-//$chartData6=($modCount/($userCount+$modCount))*100;
-//$dataPoints3= array(
-//    array("label"=>"Registered Users", "y"=>$chartData5),
-//    array("label"=>"Moderators", "y"=>$chartData6),
-//
-//);
-//
-//$conn-> close();
+require_once '../Includes/ConfigDB.php';
+require_once '../Includes/Functions.php';
+
+
+//connection object
+$newConnection=new ConfigDB();
+//create connection
+$conn=$newConnection ->createConnection();
+
+$func=new Functions();
+
+$countG12=0;
+$countG13=0;
+$countActivity=0;
+$countTutorials=0;
+
+
+$countG12= $func -> countOfStudent($conn,12);
+$countG13= $func -> countOfStudent($conn,13);
+
+$countActivity=$func -> countOfActivities($conn);
+$countTutorials=$func -> countOfTutorials($conn);
 
 ?>
 <head>
@@ -179,27 +63,20 @@ require_once '../Includes/Admin-header.php';
                 data: [{
                     type: "bar",
                     showInLegend: true,
-                    name: "Boys",
+                    name: "Student",
                     color: "gold",
                     dataPoints: [
-                        { y: 100, label: "Grade 12" },
-                        { y: 120, label: "Grade 13" },
+                        { y:
+                                <?php echo $countG12; ?>
+                                , label: "Grade 12" },
+                        { y:
+                            <?php echo $countG13; ?>
+                            , label: "Grade 13" },
 
 
                     ]
                 },
-                    {
-                        type: "bar",
-                        showInLegend: true,
-                        name: "Girls",
-                        color: "black",
-                        dataPoints: [
-                            { y: 80, label: "Grade 12" },
-                            { y: 70, label: "Grade 13" },
 
-
-                        ]
-                    },
                    ]
             });
             chart.render();
@@ -225,27 +102,19 @@ require_once '../Includes/Admin-header.php';
                 data: [{
                     type: "bar",
                     showInLegend: true,
-                    name: "Activities",
+                    name: "Count",
                     color: "gold",
                     dataPoints: [
-                        { y: 20, label: "Grade 12" },
-                        { y: 50, label: "Grade 13" },
-
+                        { y:
+                            <?php echo $countActivity; ?>
+                            , label: "Activities" },
+                        { y:
+                            <?php echo $countTutorials; ?>
+                            , label: "Tutorials" },
 
                     ]
                 },
-                    {
-                        type: "bar",
-                        showInLegend: true,
-                        name: "Tutorial",
-                        color: "black",
-                        dataPoints: [
-                            { y: 20, label: "Grade 12" },
-                            { y: 55, label: "Grade 13" },
 
-
-                        ]
-                    },
                 ]
             });
             chart2.render();

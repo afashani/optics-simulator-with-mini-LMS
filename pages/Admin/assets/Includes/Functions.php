@@ -109,5 +109,154 @@ class Functions
         return $status;
     }
 
+    //get count of student details
+    function countOfStudent($connection, $grade): int
+    {
 
+        $data=0;
+        $query= "select COUNT(class) AS STDCUNT from `student` where `class`='{$grade}' ";
+
+        $result = mysqli_query($connection, $query);
+
+
+        if(mysqli_num_rows($result) > 0){
+
+            $row = mysqli_fetch_assoc($result);
+            $data=$row['STDCUNT'];
+        }
+
+        return $data;
+    }
+
+    //get count of activity
+    function countOfActivities($connection): int
+    {
+
+        $data=0;
+        $query= "select COUNT(activity_id) AS CUNT from `activity` ";
+
+        $result = mysqli_query($connection, $query);
+
+
+        if(mysqli_num_rows($result) > 0){
+
+            $row = mysqli_fetch_assoc($result);
+            $data=$row['CUNT'];
+        }
+
+        return $data;
+    }
+
+    //get count of tutorials
+    function countOfTutorials($connection): int
+    {
+
+        $data=0;
+        $query= "select COUNT(tutorial_id) AS CUNT from `tutorial` ";
+
+        $result = mysqli_query($connection, $query);
+
+
+        if(mysqli_num_rows($result) > 0){
+
+            $row = mysqli_fetch_assoc($result);
+            $data=$row['CUNT'];
+        }
+
+        return $data;
+    }
+
+
+    function getStudentDetails($connection): Array{
+
+        $std_id=$_SESSION['stdId'];
+        $data=[];
+        $query= "select *  from student where student.student_id='{$std_id}'";
+
+        $result = mysqli_query($connection, $query);
+
+
+        if(mysqli_num_rows($result) > 0){
+
+            $row = mysqli_fetch_assoc($result);
+            array_push($data, $row['student_name']);
+            array_push($data, $row['email']);
+        }
+
+        return $data;
+
+
+    }
+
+    //get current admin details
+
+    function getSAdminDetails($connection): Array{
+
+        $admin_id=$_SESSION['admin_id'];
+        $data=[];
+        $query= "select *  from admin where admin_id='{$admin_id}'";
+
+        $result = mysqli_query($connection, $query);
+
+
+        if(mysqli_num_rows($result) > 0){
+
+            $row = mysqli_fetch_assoc($result);
+
+            array_push($data, $row['email']);
+        }
+
+        return $data;
+
+
+    }
+    //check admin email available
+    function checkEmailExists($connection, $email): bool
+    {
+        $status=false;
+        $query= "SELECT admin_id FROM `admin` WHERE email='{$email}'";
+
+        $result = $connection->query($query);
+
+        if ($result->num_rows > 0) {
+            $status=true;
+        }
+        ;
+        return $status;
+    }
+
+    //change admin details
+    function changeAdminEmail($connection, $email): bool
+    {
+        $admin_id=$_SESSION['admin_id'];
+        $status=false;
+        $query= "UPDATE admin
+                    SET email = '{$email}'
+                    WHERE admin_id = {$admin_id}";
+
+        $result = $connection->query($query);
+
+//        if ($result->num_rows > 0) {
+//            $status=true;
+//        }
+//
+//        echo $status;
+        return $status;
+    }
+    function changeAdminPassword($connection, $password): bool
+    {
+        $admin_id=$_SESSION['admin_id'];
+        $status=false;
+        $query= "UPDATE admin
+                    SET password = '{$password}'
+                    WHERE admin_id = {$admin_id}";
+
+        $result = $connection->query($query);
+
+//        if ($result->num_rows > 0) {
+//            $status=true;
+//        }
+//        echo $status;
+        return $status;
+    }
 }

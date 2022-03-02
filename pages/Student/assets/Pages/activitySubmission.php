@@ -3,7 +3,7 @@
 ////add header
 require_once '../Includes/header.php';
 require_once '../Includes/ConfigDB.php';
-require_once '../Includes/tutorialfunc.php';
+require_once '../Includes/activityfunc.php';
 
 //session_start();
 //connection object
@@ -11,8 +11,7 @@ $newConnection=new ConfigDB();
 //create connection
 $conn=$newConnection ->createConnection();
 
-$tableData=viewTutorials($conn);
-
+$tableData=viewActivity($conn);
 ?>
 
 <html>
@@ -22,17 +21,34 @@ $tableData=viewTutorials($conn);
     <meta content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> Tutorials | Student </title>
+    <title> Activity Submission | Student </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/min/dropzone.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
+
     <link rel="stylesheet" href="../../Inc/css/main.css" type="text/css">
     <link rel="stylesheet" href="../../Inc/css/header.css" type="text/css">
 
     <script src="../../Inc/JS/search.js" type="application/javascript"></script>
+    <script type="text/javascript">
 
+        Dropzone.autoDiscover = false;
+
+        var myDropzone = new Dropzone(".dropzone", {
+            autoProcessQueue: false,
+            maxFilesize: 1,
+            acceptedFiles: ".pdf"
+        });
+
+        $('#uploadFile').click(function(){
+            myDropzone.processQueue();
+        });
+
+    </script>
 </head>
 <body>
 <!-- Order body-->
@@ -45,7 +61,7 @@ $tableData=viewTutorials($conn);
 
 
                 <div class="col-lg-12">
-                    <h4>Tutorials
+                    <h4>Activity Submisson
 
                     </h4>
                 </div>
@@ -53,36 +69,18 @@ $tableData=viewTutorials($conn);
 
 
             <div class="card-body">
-                <div class="search-container mb-2">
-                    <form action="G12.php"  method="get">
-                        <div class="input-group rounded">
-                            <input type="search" class="form-control rounded searchBar" placeholder="Enter Tutorial Title" aria-label="Search"
-                                   aria-describedby="search-addon" id="searchBar"/>
-                            <button class="input-group-text border-0" id="search-addon" name="searchOrderButton">
-                                <i class="fas fa-search"></i>
-                            </button>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Drag and Drop File Upload </h2>
+                            <form action="activitySubmission.php" enctype="multipart/form-data" class="dropzone" id="image-upload">
+                                <div>
+                                    <h3 class="text-dark">Upload Multiple Image By Click On Box</h3>
+                                </div>
+                            </form>
+                            <button id="uploadFile">Upload Files</button>
                         </div>
-                    </form>
-                </div>
-
-
-                <div class="table-responsive" id="showAllUsers">
-                    <table class="table table-striped text-dark text-center" id="dataTable">
-                    <thead>
-                    <tr>
-
-                        <th>Title</th>
-                        <th>View</th>
-
-
-                    </tr>
-                    </thead>
-                    <tbody>
-                                <?php echo $tableData; ?>
-                    </tbody>
-                    </table>
-
-
+                    </div>
                 </div>
             </div>
 
@@ -97,4 +95,4 @@ $tableData=viewTutorials($conn);
 </body>
 </html>
 
-<!---->
+

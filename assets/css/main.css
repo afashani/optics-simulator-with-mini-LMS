@@ -1,10 +1,8 @@
 .style-1 {
   border-radius: 15px;
   background: #e0e0e0;
-  -webkit-box-shadow: 5px 5px 9px #969696,
-  -5px -5px 9px #ffffff;
-  box-shadow: 5px 5px 9px #969696,
-  -5px -5px 9px #ffffff;
+  -webkit-box-shadow: 5px 5px 9px #969696, -5px -5px 9px #ffffff;
+          box-shadow: 5px 5px 9px #969696, -5px -5px 9px #ffffff;
   padding: 15px;
 }
 
@@ -28,7 +26,7 @@
   background: linear-gradient(-45deg, #c6cac9, #8dd1ec, #d7cfe4, #97e4d2);
   background-size: 400% 400%;
   -webkit-animation: gradient 15s ease infinite;
-  animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
 }
 
 @-webkit-keyframes gradient {
@@ -61,6 +59,10 @@
 
 body {
   font-size: small;
+}
+
+header {
+  margin-bottom: 10px;
 }
 
 header li {
@@ -125,7 +127,7 @@ header .dropdown .dropdown-menu .dropdown-item :hover {
 
 .dropdown-submenu a::after {
   -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+          transform: rotate(-90deg);
   position: absolute;
   right: 6px;
   top: .8em;
@@ -178,7 +180,7 @@ hr {
   margin-top: 150px;
   font-family: "Source Sans Pro", sans-serif;
   -webkit-animation: reveal 3000ms ease-in-out forwards 200ms;
-  animation: reveal 3000ms ease-in-out forwards 200ms;
+          animation: reveal 3000ms ease-in-out forwards 200ms;
 }
 
 @-webkit-keyframes reveal {
@@ -239,7 +241,7 @@ body {
 
 body .card0 {
   -webkit-box-shadow: 0px 4px 8px 0px #757575;
-  box-shadow: 0px 4px 8px 0px #757575;
+          box-shadow: 0px 4px 8px 0px #757575;
   border-radius: 0px;
 }
 
@@ -328,7 +330,7 @@ input {
   margin-top: 2px;
   width: 100%;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   color: #2C3E50;
   font-size: 14px;
   letter-spacing: 1px;
@@ -336,14 +338,14 @@ input {
 
 input:focus {
   -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+          box-shadow: none !important;
   border: 1px solid #7AAD37;
   outline-width: 0;
 }
 
 button:focus {
   -webkit-box-shadow: none !important;
-  box-shadow: none !important;
+          box-shadow: none !important;
   outline-width: 0;
   padding-left: 200px;
 }
@@ -372,6 +374,10 @@ a {
     border-top: 1px solid #EEEEEE !important;
     margin: 0px 15px;
   }
+}
+
+p.errors {
+  color: red;
 }
 
 .navbar {

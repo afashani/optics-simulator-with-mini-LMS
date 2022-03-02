@@ -2,6 +2,98 @@
 
 ////add header
 require_once '../Includes/header.php';
+require_once '../Includes/ConfigDB.php';
+require_once '../Includes/Functions.php';
+
+//session_start();
+//connection object
+$newConnection=new ConfigDB();
+//create connection
+$conn=$newConnection ->createConnection();
+
+$function= new Functions();
+
+//get current user data
+$studentDetais=$function ->getStudentDetails($conn);
+$studentName=$studentDetais[0];
+$studentEmail=$studentDetais[1];
+$studentPw="************";
+
+//change details
+if(isset($_POST['accountsetting'])) {
+
+    $errors = [];
+
+
+
+    //check set username and password
+    if (!isset($_POST['name']) & strlen(trim($_POST['email'])) < 1) {
+
+        $errors[] = "Email is Missing /Invalid";
+    }
+    if (!isset($_POST['email']) & strlen(trim($_POST['email'])) < 1) {
+
+        $errors[] = "Email is Missing /Invalid";
+    }
+
+    if (!isset($_POST['pw']) & strlen(trim($_POST['pw'])) <1) {
+
+        $errors[] = "Password is Missing /Invalid";
+    }
+
+    if (!isset($_POST['Rpw']) & strlen(trim($_POST['Rpw'])) <=8 ) {
+
+        $errors[] = "Retype-Password is Missing /Invalid (Minimum should be 8 characters)";
+    }
+
+    if ( ($_POST['pw'] != $_POST['Rpw'])) {
+
+        $errors[] = "Password are missed match. Please check your Password ";
+    }
+    if (!($function -> emailValidator($_POST['email']))) {
+
+        $errors[] = "This is not valid email. Please check your email ";
+    }
+    if (empty($errors)) {
+
+        //sanitize inputs
+
+        $name = $function->inputSanitizer($_POST['name']);
+        $email = $function->inputSanitizer($_POST['email']);
+        $pw = $function->inputSanitizer($_POST['pw']);
+
+    //    print_r($_POST);
+
+        //   $hpassword = $func->encryptInput($password);
+
+        //change name
+        if($studentName != $name) {
+            $nameStatus = $function->changeStudentName($conn, $name);
+        }
+        //change email
+        if($studentEmail != $email) {
+            if($function -> checkEmailExists($conn,$email)){
+                $errors[] = "Email exists.Please use another email address ";
+            }else{
+                $emailStatus = $function->changeStudentEmail($conn, $email);
+            }
+
+        }
+        //change pw
+        if($studentPw != $pw){
+            $pwStatus = $function->changeStudentPassword($conn, $pw);
+        }
+
+
+    }
+    $_POST['name'] = '';
+    $_POST['email'] = '';
+    $_POST['pw'] = '';
+    $_POST['Rpw'] = '';
+
+   //  print_r( $errors);
+
+}
 
 ?>
 
@@ -43,43 +135,63 @@ require_once '../Includes/header.php';
 
 
             <div class="card-body">
-<!--                <div class="search-container mb-2">-->
-<!--                    <form action="G12.php"  method="get">-->
-<!--                        <div class="input-group rounded">-->
-<!--                            <input type="search" class="form-control rounded searchBar" placeholder="Enter Student Id or Name" aria-label="Search"-->
-<!--                                   aria-describedby="search-addon" id="searchOrder" name="searchOrder"/>-->
-<!--                            <button class="input-group-text border-0" id="search-addon" name="searchOrderButton">-->
-<!--                                <i class="fas fa-search"></i>-->
-<!--                            </button>-->
-<!--                        </div>-->
-<!--                    </form>-->
-<!--                </div>-->
+                <div class="text-center">
 
+                    <?php
+                    if (isset($errors) && !empty($errors)) {
+                        foreach ($errors as $error){
+                            echo "<pre class='text-capitalize bg-danger text-light'>".$error."</pre>";
+                        }
+                        $errors=[];
+                    }
+                    ?>
+
+                </div>
 
                 <div class="table-responsive" id="showAllUsers">
+                    <form action="AccountSetting.php" method="post" class="was-validated">
                     <table class="table table-striped bg-light text-dark text-center" id="">
-                    <thead class="">
                     <tr>
-                        <td class="col-5">First Name</td>
-                        <td class="col-5">name</td>
 
 
-                    </tr>
-                    <tr>
-                        <td>Last Name</td>
-                        <td>name</td>
+                                <td class="col-5">First Name</td>
+                                <td class="col-5">
+                                    <label>
+                                        <input type="text" name="name" value=" <?php if(isset($studentName)){echo $studentName;} ?>">
+                                    </label>
 
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td>example@email.com</td>
+                                </td>
 
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td>***********</td>
 
-                    </tr>
+                            </tr>
+
+                            <tr>
+                                <td>Email</td>
+                                <td><label>
+                                        <input type="email" name="email" value=" <?php if(isset($studentEmail)){echo $studentEmail;} ?>">
+                                    </label></td>
+
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td>
+                                    <label>
+                                        <input type="password" name="pw" value=" <?php if(isset($studentPw)){echo $studentPw;} ?>">
+                                    </label></td>
+
+                            </tr>
+
+                            <tr>
+                                <td>Retype-Password</td>
+                                <td>
+                                    <label>
+                                        <input type="password" name="Rpw" value=" <?php if(isset($studentPw)){echo $studentPw;} ?>">
+                                    </label></td>
+
+                            </tr>
+
+
+
 
                     </thead>
                     <tbody>
@@ -97,6 +209,8 @@ require_once '../Includes/header.php';
                         </button>
                         <button class="btn bg-warning text-dark mb-2 ml-2" type="reset" id="resetUserName" name="resetUserName">Reset</button>
                     </div>
+
+                    </form>
 
                 </div>
             </div>

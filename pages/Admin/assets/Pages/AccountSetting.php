@@ -2,19 +2,97 @@
 
 ////add header
 require_once '../Includes/Admin-header.php';
+require_once '../Includes/ConfigDB.php';
+require_once '../Includes/Functions.php';
+require_once '../Includes/resoursesfunc.php';
+
+
+//connection object
+$newConnection=new ConfigDB();
+//create connection
+$conn=$newConnection ->createConnection();
+
+$func=new Functions();
+
+//get current user data
+$adminDetais=$func ->getSAdminDetails($conn);
+$adminName="Admin";
+$adminEmail=$adminDetais[0];
+$adminPw="************";
 
 
 
+//change details
+if(isset($_POST['accountsetting'])) {
 
-//if(isset($_POST['accountsetting'])){
-//
-//    echo "data got";
-//
-//
-//
-//}else{
-//    echo "data not fopund";
-//}
+    $errors = [];
+
+
+
+    //check set username and password
+
+    if (!isset($_POST['email']) & strlen(trim($_POST['email'])) < 1) {
+
+        $errors[] = "Email is Missing /Invalid";
+    }
+
+    if (!isset($_POST['pw']) & strlen(trim($_POST['pw'])) <=8) {
+
+        $errors[] = "Password is Missing /Invalid (Minimum should be 8 characters)";
+    }
+
+    if (!isset($_POST['Rpw']) & strlen(trim($_POST['Rpw'])) <1 ) {
+
+        $errors[] = "Retype-Password is Missing /Invalid";
+    }
+
+    if ( ($_POST['pw'] != $_POST['Rpw'])) {
+
+        $errors[] = "Password are missed match. Please check your Password ";
+    }
+    if (!($func -> emailValidator($_POST['email']))) {
+
+        $errors[] = "This is not valid email. Please check your email ";
+    }
+    if (empty($errors)) {
+
+        //sanitize inputs
+
+        $name = $func->inputSanitizer($_POST['name']);
+        $email = $func->inputSanitizer($_POST['email']);
+        $pw = $func->inputSanitizer($_POST['pw']);
+
+        //    print_r($_POST);
+
+        //   $hpassword = $func->encryptInput($password);
+
+        //change name
+
+        //change email
+        if($adminEmail != $email) {
+            if($func -> checkEmailExists($conn,$email)){
+                $errors[] = "Email exists.Please use another email address ";
+            }else{
+                $emailStatus = $func->changeAdminEmail($conn, $email);
+            }
+
+        }
+        //change pw
+        if($adminPw != $pw){
+            $pwStatus = $func->changeAdminPassword($conn, $pw);
+        }
+
+
+    }
+    $_POST['name'] = '';
+    $_POST['email'] = '';
+    $_POST['pw'] = '';
+    $_POST['Rpw'] = '';
+
+    //  print_r( $errors);
+
+}
+
 ?>
 
 <html>
@@ -55,17 +133,14 @@ require_once '../Includes/Admin-header.php';
 
 
             <div class="card-body">
-<!--                <div class="search-container mb-2">-->
-<!--                    <form action="G12.php"  method="get">-->
-<!--                        <div class="input-group rounded">-->
-<!--                            <input type="search" class="form-control rounded searchBar" placeholder="Enter Student Id or Name" aria-label="Search"-->
-<!--                                   aria-describedby="search-addon" id="searchOrder" name="searchOrder"/>-->
-<!--                            <button class="input-group-text border-0" id="search-addon" name="searchOrderButton">-->
-<!--                                <i class="fas fa-search"></i>-->
-<!--                            </button>-->
-<!--                        </div>-->
-<!--                    </form>-->
-<!--                </div>-->
+                <?php
+                if (isset($errors) && !empty($errors)) {
+                    foreach ($errors as $error){
+                        echo "<pre class='text-capitalize bg-danger text-light'>".$error."</pre>";
+                    }
+                    $errors=[];
+                }
+                ?>
 
 
                 <div class="table-responsive" id="showAllUsers">
@@ -75,32 +150,34 @@ require_once '../Includes/Admin-header.php';
                     <tbody>
 
                     <tr>
-                        <td class="col-4">First Name</td>
+                        <td class="col-4">Name</td>
                         <td class="col-5 text-center">
-                         <input type="text" name="fname" value="Admin"/>
+                         <input type="text" name="name" value="Admin" readonly/>
                         </td>
 
 
                     </tr>
-                    <tr>
-                        <td>Last Name</td>
-                        <td>
-                            <input type="text" name="lname" value="Admin"/>
 
-                        </td>
-
-                    </tr>
                     <tr>
                         <td>Email</td>
                         <td>
-                            <input type="text" name="email" value="example@email.com"/>
+                            <input type="text" name="email" value="<?php if(isset($adminEmail)){echo $adminEmail;} ?>"/>
                         </td>
 
                     </tr>
                     <tr>
                         <td>Password</td>
                         <td>
-                            <input type="text" name="password" value="***********"/>
+                            <input type="password" name="pw" value="<?php if(isset($adminPw)){echo $adminPw;} ?>"/>
+                        </td>
+
+
+                    </tr>
+
+                    <tr>
+                        <td>Retype-Password</td>
+                        <td>
+                            <input type="password" name="Rpw" value="<?php if(isset($adminPw)){echo $adminPw;} ?>"/>
                         </td>
 
 
