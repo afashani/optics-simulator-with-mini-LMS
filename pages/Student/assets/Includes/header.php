@@ -73,10 +73,10 @@ if(!isset($_SESSION['stdId'])) {
                         Tutorials
                     </a>
 
-                    <a href='../Pages/Marksheet.php' class="list-group-item bg-success sub-link">
-                        <i class="fa fa-poll" aria-hidden="true"></i>
-                        MarkSheets
-                    </a>
+<!--                    <a href='../Pages/Marksheet.php' class="list-group-item bg-success sub-link">-->
+<!--                        <i class="fa fa-poll" aria-hidden="true"></i>-->
+<!--                        MarkSheets-->
+<!--                    </a>-->
 
                 </div>
 
