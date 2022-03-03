@@ -5,6 +5,7 @@ if(!isset($_SESSION['admin_id'])) {
     exit();
 }
 
+
 ?>
 
 
@@ -25,6 +26,7 @@ if(!isset($_SESSION['admin_id'])) {
     <link rel="stylesheet" href="../../Inc/css/header.css" type="text/css">
 
     <script src="../../Inc/JS/header.js" type="application/javascript"></script>
+    <script src="../../Inc/JS/search.js" type="application/javascript"></script>
     <!--  Sweet alert js -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
@@ -94,10 +96,7 @@ if(!isset($_SESSION['admin_id'])) {
                         Tutorials
                     </a>
 
-                    <a href='../Pages/Marksheet.php' class="list-group-item  sub-link">
-                        <i class="fa fa-poll" aria-hidden="true"></i>
-                        MarkSheets
-                    </a>
+
 
                 </div>
 

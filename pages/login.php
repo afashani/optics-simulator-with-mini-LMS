@@ -3,7 +3,7 @@
 require_once 'Student/assets/Includes/ConfigDB.php';
 require_once 'Student/assets/Includes/Functions.php';
 
-//session_start();
+session_start();
 //connection object
 $newConnection=new ConfigDB();
 //create connection
@@ -59,7 +59,7 @@ if(isset($_POST['studentlogin'])) {
 
 
             //redirect
-            sleep(3);
+            sleep(1);
             header('location:Student/assets/Pages/dashboard.php');
             exit();
         }
@@ -85,7 +85,7 @@ if(isset($_POST['studentlogin'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Login</title>
     	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 

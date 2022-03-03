@@ -60,7 +60,7 @@ class Functions
     }
 
     //email validator
-    public function emailValidator($emailId){
+    public function emailValidator($emailId):bool{
         $email =$this-> inputSanitizer($emailId);
         // check if e-mail address is well-formed
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -114,7 +114,7 @@ class Functions
     {
 
         $status=false;
-        $query= "select student_id  from student where student.email='{$email}' AND student.password='{$pw}'";
+        $query= "select student_id,student_name  from student where student.email='{$email}' AND student.password='{$pw}'";
 
         $result = mysqli_query($connection, $query);
         $resultSet = $connection->query( $query );
@@ -123,11 +123,101 @@ class Functions
             $status=true;
             $row = mysqli_fetch_assoc($result);
             $_SESSION['stdId']=$row['student_id'];
+            $_SESSION['stdname']=$row['student_name'];
         }
         echo $status;
         return $status;
     }
 
+    //get current stdent details
+
+    function getStudentDetails($connection): Array{
+
+        $std_id=$_SESSION['stdId'];
+        $data=[];
+        $query= "select *  from student where student.student_id='{$std_id}'";
+
+        $result = mysqli_query($connection, $query);
+
+
+        if(mysqli_num_rows($result) > 0){
+
+            $row = mysqli_fetch_assoc($result);
+            array_push($data, $row['student_name']);
+            array_push($data, $row['email']);
+        }
+
+        return $data;
+
+
+    }
+
+    //check student email available
+    function checkEmailExists($connection, $email): bool
+    {
+        $status=false;
+        $query= "SELECT student_id FROM student WHERE email='{$email}'";
+
+        $result = $connection->query($query);
+
+        if ($result->num_rows > 0) {
+            $status=true;
+        }
+;
+        return $status;
+    }
+    //change student details
+    function changeStudentName($connection, $name): bool
+    {
+        $std_id=$_SESSION['stdId'];
+        $status=false;
+        $query= "UPDATE student
+                    SET student_name = '{$name}'
+                    WHERE student_id = {$std_id}";
+
+        $result = $connection->query($query);
+
+//        if ($result->num_rows > 0) {
+//            $status=true;
+//        }
+//
+//        echo $status;
+        return $status;
+    }
+    //change student details
+    function changeStudentEmail($connection, $email): bool
+    {
+        $std_id=$_SESSION['stdId'];
+        $status=false;
+        $query= "UPDATE student
+                    SET email = '{$email}'
+                    WHERE student_id = {$std_id}";
+
+        $result = $connection->query($query);
+
+//        if ($result->num_rows > 0) {
+//            $status=true;
+//        }
+//
+//        echo $status;
+        return $status;
+    }
+    function changeStudentPassword($connection, $password): bool
+    {
+        $std_id=$_SESSION['stdId'];
+        $status=false;
+        $query= "UPDATE student
+                    SET password = '{$password}'
+                    WHERE student_id = {$std_id}";
+
+        $result = $connection->query($query);
+
+//        if ($result->num_rows > 0) {
+//            $status=true;
+//        }
+//        echo $status;
+        return $status;
+    }
 
 
 }

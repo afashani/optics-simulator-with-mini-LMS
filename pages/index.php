@@ -64,7 +64,7 @@
 						
                     </div> -->
 					<!-- Navigation Menu ==== -->
-					<?php include '../include/header2.html' ?>
+					<?php include '../include/header2.php' ?>
 					<!-- Navigation Menu END ==== -->
                 <!-- </div>
             </div>
@@ -74,9 +74,19 @@
     <!-- Header Top END ==== -->
     <!-- Content -->
 	<div class="content">
-		<h1 class="heading">Welcome To Optics Simulator</h1>
-		<a class="sign-in" style="margin: 15px;" href="login.php">Sign In</a>
-		<a class="sign-up" style="margin: 15px;" href="register.php">Sign Up</a>
+		<h1 class="heading">Welcome To Wisdom Institution</h1>
+        <?php
+
+        if(isset( $_SESSION['stdname'])){
+            $content="";
+        }else{
+            $content="<a class='sign-in' style='margin: 15px;' href='login.php'>Sign In</a>
+		<a class='sign-up' style='margin: 15px;' href='register.php'>Sign Up</a>";
+        }
+        echo $content;
+
+        ?>
+
 	</div>
 
 
