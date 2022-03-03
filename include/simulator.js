@@ -145,32 +145,51 @@ function draw(){
     }
 
     // SALT Table
-    /*
-    if (image.height > object.height) { 
+
+
+var tempp = Math.ceil(image.height);
+var tempp2 = Math.ceil(object.height);
+
+console.log(tempp,tempp2);
+
+    if (tempp == tempp2 || tempp == Infinity) {
+        $(".size").text("Size: Equal");
+    } else if(abs(tempp) > tempp2){
         $(".size").text("Size: Larger");
-    } else {
+    } else{
         $(".size").text("Size: Smaller");
     }
 
     if (image.height > 0) { 
-        $(".attitude").text("Attitude: Upright");
-    } else { 
         $(".attitude").text("Attitude: Inverted");
-    }
-
-    if (abs(image.position) > focalLength*2) { 
-        $(".location").text("Location: Past twice the focus");
-    } else if (abs(image.position) > focalLength) { 
-        $(".location").text("Location: Between the focus and twice the focus");
     } else { 
-        $(".location").text("Location: Between optical centre and the focus");
+        $(".attitude").text("Attitude: Upright");
     }
 
-    if (image.position > 0) { 
-        $(".type").text("Type: Real");
+    if (abs(image.position) == focalLength*2){
+        $(".location").text("Location: At 2F");
+    }
+    else if(abs(image.position) == Infinity){
+        $(".location").text("Location: At Infinity");
+    }
+    else if (abs(image.position) > focalLength*2) {
+        $(".location").text("Location: Beyond 2F");
+    } else if (abs(image.position) > focalLength) { 
+        $(".location").text("Location: Between F and 2F");
+    } else { 
+        $(".location").text("Location: Between optical centre and F");
+    }
+
+    if (image.position > 0) {
+        if(object.position > 0){
+            $(".type").text("Type: Virtual");
+        }
+        else{
+            $(".type").text("Type: Real");
+        }
     } else { 
         $(".type").text("Type: Virtual");
-    }*/
+    }
 
 }
 function mouseDragged() {

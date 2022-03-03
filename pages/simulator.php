@@ -26,29 +26,19 @@
     <div class="container">
     <div class="details">
         <h1>
-            test
+            Properties
         </h1>
         <table class="table">
   <thead>
     <tr>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col" class="size">Size</th>
+      <th scope="col" class="attitude">Attitude</th>
     </tr>
+    <tr>
+          <th scope="col" class="location">Location</th>
+          <th scope="col" class="type">Type</th>
+        </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
 </table>
     </div>
     </div>
