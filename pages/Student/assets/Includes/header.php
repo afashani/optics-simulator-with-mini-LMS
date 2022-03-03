@@ -43,13 +43,16 @@ if(!isset($_SESSION['stdId'])) {
 
             <div class="list-group list-group-flush bg-success " id="listGroup">
 
+                <a class="list-group-item text-white admin-main-link bg-success" href='../../../index.php' id="nav-dashboard" >
+                    <i class=" fas fa-clipboard-list"></i> &nbsp; Home Page
+                </a>
                 <!-- have to look on active -->
                 <a class="list-group-item text-white admin-main-link bg-success" href='../Pages/dashboard.php' id="nav-dashboard" >
                               <i class=" fas fa-clipboard-list"></i> &nbsp; Dashboard
                 </a>
 
                 <!-- Simulator -->
-                <a  class="list-group-item list-group-flush admin-main-link bg-success" href='../../../simulator.html' id="nav-student" >
+                <a  class="list-group-item list-group-flush admin-main-link bg-success" href='../../../simulator.php' id="nav-student" >
                     <i class="fas fa-user-friends"></i>&nbsp;&nbsp; Simulator
                 </a>
 

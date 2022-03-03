@@ -56,7 +56,7 @@ $tableData=viewActivity($conn);
                     <form action="G12.php"  method="get">
                         <div class="input-group rounded">
                             <input type="search" class="form-control rounded searchBar" placeholder="Enter Activity Title" aria-label="Search"
-                                   aria-describedby="search-addon"  />
+                                   aria-describedby="search-addon" <?php  if(empty($tableData)){echo "readonly";}?> />
                             <button class="input-group-text border-0" id="search-addon" name="searchOrderButton">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -66,7 +66,15 @@ $tableData=viewActivity($conn);
 
 
                 <div class="table-responsive bg-success" id="showAllUsers">
-                    <table class="table table-striped text-dark text-center" id="dataTable">
+
+
+                    <?php
+
+                    if(empty($tableData)){
+                        $content= "No Activitites Available";
+                    }else{
+
+                        $content=" <table class='table table-striped text-dark text-center' id='dataTable'>
                     <thead>
                     <tr>
                         <th>Date</th>
@@ -77,9 +85,13 @@ $tableData=viewActivity($conn);
 
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody>".$tableData;
 
-                    <?php echo $tableData; ?>
+                    }
+
+                    echo $content;
+
+                    ?>
 
 
                     </tbody>
