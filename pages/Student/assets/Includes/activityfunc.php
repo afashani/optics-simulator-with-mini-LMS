@@ -63,7 +63,7 @@ function viewActivity($connection): String
 
 function viewSingleActivity($connection, $activityId){
     $file="";
-    $query= "select activity_file  from activity WHERE activity_id={$activityId}";
+    $query= "select activity_file  from activities WHERE activity_id={$activityId}";
 
     $result = mysqli_query($connection, $query);
 

@@ -67,7 +67,7 @@ $tableData= viewTutorials($conn);
             </div>
 
 
-            <div class="card-body">
+            <div class="card-body bg-light">
                 <div class="search-container mb-2">
                     <form action="G12.php"  method="get">
                         <div class="input-group rounded">
@@ -103,7 +103,9 @@ $tableData= viewTutorials($conn);
             </div>
 
             <div class="card-footer">
-
+                <a class="page-link btn btn-primary border border-primary text-primary font-weight-bolder" href="Tutorialphp">
+                    Back
+                </a>
             </div>
         </div>
     </div>

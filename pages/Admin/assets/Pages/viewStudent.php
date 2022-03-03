@@ -61,25 +61,23 @@ if(isset($_GET['std_id'])){
 <div class="row">
     <div class="col-lg-12 ">
 
-        <div class=" d-flex card my-2 w-100 justify-content-center align-items-center bg-primary">
+        <div class=" card my-2  bg-light">
 
-            <div class="card-header  text-light">
+            <div class="card-header  text-light bg-primary">
 
-
-                <div class="col-lg-12">
                     <h2>Student Details
 
                     </h2>
-                </div>
+
             </div>
 
 
-            <div class="card-body">
+            <div class="card-body bg-primary">
 
 
 
-                <div class="table-responsive bg-light" id="showAllUsers">
-                    <table class="table table-bordered text-dark text-center  bg-light" id="dataTable">
+                <div class="table-responsive bg-light">
+                    <table class="table table-bordered text-dark text-center  bg-light border border-light border-2 font-weight-bolder" >
 
                         <tr>
                             <td class="col-4">Student Id</td>
@@ -129,6 +127,7 @@ if(isset($_GET['std_id'])){
 
                         </tr>
 
+
                     </table>
 
 
@@ -136,13 +135,13 @@ if(isset($_GET['std_id'])){
             </div>
 
             <div class="card-footer">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"  >
-                        <a class="page-link" href="G12.php">
+
+
+                        <a class="page-link btn btn-primary border border-primary text-primary font-weight-bolder" href="G12.php">
                             Back
                         </a>
-                    </li>
-                </ul>
+
+
 
             </div>
         </div>

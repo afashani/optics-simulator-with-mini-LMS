@@ -56,7 +56,7 @@ $tableData= viewStudent($conn,13);
             </div>
 
 
-            <div class="card-body">
+            <div class="card-body bg-light">
                 <div class="search-container mb-2">
                     <form action="G12.php"  method="get">
                         <div class="input-group rounded">

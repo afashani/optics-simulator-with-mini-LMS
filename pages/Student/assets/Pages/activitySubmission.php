@@ -12,6 +12,7 @@ $newConnection=new ConfigDB();
 $conn=$newConnection ->createConnection();
 
 $tableData=viewActivity($conn);
+
 ?>
 
 <html>
@@ -27,69 +28,102 @@ $tableData=viewActivity($conn);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/min/dropzone.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
+
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
 
     <link rel="stylesheet" href="../../Inc/css/main.css" type="text/css">
     <link rel="stylesheet" href="../../Inc/css/header.css" type="text/css">
 
     <script src="../../Inc/JS/search.js" type="application/javascript"></script>
-    <script type="text/javascript">
 
-        Dropzone.autoDiscover = false;
-
-        var myDropzone = new Dropzone(".dropzone", {
-            autoProcessQueue: false,
-            maxFilesize: 1,
-            acceptedFiles: ".pdf"
-        });
-
-        $('#uploadFile').click(function(){
-            myDropzone.processQueue();
-        });
-
-    </script>
 </head>
 <body>
 <!-- Order body-->
-<div class="row">
-    <div class="col-lg-12">
-
-        <div class="card my-2 border-success bg-success">
-
-            <div class="card-header  text-light">
 
 
-                <div class="col-lg-12">
-                    <h4>Activity Submisson
 
-                    </h4>
+<div class="row  ">
+    <div class="col-12 ">
+
+            <div class="card my-2 border-success bg-light d-flex justify-content-center">
+
+                <div class="card-header bg-success text-light">
+
+                    <h3 class="text-light">Submission Status</h3>
+
                 </div>
-            </div>
 
 
-            <div class="card-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h2>Drag and Drop File Upload </h2>
-                            <form action="activitySubmission.php" enctype="multipart/form-data" class="dropzone" id="image-upload">
-                                <div>
-                                    <h3 class="text-dark">Upload Multiple Image By Click On Box</h3>
-                                </div>
-                            </form>
-                            <button id="uploadFile">Upload Files</button>
-                        </div>
-                    </div>
+                <div class="card-body border border-success border-2">
+
+                    <table class="table  text-capitalize ">
+                        <tbody>
+                            <tr class="border border-0 ">
+                                <td class="bg-success text-light ">Submission Status</td>
+                                <td class="bg-light text-dark">Submission for gradding</td>
+                            </tr>
+
+                            <tr class="border border-success border-5">
+                                <td class="bg-success text-light">Due date</td>
+                                <td class="bg-light text-dark">Saturday, 15 January 2022, 12:00 AM</td>
+                            </tr>
+
+                            <tr class="border border-success border-5">
+                                <td class="bg-success text-light">Time Remaning</td>
+                                <td class="bg-light text-dark">Assignment was submitted 16 days 9 hours late</td>
+                            </tr>
+
+                            <tr class="border border-success border-5">
+                                <td class="bg-success text-light">last Modified</td>
+                                <td class="bg-light text-dark">Monday, 31 January 2022, 9:30 AM</td>
+                            </tr>
+
+                            <tr class="border border-success border-5">
+                                <td class="bg-success text-light">File Name</td>
+                                <td class="bg-light text-dark">file name</td>
+                            </tr>
+
+                            <tr class="border border-success border-5">
+                                <td class="bg-success text-light">Upload</td>
+                                <td class="bg-light text-dark">
+                                    <form action="activitySubmission.php" enctype="multipart/form-data"  >
+
+                                        <div class="frame">
+                                            <div class="center">
+
+
+                                                <div class=" border border-success border-2">
+
+                                                    <span>
+                                                        <input type="file" class="upload-input" >
+                                                    <i class="fas fa-solid fa-upload"></i>
+                                                    </span>
+
+
+                                                </div>
+
+                                                <button  class="btn btn-success  rounded-pill mt-2" name="uploadbutton">Upload file</button>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+
+
+
+                        </tbody>
+                    </table>
                 </div>
-            </div>
 
-            <div class="card-footer">
 
-            </div>
+
+
         </div>
     </div>
-</div>
+
+
 
 
 </body>

@@ -114,7 +114,7 @@ class Functions
     {
 
         $status=false;
-        $query= "select student_id  from student where student.email='{$email}' AND student.password='{$pw}'";
+        $query= "select student_id,student_name  from student where student.email='{$email}' AND student.password='{$pw}'";
 
         $result = mysqli_query($connection, $query);
         $resultSet = $connection->query( $query );
@@ -123,6 +123,7 @@ class Functions
             $status=true;
             $row = mysqli_fetch_assoc($result);
             $_SESSION['stdId']=$row['student_id'];
+            $_SESSION['stdname']=$row['student_name'];
         }
         echo $status;
         return $status;

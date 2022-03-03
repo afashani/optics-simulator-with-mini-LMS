@@ -5,7 +5,7 @@ require_once '../Includes/Admin-header.php';
 
 require_once '../Includes/ConfigDB.php';
 require_once '../Includes/Functions.php';
-require_once '../Includes/studentfunc.php';
+require_once '../Includes/resoursesfunc.php';
 
 
 //connection object
@@ -16,12 +16,11 @@ $conn=$newConnection ->createConnection();
 $func=new Functions();
 
 
-$std_id=0;
-$name="";
-$address="";
-$tele="";
-$class="";
-$email="";
+$dueDate="";
+$time_remaining="";
+$lastMod="";
+$fileName="Only pdf/ doc allowed here ";
+
 if(isset($_GET['std_id'])){
     $std_id=$_GET['std_id'];
     $studentDetails= getSingleStudentDetail($conn,$std_id);
@@ -34,7 +33,8 @@ if(isset($_GET['std_id'])){
     $email=$studentDetails[4];
 }
 
-
+//last activities
+$lastActivities=getlastActivities($conn)
 ?>
 
 <html>
@@ -59,92 +59,116 @@ if(isset($_GET['std_id'])){
 <body>
 <!-- Order body-->
 <div class="row">
-    <div class="col-lg-12 ">
+    <div class="col-lg-12 mt-4">
+        <div class="card-deck">
+            <div class="card my-2 border-primary bg-light d-flex justify-content-center">
 
-        <div class=" d-flex card my-2 w-100 justify-content-center align-items-center bg-primary">
+                <div class="card-header bg-primary text-light d-flex ">
 
-            <div class="card-header  text-light">
+                    <h3 class="text-light justify-content-start">Add Activity</h3>
 
 
-                <div class="col-lg-12">
-                    <h2>Student Details
-
-                    </h2>
                 </div>
-            </div>
 
 
-            <div class="card-body">
+                <div class="card-body bg-light border border-light border-2">
+
+                    <form enctype="multipart/form-data" action="activityProcess.php" method="post">
+                    <table class="table  text-capitalize ">
+                        <tbody class="font-weight-bold">
+
+                        <tr class="border border-success border-5">
+                            <td class="bg-primary text-light">Previous Activities</td>
+                            <td class="bg-light text-dark">
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        View Prevoius Activities
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <?php
+                                            foreach ($lastActivities as $a){
+                                                echo " <a class='dropdown-item' >$a</a>";
+                                            }
+                                        ?>
 
 
+                                    </div>
+                                </div>
 
-                <div class="table-responsive bg-light" id="showAllUsers">
-                    <table class="table table-bordered text-dark text-center  bg-light" id="dataTable">
-
-                        <tr>
-                            <td class="col-4">Student Id</td>
-                            <td class="col-5 text-center">
-                                <input type="text" name="id" value="<?php if(isset($std_id)){echo $std_id;} ?>" readonly/>
                             </td>
-
                         </tr>
 
-                        <tr>
-                            <td class="col-4">Name</td>
-                            <td class="col-5 text-center">
-                                <input type="text" name="name" value="<?php if(isset($name)){echo $name;} ?>"  readonly/>
-                            </td>
 
-                        </tr>
 
-                        <tr>
-                            <td class="col-4">Address</td>
-                            <td class="col-5 text-center">
-                                <input type="text" name="address" value="<?php if(isset($address)){echo $address;} ?>"  readonly/>
-                            </td>
+                            <tr class="border border-success border-5">
+                                <td class="bg-primary text-light">Due date</td>
+                                <td class="bg-light text-dark">
+                                    <input type="datetime-local" class="" name="deadline" />
 
-                        </tr>
+                                </td>
+                            </tr>
 
-                        <tr>
-                            <td class="col-4"> Contact Number</td>
-                            <td class="col-5 text-center">
-                                <input type="text" name="number" value="<?php if(isset($tele)){echo $tele;} ?>"  readonly/>
-                            </td>
 
-                        </tr>
 
-                        <tr>
-                            <td class="col-4"> Class</td>
-                            <td class="col-5 text-center">
-                                <input type="text" name="class" value="<?php if(isset($class)){echo $class;} ?>"  readonly/>
-                            </td>
 
-                        </tr>
+                            <tr class="border border-success border-5">
+                                <td class="bg-primary text-light">File Name </td>
+                                <td class="bg-light text-dark">
+                                    <input type="text" class="" name="fileName" />
+                                </td>
+                            </tr>
 
-                        <tr>
-                            <td class="col-4"> Email</td>
-                            <td class="col-5 text-center">
-                                <input type="email" name="email" value="<?php if(isset($email)){echo $email;} ?>"  readonly/>
-                            </td>
+                            <tr class="border border-success border-5">
+                                <td class="bg-primary text-light">Upload</td>
+                                <td class="bg-light text-dark">
 
-                        </tr>
+
+                                        <div class="frame">
+                                            <?php echo $fileName; ?>
+                                            <div class="center">
+
+
+                                                <div class=" border border-success border-2">
+
+                                                            <span>
+                                                                <input type="file" class="upload-input" name="activityFile" >
+                                                            <i class="fas fa-solid fa-upload"></i>
+                                                            </span>
+
+
+                                                </div>
+
+                                                <a  class="btn btn-primary  rounded-pill mt-2" href="addActivity.php?type=acadd">Upload file</a>
+
+
+                                            </div>
+                                        </div>
+
+                                </td>
+                            </tr>
+
+
+
+
+                        </tbody>
 
                     </table>
 
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+
+
+
+                    <button  class=" btn btn-primary rounded-2 m-2 border border-dark  " type="submit" name="addActivity">Add Activity</button>
+
+                    <a class=" btn btn-secondary border border-dark text-light  rounded-2  font-weight-bolder m-2"  href="Activities.php">
+                        Back
+                    </a>
 
                 </div>
+                </form>
             </div>
 
-            <div class="card-footer">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"  >
-                        <a class="page-link" href="Activities.php">
-                            Back
-                        </a>
-                    </li>
-                </ul>
-
-            </div>
         </div>
     </div>
 </div>
