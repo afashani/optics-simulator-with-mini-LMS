@@ -4,8 +4,8 @@
 
 require_once 'assets/Includes/ConfigDB.php';
 require_once 'assets/Includes/Functions.php';
+session_start();
 
-//session_start();
 //connection object
 $newConnection=new ConfigDB();
 //create connection
@@ -19,7 +19,7 @@ $func=new Functions();
 //    exit();
 //}
 
-
+//print_r($_SESSION);
 //form sumbsiion login
 if(isset($_POST['adminLogin'])) {
 
