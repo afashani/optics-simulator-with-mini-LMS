@@ -54,7 +54,7 @@ $tableData= viewActivities($conn);
 
                     <div class="col-lg-4">
                         <h4 class="mt-2">
-                        <a class="btn-dark p-2  text-center text-light font-weight-bolder border border-secondary border-2"
+                        <a class="btn btn-secondary p-2  text-center text-light font-weight-bolder border border-secondary border-2"
                             href="addActivity.php"
                         >Add Activity
 
@@ -65,7 +65,7 @@ $tableData= viewActivities($conn);
             </div>
 
 
-            <div class="card-body">
+            <div class="card-body bg-light">
                 <div class="search-container mb-2">
                     <form action="G12.php"  method="get">
                         <div class="input-group rounded">

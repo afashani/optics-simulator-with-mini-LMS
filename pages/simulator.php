@@ -17,7 +17,7 @@
 
     <script src="../include/p5.js" type="text/javascript"></script>
     <script src="../include/simulator.js" type="text/javascript"></script>
-    <?php include '../include/header2.html' ?> 
+    <?php include '../include/header2.php' ?>
     
     <main>
     </main>   
