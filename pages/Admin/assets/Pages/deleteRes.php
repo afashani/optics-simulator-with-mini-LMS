@@ -15,10 +15,13 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
     if($_GET['res_type']=="acdelete"){
         $activitdId=$_GET['res_id'];
         deleteRes($conn, "AC", $activitdId);
+        header("location:Activities.php");
     }elseif ($_GET['res_type']=="tutedelete"){
         $tuteId=$_GET['res_id'];
         deleteRes($conn, "TUTE", $tuteId);
+        header("location:Tutorial.php");
     }
+
 
 }
 

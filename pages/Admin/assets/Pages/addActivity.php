@@ -131,14 +131,12 @@ $lastActivities=getlastActivities($conn)
                                                 <div class=" border border-success border-2">
 
                                                             <span>
-                                                                <input type="file" class="upload-input" name="activityFile" >
+                                                                <input type="file" class="upload-input" name="updateActivityFile" >
                                                             <i class="fas fa-solid fa-upload"></i>
                                                             </span>
 
 
                                                 </div>
-
-                                                <a  class="btn btn-primary  rounded-pill mt-2" href="addActivity.php?type=acadd">Upload file</a>
 
 
                                             </div>

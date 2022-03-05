@@ -17,6 +17,8 @@ $func=new Functions();
 //    exit();
 //}
 
+//$_SESSION['from_simulator']
+//have to set alert
 
 //form sumbsiion login
 if(isset($_POST['studentlogin'])) {

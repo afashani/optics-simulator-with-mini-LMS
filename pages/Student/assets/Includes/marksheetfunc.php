@@ -25,7 +25,7 @@ function viewMarksheets($connection): String
                                         <a
                                                 type='submit'
                                                 class='btn btn-primary mb-2  text-light align-content-left'
-                                                href='../Includes/process.php?tutorialId={$markshet_id}'
+                                                href='../Includes/tuteProcess.php?tutorialId={$markshet_id}'
                                           
                                                 >
                                            View

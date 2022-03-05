@@ -1,7 +1,10 @@
 <?php
 
-session_start();
-//print_r($_SESSION);
+if(!isset($_SESSION)){
+    session_start();
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -121,14 +124,8 @@ session_start();
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="#">How to Use</a>
 
-                            <?php
-                            $isDisplay="";
-                            if(!isset( $_SESSION['stdname'])){
-                                $isDisplay="d-none";
-                            }
 
-                            ?>
-                            <a class="dropdown-item <?php echo $isDisplay;?>" href="../pages/simulator.php">Simulator</a>
+                            <a class="dropdown-item" href="../pages/simulator.php">Simulator</a>
 
                         </div>
                     </li>
@@ -142,7 +139,7 @@ session_start();
                     <?php
 
                     if(isset( $_SESSION['stdname'])){
-                        $name="Hi!".ucfirst($_SESSION['stdname']);
+                        $name="Hi! ".ucfirst($_SESSION['stdname']);
                     }else{
                         $name="Student Login";
                     }
