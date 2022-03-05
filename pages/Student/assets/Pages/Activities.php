@@ -38,9 +38,9 @@ $tableData=viewActivity($conn);
 <div class="row">
     <div class="col-lg-12">
 
-        <div class="card my-2 border-success bg-success">
+        <div class="card my-2 border-success bg-light">
 
-            <div class="card-header  text-light">
+            <div class="card-header  text-dark">
 
 
                 <div class="col-lg-12">
@@ -65,7 +65,7 @@ $tableData=viewActivity($conn);
                 </div>
 
 
-                <div class="table-responsive bg-success" id="showAllUsers">
+                <div class="table-responsive " id="showAllUsers">
 
 
                     <?php

@@ -1,19 +1,14 @@
-body{
-    //background-color:red;
+.headbody{
     font-size: small;
 
-}
+
 header{
     margin-bottom: 10px;
     li{
         font-size: medium;
     }
     //background-color: #0318189a!important;
-    img{
-        width: 200px;
-        height: 50px;
-    }
-    .navbar{
+     .navbar{
         background-color: #0318189a;
     }
     .navbar-brand{
@@ -23,15 +18,15 @@ header{
             color: rgb(190, 190, 190);
         }
     }
-    .col-md-6{
-        a{
-            padding-left: 20px;
-            color: white;
-            &:hover{
-                color: rgb(190, 190, 190);
-            }
-        }
-    }
+    // .col-md-6{
+    //     a{
+    //         padding-left: 20px;
+    //         color: white;
+    //         &:hover{
+    //             color: rgb(190, 190, 190);
+    //         }
+    //     }
+    // }
     .dropdown{
         a{
             color: white !important;
@@ -55,7 +50,7 @@ header{
         }
     }
 
-}
+
 
 .dropdown-submenu {
     position: relative;
@@ -76,4 +71,6 @@ header{
     left: 100%;
     margin-left: .1rem;
     margin-right: .1rem;
+}
+}
 }

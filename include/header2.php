@@ -1,7 +1,10 @@
 <?php
 
-session_start();
-//print_r($_SESSION);
+if(!isset($_SESSION)){
+    session_start();
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,16 +28,28 @@ session_start();
 
 
     <style>
-
+        .logorow{
+            padding: 5px 0;
+        }
+        .img-logo{
+            margin-left: 40px;
+            width: 100%;
+            height: 60px;
+            object-fit: contain;
+            object-position: left;
+        }
     </style>
 
 </head>
-<body>
+<body class="headbody">
 <header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 d-flex justify-content-start">
-                 <a href=""><img src="../assets/images/logo2.png" alt=""></a>
+    <div class="">
+        <div class="row logorow">
+            <div class="col-md-12">
+                <div class="logoimg">
+                 <img class="img-logo" src="../assets/images/light-beam-logo.png" width="100%" height="75px" alt="">
+                </div>
+                 <a href=""></a>
             </div>
 <!--            <div class="col-md-6 d-flex justify-content-end">-->
 <!---->
@@ -109,14 +124,8 @@ session_start();
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="#">How to Use</a>
 
-                            <?php
-                            $isDisplay="";
-                            if(!isset( $_SESSION['stdname'])){
-                                $isDisplay="d-none";
-                            }
 
-                            ?>
-                            <a class="dropdown-item <?php echo $isDisplay;?>" href="../pages/simulator.php">Simulator</a>
+                            <a class="dropdown-item" href="../pages/simulator.php">Simulator</a>
 
                         </div>
                     </li>
@@ -126,24 +135,25 @@ session_start();
 <!--                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
 <!--                </form>-->
 <!--                <div class="col-md-2 ">-->
-                    <h3 class="text-center text-center text-light d-flex justify-content-center border border-light border-2">
+                    <h3 class="text-center text-center text-light d-flex justify-content-center">
                     <?php
 
                     if(isset( $_SESSION['stdname'])){
-                        $name="Hi!".ucfirst($_SESSION['stdname']);
+                        $name="Hi! ".ucfirst($_SESSION['stdname']);
                     }else{
                         $name="Student Login";
                     }
-                    echo "<a href='../pages/Student/assets/Pages/dashboard.php'>{$name}</a>";
+                    echo "<a  class='btn btn-primary' href='../pages/Student/assets/Pages/dashboard.php'>{$name}</a>";
                     ?>
                     </h3>
 
 
 <!--              -->
+                </div>
         </nav>
 
     </div>
-</header
+</header>
 
 </body>
 <script>
