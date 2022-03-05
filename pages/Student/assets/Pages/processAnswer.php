@@ -63,10 +63,10 @@ if(isset($_POST['addAnswer'])){
 
     }
 
-    $allowed = array('pdf', 'doc', 'docx');
+    $allowed = array('pdf');
     $ext = pathinfo($fileName, PATHINFO_EXTENSION);
     if (!in_array($ext, $allowed)) {
-        $errors[]= "Invalid type.You must have to upload doc/pdf file";
+        $errors[]= "Invalid type.You must have to upload pdf file";
     }
 
 
@@ -206,4 +206,6 @@ if(isset($_POST['updateAnswer'])){
 
 
 }
+
+
 

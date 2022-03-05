@@ -142,7 +142,7 @@ if(isset($_GET['activityId'])){
                                 <td class="bg-success text-light">Upload</td>
                                 <td class="bg-light text-dark">
                                     <form action="processAnswer.php" enctype="multipart/form-data" method="post"  class="was-validated">
-                                        <span class="m-2 text-danger">You must have to upload doc/pdf file</span>
+                                        <span class="m-2 text-danger">You must have to upload pdf file</span>
                                         <div class="frame">
                                             <div class="center">
 

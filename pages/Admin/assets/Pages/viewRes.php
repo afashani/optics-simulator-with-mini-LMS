@@ -104,7 +104,12 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
                     <tr class="border border-success border-5">
                         <td class="bg-primary text-light">Due date</td>
                         <td class="bg-light text-dark">
-                            <?php echo $dueDate; ?>
+                            <form method="post" action="activityProcess.php" >
+                                <input type="datetime-local" name="date" value="<?php echo $dueDate; ?>">
+                                <input type="hidden" name="activityID" value="<?php echo $activityId; ?>">
+                                <button type="submit" class="btn btn-primary ml-2" name="updateDueDate">Change Deadline</button>
+                            </form>
+
                         </td>
                     </tr>
 
