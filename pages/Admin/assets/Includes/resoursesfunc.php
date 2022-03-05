@@ -576,3 +576,68 @@ function addMarksheet($connection,$activity_id,$marksheetFName):bool
 
     return  $data;
 }
+
+//get marksheet path and activity id
+function deleteMarksheet($connection,$marksheet_id):bool{
+
+    $data = [];
+    //update marksheetId to null in activity
+    $query1 = "UPDATE `activity` SET marksheet_id=NULL WHERE marksheet_id={$marksheet_id}";
+    mysqli_query($connection, $query1);
+    //get marksheet file path
+    $query2 = "SELECT file_name FROM `marksheet` WHERE `marksheet_id`={$marksheet_id} ";
+    $result = mysqli_query($connection, $query2);
+    $marksheetFpath="../../../../resources/marksheets/";
+
+
+    if (mysqli_num_rows($result) > 0) {
+
+        while ($row = mysqli_fetch_assoc($result)) {
+
+
+            $marksheetFpath .=$row['file_name'];
+
+        }
+
+    }
+
+    $marksheetFpath .=".pdf";
+    //unlink marksheet file
+
+    unlink($marksheetFpath);
+
+    //deleet marksheet table data
+    $query3 = "DELETE FROM `marksheet` WHERE marksheet_id={$marksheet_id} ";
+    mysqli_query($connection, $query3);
+
+    return true;
+}
+
+
+function isMarksheetAvaible($connection, $activityId):bool{
+
+    $data=false;
+    $query1 = "SELECT marksheet_id FROM `activity` WHERE `activity_id`={$activityId} ";
+    $result = mysqli_query($connection, $query1);
+
+
+
+    if (mysqli_num_rows($result) > 0) {
+
+        $data=true;
+    }
+    return $data;
+}
+
+//update due date
+function updateDueDate($connection,$activityId,$date):bool{
+
+    $d=strtotime($date);
+    $dateFor=date("Y-m-d h:i:sa", $d);
+
+    $query = "UPDATE `activity` SET deadline='{$dateFor}' WHERE activity_id={$activityId}";
+    mysqli_query($connection, $query);
+
+
+   return true;
+}

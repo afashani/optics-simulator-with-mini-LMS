@@ -13,7 +13,7 @@ $conn=$newConnection ->createConnection();
 $func=new Functions();
 
 
-//add product button pressed
+//add marksheet button pressed
 if(isset($_POST['addMarksheet'])){
 
     $errors=[];
@@ -92,5 +92,17 @@ if(isset($_POST['addMarksheet'])){
         print_r($errors);
     }
 
+
+}
+//delete marksheet
+if(isset($_GET['marksheet_id'])){
+
+    $marksheetId=$_GET['marksheet_id'];
+
+    $statusDelete=deleteMarksheet($conn,$marksheetId);
+
+    if($statusDelete){
+        header("location:Activities.php");
+    }
 
 }
