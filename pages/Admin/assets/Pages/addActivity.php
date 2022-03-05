@@ -131,7 +131,7 @@ $lastActivities=getlastActivities($conn)
                                                 <div class=" border border-success border-2">
 
                                                             <span>
-                                                                <input type="file" class="upload-input" name="updateActivityFile" >
+                                                                <input type="file" class="upload-input" name="activityFile" >
                                                             <i class="fas fa-solid fa-upload"></i>
                                                             </span>
 

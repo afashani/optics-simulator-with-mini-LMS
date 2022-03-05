@@ -19,6 +19,7 @@ function viewActivity($connection): String
             $deadline = $row['deadline'];
             $activity_id = $row['activity_id'];
             $marksheet_id=$row['marksheet_id'];
+            $isMarksheetAvailbale= empty($marksheet_id) ? "disabled":"";
 
             $data=$data."  <tr>
                                     <td>{$added_date}</td>
@@ -38,9 +39,9 @@ function viewActivity($connection): String
                                        <td>
                                         <a
                                                 type='submit'
-                                                class='btn btn-success mb-2  text-light '
-                                                href='../Includes/tuteProcess.php?marksheetId={$marksheet_id}'
-                                          
+                                                class='btn btn-success mb-2  text-light {$isMarksheetAvailbale}'
+                                                href='../Pages/processMarksheet.php?marksheet_id={$marksheet_id}'
+                                                target='_blank'
                                                 >
                                            Mark Sheet
                                            </a>
@@ -262,4 +263,27 @@ function updateActivity($connection):bool
     return $data;
 
 
+}
+function getMarksheetFilePath($connection, $marksheetId):string
+{
+    $path = "../../../../resources/marksheets/";
+
+    //get marksheet idform activity id
+    $query1 = "SELECT `file_name` FROM `marksheet` WHERE marksheet_id={$marksheetId} LIMIT 1";
+
+
+    $result1 = mysqli_query($connection, $query1);
+
+    if (mysqli_num_rows($result1) > 0) {
+
+
+        while ($row = mysqli_fetch_assoc($result1)) {
+
+            $path .= $row['file_name'].".pdf";
+
+        }
+
+    }
+
+    return $path;
 }

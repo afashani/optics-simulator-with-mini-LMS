@@ -22,6 +22,8 @@ $lastActivityName = "";
 $submissionStatus="Mark sheet Added";
 $tableData = viewAnswerScripts($conn, 0);
 $activity_id=0;
+$marksheet_id_id=0;
+$marksheetFileStatus=false;
 
 
 if (isset($_GET['res_type']) & isset($_GET['res_id'])) {
@@ -30,6 +32,7 @@ if (isset($_GET['res_type']) & isset($_GET['res_id'])) {
     if ($_GET['res_type'] == "ms") {
 
         $activity_id=$_GET['res_id'];
+        //check marksheet file availbale
         $marksheet_id_id=empty($_GET['mid']) ? 0 :$_GET['mid'];
         //
         if (empty($_GET['mid'])) {
@@ -99,7 +102,15 @@ if (isset($_GET['res_type']) & isset($_GET['res_id'])) {
 
                         <tr class='border border-0 '>
                             <td class='bg-primary text-light '>Submission Status</td>
-                            <td class='bg-light text-dark'><?php echo $submissionStatus; ?></td>
+                            <td class='bg-light text-dark'>
+                                <?php
+
+                                    if(!$markSstatus){
+                                        $submissionStatus="Please Add Mark sheet File (Pdf format)";
+                                    }
+                                     echo $submissionStatus;
+                                ?>
+                            </td>
                         </tr>
 
                         <tr class="border border-success border-5">
@@ -111,7 +122,7 @@ if (isset($_GET['res_type']) & isset($_GET['res_id'])) {
 
                         if(!$markSstatus){
                             $contentOfPage="           
-                             <tr class='border border-success border-5'>
+                             <tr class='border border-secondary border-5'>
                                 <td class='bg-primary text-light'>Upload</td>
                                 <td class='bg-light text-dark'>
                                                 <form action='marksheetProcess.php' enctype='multipart/form-data' method='post' >
@@ -140,7 +151,7 @@ if (isset($_GET['res_type']) & isset($_GET['res_id'])) {
                                             </td>
                                          </tr>";
                         }else{
-                            $contentOfPage="  <tr class='border border-success border-5'>
+                            $contentOfPage="  <tr class='border border-secondary border-5'>
                                                 <td class='bg-primary text-light'>Marksheet File</td>
                                                 <td class='bg-light text-dark'> <a href='{$pathMarksheet}' target='_blank' >Marksheet of $lastActivityName</a></td>
                                                </tr>";
@@ -148,6 +159,17 @@ if (isset($_GET['res_type']) & isset($_GET['res_id'])) {
                         echo $contentOfPage;
 
 
+                        ?>
+
+
+                        <?php
+
+                        if( $markSstatus){
+                            echo "<tr class='border border-secondary border-5'>
+                                        <td class='bg-primary text-light'>Delete Marksheet File</td>
+                                        <td class='bg-light text-dark' > <a  href='marksheetProcess.php?marksheet_id={$marksheet_id_id}' class='btn btn-danger'> Delete</a></td>
+                                </tr>";
+                        }
                         ?>
 
 

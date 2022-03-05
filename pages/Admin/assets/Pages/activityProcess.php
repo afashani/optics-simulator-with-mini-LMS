@@ -45,17 +45,20 @@ if(isset($_POST['addActivity'])){
     //   echo " newFileName".$newFileName;
 
     //get upload directory
-    $uploadDir="../../../../resources/activities/".$newFileName.".pdf";
+    $uploadDir="../../../../resources/activities/".$newFileName.$fileType;
+
+    echo $uploadDir;
+
+    if(isset($uploadDir)) {
+        $twoPart = explode("/", $uploadDir);
+        $newData = "." . $twoPart[1];
 
 
-    $fileUploadStatus=move_uploaded_file($fileTPName, $uploadDir);
+        $uploadDir = $newData;
 
+    }
 
-    if(!$fileUploadStatus){
-        $errors[]="ActivityNot Upload.. Please try again later";
-
-
-    }elseif($fileSize >= 5000000){
+  if($fileSize >= 5000000){
         //5mb
         $errors[]="File must be less than 5MB . Please try again ";
 
@@ -95,34 +98,6 @@ if(isset($_POST['addActivity'])){
     }
 
 
-    //insert data to admin table
-
-//    //check length and data type
-//    if($func -> inputLengthChecker(3,75,$productName)){
-//        $errors[]= "Product Length invalid";
-//    }
-//    if($func -> inputLengthChecker(3,1500,$productDes)){
-//        $errors[]= "Product Description Length invalid";
-//    }
-//    if($func -> inputLengthChecker(1,11,$productQty)){
-//        $errors[]= "Product QTYLength invalid";
-//    }
-//
-//
-//    //check data type  (if can true)
-//    if(!($func -> numberChecker($productQty))){
-//        $errors[]= "Product QTY Must be a number";
-//    }
-//    if(!($func -> numberChecker($productPrice))){
-//        $errors[]= "Product Price Must be a number";
-//    }
-//    if(($func -> numberChecker($productName))){
-//        $errors[]= "Product Name must be a Word";
-//    }
-//    if(($func -> numberChecker($productDes))){
-//        $errors[]= "Product Description must be the Words";
-//    }
-
 
 //check data already have or not
     $checkDataExtist=isActivityAvailbale($conn,$actvityTitle);
@@ -136,7 +111,7 @@ if(isset($_POST['addActivity'])){
     if(empty($errors)){
 
 
-
+        $fileUploadStatus=move_uploaded_file($fileTPName, $uploadDir);
         echo "I am in empty errors";
         $statusActivity=addActivity($conn, $newActivityId,$actvityTitle,$activityPathToDB,$deadline);
 
@@ -199,11 +174,7 @@ if(isset($_POST['updateActivity'])){
     $nNewFileName=explode(".",$newFileName);
     $newFileName=$nNewFileName[0];
 
-    $realFileType=explode("/",$fileType);
-    $fileType=$realFileType[1];
-    echo $fileType;
-    //get upload directory
-    $uploadDir="../../../../resources/activities/".$newFileName.".".$fileType;
+
 
 
     $allowed = array('pdf', 'doc', 'docx');
@@ -212,14 +183,6 @@ if(isset($_POST['updateActivity'])){
         $errors[]= "Invalid type.You must have to upload doc/pdf file";
     }
 
-
-
-
-//    if(!$fileUploadStatus){
-//        $errors[]="ActivityNot Upload.. Please try again later";
-//
-//
-//    }else
         if($fileSize >= 5000000){
         //5mb
         $errors[]="File must be less than 5MB . Please try again ";
@@ -228,39 +191,14 @@ if(isset($_POST['updateActivity'])){
 
 
 
-
-
-
-//    //check length and data type
-//    if($func -> inputLengthChecker(3,75,$productName)){
-//        $errors[]= "Product Length invalid";
-//    }
-//    if($func -> inputLengthChecker(3,1500,$productDes)){
-//        $errors[]= "Product Description Length invalid";
-//    }
-//    if($func -> inputLengthChecker(1,11,$productQty)){
-//        $errors[]= "Product QTYLength invalid";
-//    }
-//
-//
-//    //check data type  (if can true)
-//    if(!($func -> numberChecker($productQty))){
-//        $errors[]= "Product QTY Must be a number";
-//    }
-//    if(!($func -> numberChecker($productPrice))){
-//        $errors[]= "Product Price Must be a number";
-//    }
-//    if(($func -> numberChecker($productName))){
-//        $errors[]= "Product Name must be a Word";
-//    }
-//    if(($func -> numberChecker($productDes))){
-//        $errors[]= "Product Description must be the Words";
-//    }
-
-
-
     if(empty($errors)){
 
+        $realFileType=explode("/",$fileType);
+        $fileType=$realFileType[1];
+        echo $fileType;
+
+        //get upload directory
+        $uploadDir="../../../../resources/activities/".$newFileName.".".$fileType;
         $fileUploadStatus=move_uploaded_file($fileTPName, $uploadDir);
         $statusActivity=updateActivity($conn, $activityId);
 
@@ -295,3 +233,22 @@ if(isset($_POST['updateActivity'])){
 
 }
 
+if(isset($_POST['updateDueDate'])){
+    $activityId=$_POST['activityID'];
+    $date=$_POST['date'];
+
+    if(isset($date)){
+        $twoPart=explode("T",$date);
+        $newData=$twoPart[0]." ". $twoPart[1].":00";
+        $date=$newData;
+
+    }
+
+    //update due date
+    $updateStatus=updateDueDate($conn,$activityId,$date);
+
+    if($updateStatus){
+        header("location:Activities.php");
+    }
+
+}

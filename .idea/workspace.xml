@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a55498de-b2f8-4c70-b89e-6b8dad731ea7" name="Default Changelist" comment="" />
+    <list default="true" id="a55498de-b2f8-4c70-b89e-6b8dad731ea7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/processMarksheet.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/activities/adActivity-04.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Includes/resoursesfunc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Includes/resoursesfunc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/activityProcess.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/activityProcess.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/addActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/addActivity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/marksheetProcess.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/marksheetProcess.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/viewMarksheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/viewMarksheet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/viewRes.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/viewRes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Includes/activityfunc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Includes/activityfunc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/activitySubmission.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/activitySubmission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/processAnswer.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/processAnswer.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,11 +41,15 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="25pHqDJlRJyZ6IRAQtc7ZAwmGFm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -47,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1646217296821</updated>
-      <workItem from="1646420959245" duration="20877000" />
+      <workItem from="1646420959245" duration="29270000" />
     </task>
     <servers />
   </component>
@@ -64,5 +81,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
