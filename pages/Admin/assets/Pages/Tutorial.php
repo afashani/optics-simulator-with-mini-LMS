@@ -56,9 +56,9 @@ $tableData= viewTutorials($conn);
 
                     <div class="col-lg-4">
                         <h4 class="mt-2">
-                            <a class="btn-dark p-2  text-center text-light font-weight-bolder border border-secondary border-2"
+                            <a class="btn btn-secondary p-2  text-center text-light font-weight-bolder border border-secondary border-2"
                                href="addTute.php"
-                            >Add Tutorial
+                            >Add Tutorials
 
                             </a>
                         </h4>

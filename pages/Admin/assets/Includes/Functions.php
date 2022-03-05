@@ -133,7 +133,7 @@ class Functions
     {
 
         $data=0;
-        $query= "select COUNT(activity_id) AS CUNT from `activities` ";
+        $query= "select COUNT(activity_id) AS CUNT from `activity` ";
 
         $result = mysqli_query($connection, $query);
 

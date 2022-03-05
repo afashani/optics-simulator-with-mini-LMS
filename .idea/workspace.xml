@@ -2,7 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a55498de-b2f8-4c70-b89e-6b8dad731ea7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/marksheetProcess.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/viewMarksheet.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/processAnswer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/header2.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/header2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Includes/Functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Includes/Functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Includes/resoursesfunc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Includes/resoursesfunc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/Tutorial.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/Tutorial.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/activityProcess.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/activityProcess.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/addActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/addActivity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/addTute.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/addTute.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/deleteRes.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/deleteRes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/process.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/tuteProcess.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/viewRes.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/viewRes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Includes/Functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Includes/Functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Includes/activityfunc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Includes/activityfunc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Includes/marksheetfunc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Includes/marksheetfunc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Includes/tutorialfunc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Includes/tutorialfunc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/Activities.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/Activities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/Tutorial.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/Tutorial.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/activitySubmission.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/activitySubmission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/simulator.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/simulator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/activities/adActivity-04.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +35,19 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="C:/xampp/php" />
+    </include_path>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -26,7 +60,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -36,7 +72,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1646217296821</updated>
+      <workItem from="1646420959245" duration="19801000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

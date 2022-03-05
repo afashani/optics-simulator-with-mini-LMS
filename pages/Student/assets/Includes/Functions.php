@@ -221,3 +221,32 @@ class Functions
 
 
 }
+function  differnceOfDays($current, $deadline):string{
+
+    $dateDifference = abs(strtotime($current) - strtotime($deadline));
+    $years  = floor($dateDifference / (365 * 60 * 60 * 24));
+    $months = floor(($dateDifference - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
+    $days   = floor(($dateDifference - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 *24) / (60 * 60 * 24));
+    $hours   = floor(($dateDifference - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 *24-$days * 60 * 60 * 24) / (60*60));
+    $minites   = floor(($dateDifference - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 *24-$days * 60 * 60 * 24-$hours * 60*60 ) / (60));
+    $seconds=floor(($dateDifference - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 *24-$days * 60 * 60 * 24-$hours * 60*60- $minites * 60  )) ;
+
+    $time_remaning= $years." years,  ";
+    if($months <12){
+        if($months==0){
+            $time_remaning=$days." days";
+        }else{
+            $time_remaning=$months." months and ".$days." days";
+        }
+
+    }elseif ($months >12){
+        $time_remaning= $days." days";
+    }
+    elseif ($days <1){
+        $time_remaning= $hours." hours".$minites." minites".$seconds." seconds";
+    }elseif ($minites <1){
+        $time_remaning= $seconds." seconds";
+    }
+
+    return $time_remaning;
+}
