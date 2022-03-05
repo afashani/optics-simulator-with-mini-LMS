@@ -122,8 +122,8 @@ if(isset($_POST['addActivity'])){
 
         sleep(3);
         //sesssion
-//        $_SESSION['status_product']="Product Added successfully'";
-//        $_SESSION['status_product_code']='success';
+        $_SESSION['status_activity']="Activity Added successfully'";
+        $_SESSION['status_activity_code']='success';
 
 //        unset( $_SESSION['status_product']);
 //        unset($_SESSION['status_product_code']);
@@ -133,18 +133,15 @@ if(isset($_POST['addActivity'])){
 
     }else {
 
-//        $_SESSION['status_product-err']=$errors;
-//        $_SESSION['status_product_err_code']='error';
+        $_SESSION['status_activity_err']=$errors;
+        $_SESSION['status_activity_code_err']='error';
 
-//        unset( $_SESSION['status_product-err']);
-//        unset($_SESSION['status_product_err_code']);
-        //  print_r($errors);
-//        $errors=null;
-        print_r($errors);
-        header("location:adtivityA.php");
+        $_SESSION['status_product-err']=$errors;
+       $_SESSION['status_product_err_code']='error';
+
+        header("location:Activities.php");
 
 
-        print_r($errors);
     }
 
 

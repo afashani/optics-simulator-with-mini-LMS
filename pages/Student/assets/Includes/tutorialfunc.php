@@ -24,7 +24,7 @@ function viewTutorials($connection): String
                                     <td>
                                         <a
                                                 
-                                                class='btn btn-success mb-2  text-light align-content-left'
+                                                class='btn btn-info mb-2  text-light align-content-left'
                                                 href='$tutorial_url'
                                                 target='_blank'
                                           

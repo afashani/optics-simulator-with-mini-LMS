@@ -2,18 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a55498de-b2f8-4c70-b89e-6b8dad731ea7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/processMarksheet.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/activities/adActivity-04.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Optical.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Optical.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Includes/resoursesfunc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Includes/resoursesfunc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Includes/Admin-header.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Includes/Admin-header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/AccountSetting.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/AccountSetting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/Activities.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/Activities.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/activityProcess.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/activityProcess.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/addActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/addActivity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/marksheetProcess.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/marksheetProcess.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/viewMarksheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/viewMarksheet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/viewRes.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/viewRes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/addTute.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/addTute.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/admin-dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/admin-dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/Student/assets/Includes/activityfunc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Includes/activityfunc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Includes/tutorialfunc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Includes/tutorialfunc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/AccountSetting.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/AccountSetting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/Activities.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/Activities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/Tutorial.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/Tutorial.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/activitySubmission.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/activitySubmission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/processAnswer.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/processAnswer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/dashboard.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1646217296821</updated>
-      <workItem from="1646420959245" duration="29270000" />
+      <workItem from="1646420959245" duration="32023000" />
     </task>
     <servers />
   </component>

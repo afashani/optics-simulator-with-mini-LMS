@@ -39,7 +39,7 @@ $tableData=viewTutorials($conn);
 <div class="row">
     <div class="col-lg-12">
 
-        <div class="card my-2 border-success bg-light">
+        <div class="card my-2 border-info bg-light">
 
             <div class="card-header bg-light text-dark">
 
