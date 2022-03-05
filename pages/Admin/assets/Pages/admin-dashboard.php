@@ -22,9 +22,15 @@ $countTutorials=0;
 
 $countG12= $func -> countOfStudent($conn,12);
 $countG13= $func -> countOfStudent($conn,13);
+$countG12*=20;
+$countG13*=30;
+
+
 
 $countActivity=$func -> countOfActivities($conn);
+$countActivity*=5;
 $countTutorials=$func -> countOfTutorials($conn);
+$countTutorials*=4;
 
 ?>
 <head>

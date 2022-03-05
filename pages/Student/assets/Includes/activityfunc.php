@@ -28,7 +28,7 @@ function viewActivity($connection): String
                                     <td>
                                         <a
                                                 type='submit'
-                                                class='btn btn-success mb-2  text-light '
+                                                class='btn btn-info mb-2  text-light '
                                                 href='../Pages/activitySubmission.php?activityId={$activity_id}'
                                           
                                                 >
@@ -39,7 +39,7 @@ function viewActivity($connection): String
                                        <td>
                                         <a
                                                 type='submit'
-                                                class='btn btn-success mb-2  text-light {$isMarksheetAvailbale}'
+                                                class='btn btn-info mb-2  text-light {$isMarksheetAvailbale}'
                                                 href='../Pages/processMarksheet.php?marksheet_id={$marksheet_id}'
                                                 target='_blank'
                                                 >

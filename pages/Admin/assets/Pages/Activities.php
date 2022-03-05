@@ -113,4 +113,30 @@ $tableData= viewActivities($conn);
 </body>
 </html>
 
+<?php
+//add activity Success Message
+if(isset($_SESSION['status_activity'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_activity_code']?>",
+            text: "<?php echo $_SESSION['status_activity']?>",
+            icon: "<?php echo $_SESSION['status_activity_code']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+
+    <?php
+}
+
+unset($_SESSION['status_activity']);
+unset($_SESSION['status_activity_code']);
+?>
+
+
 <!---->
