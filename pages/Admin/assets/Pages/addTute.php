@@ -58,7 +58,7 @@ if(isset($_GET['std_id'])){
 </head>
 <body>
 <!-- Order body-->
-<div class="row d-flex justify-content-center">
+<div class="row d-flex justify-content-center m-5">
     <div class="col-lg-8 ">
 
         <div class="card my-2 border-primary bg-light d-flex justify-content-center">

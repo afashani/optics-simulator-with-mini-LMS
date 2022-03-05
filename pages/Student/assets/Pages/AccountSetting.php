@@ -121,9 +121,9 @@ if(isset($_POST['accountsetting'])) {
 <div class="row mt-2">
     <div class="col-lg-12">
 
-        <div class="card my-2 mt-2  border-success bg-success">
+        <div class="card my-2 mt-2  border-info bg-light">
 
-            <div class="card-header  text-light">
+            <div class="card-header  text-dark">
 
 
                 <div class="col-lg-12">
@@ -134,7 +134,7 @@ if(isset($_POST['accountsetting'])) {
             </div>
 
 
-            <div class="card-body">
+            <div class="card-body bg-light">
                 <div class="text-center">
 
                     <?php
@@ -207,7 +207,7 @@ if(isset($_POST['accountsetting'])) {
                         >
                             Change
                         </button>
-                        <button class="btn bg-warning text-dark mb-2 ml-2" type="reset" id="resetUserName" name="resetUserName">Reset</button>
+                        <button class="btn bg-info text-light mb-2 ml-2" type="reset" id="resetUserName" name="resetUserName">Reset</button>
                     </div>
 
                     </form>

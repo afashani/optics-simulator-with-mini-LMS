@@ -102,7 +102,7 @@ if(isset($_POST['accountsetting'])) {
     <meta content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> Grade 12 | Admin </title>
+    <title> Account | Admin </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -132,7 +132,7 @@ if(isset($_POST['accountsetting'])) {
             </div>
 
 
-            <div class="card-body">
+            <div class="card-body bg-light">
                 <?php
                 if (isset($errors) && !empty($errors)) {
                     foreach ($errors as $error){
@@ -192,13 +192,13 @@ if(isset($_POST['accountsetting'])) {
                         <div class=" d-flex justify-content-center" >
 
                             <button
-                                class='btn btn-danger mb-2 text-light'
+                                class='btn btn-primary mb-2 text-light'
                                 type='submit'
                                 name="accountsetting"
                             >
                                 Change
                             </button>
-                            <button class="btn bg-primary mb-2 ml-2" type="reset" id="resetUserName" name="resetUserName">Reset</button>
+                            <button class="btn bg-secondary mb-2 ml-2" type="reset" id="resetUserName" name="resetUserName">Reset</button>
                         </div>
                     </form>
 
