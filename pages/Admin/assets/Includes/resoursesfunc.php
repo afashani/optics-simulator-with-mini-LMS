@@ -414,7 +414,7 @@ function updateActivity($connection,$id):bool
 
     return  $data;
 }
-function deleteRes($connection, $type, $id){
+function deleteRes($connection, $type, $id):bool{
 
     $q1="SELECT `activity_fpath` FROM `activity` WHERE activity_id={$id}";
     $result = mysqli_query($connection, $q1);
@@ -442,7 +442,7 @@ function deleteRes($connection, $type, $id){
 
     mysqli_query($connection, $query);
 
-
+    return true;
 }
 
 function getlastTuteId($connection):int

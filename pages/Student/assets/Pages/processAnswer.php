@@ -85,29 +85,23 @@ if(isset($_POST['addAnswer'])){
         $statusActivity=addAnswerScript($conn,$newFileName);
 
 
+        $_SESSION['status_answer_add']="Answer added successfully";
+        $_SESSION['status_answer_add_code']='success';
 
         sleep(3);
 
-//        $_SESSION['status_product']="Product Added successfully'";
-//        $_SESSION['status_product_code']='success';
-
-//        unset( $_SESSION['status_product']);
-//        unset($_SESSION['status_product_code']);
-        header("location:activitySubmission.php?activityId=$activityId");
+        header("location:Activities.php");
 
 
 
     }else {
 
-//        $_SESSION['status_product-err']=$errors;
-//        $_SESSION['status_product_err_code']='error';
+        $_SESSION['status_answer_add_err']=$errors[0];
+        $_SESSION['status_answer_add_code_err']='error';
 
-//        unset( $_SESSION['status_product-err']);
-//        unset($_SESSION['status_product_err_code']);
-        //  print_r($errors);
-//        $errors=null;
+        sleep(3);
 
-        header("location:Activity.php");
+        header("location:Activities.php");
 
 
     }
@@ -178,28 +172,24 @@ if(isset($_POST['updateAnswer'])){
         updateActivity($conn);
 
 
+        $_SESSION['status_answer_update']="Answer updated successfully";
+        $_SESSION['status_answer_update_code']='success';
+
         sleep(3);
 
-//        $_SESSION['status_product']="Product Added successfully'";
-//        $_SESSION['status_product_code']='success';
-
-//        unset( $_SESSION['status_product']);
-//        unset($_SESSION['status_product_code']);
-//        header("location:activitySubmission.php?activityId=$activityId");
+        header("location:Activities.php");
 
 
 
     }else {
 
-//        $_SESSION['status_product-err']=$errors;
-//        $_SESSION['status_product_err_code']='error';
+        $_SESSION['status_answer_update_err']=$errors[0];
+        $_SESSION['status_answer_update_code_err']='error';
 
-//        unset( $_SESSION['status_product-err']);
-//        unset($_SESSION['status_product_err_code']);
-        //  print_r($errors);
-//        $errors=null;
+        sleep(3);
 
-        header("location:Activity.php");
+        header("location:Activities.php");
+
 
 
     }

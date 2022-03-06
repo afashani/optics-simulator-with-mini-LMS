@@ -23,6 +23,15 @@ if(isset($_POST['addTute'])){
     $newTuteId=getlastTuteId($conn);
     $status=addTute($conn,$newTuteId,$name,$link);
 
+    if($status){
+        $_SESSION['status_tute_add']="Tutorial Added successfully";
+        $_SESSION['status_tute_add_code']='success';
+    }else{
+        $_SESSION['status_tute_add_err']="Tutorial Added Failed";
+        $_SESSION['status_tute_add_code_err']='error';
+    }
+
+
     header("location:Tutorial.php");
 
 }
