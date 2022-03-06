@@ -22,77 +22,6 @@ $adminPw="************";
 
 
 
-//change details
-if(isset($_POST['accountsetting'])) {
-
-    $errors = [];
-
-
-
-    //check set username and password
-
-    if (!isset($_POST['email']) & strlen(trim($_POST['email'])) < 1) {
-
-        $errors[] = "Email is Missing /Invalid";
-    }
-
-    if (!isset($_POST['pw']) & strlen(trim($_POST['pw'])) <=8) {
-
-        $errors[] = "Password is Missing /Invalid (Minimum should be 8 characters)";
-    }
-
-    if (!isset($_POST['Rpw']) & strlen(trim($_POST['Rpw'])) <1 ) {
-
-        $errors[] = "Retype-Password is Missing /Invalid";
-    }
-
-    if ( ($_POST['pw'] != $_POST['Rpw'])) {
-
-        $errors[] = "Password are missed match. Please check your Password ";
-    }
-    if (!($func -> emailValidator($_POST['email']))) {
-
-        $errors[] = "This is not valid email. Please check your email ";
-    }
-    if (empty($errors)) {
-
-        //sanitize inputs
-
-        $name = $func->inputSanitizer($_POST['name']);
-        $email = $func->inputSanitizer($_POST['email']);
-        $pw = $func->inputSanitizer($_POST['pw']);
-
-        //    print_r($_POST);
-
-        //   $hpassword = $func->encryptInput($password);
-
-        //change name
-
-        //change email
-        if($adminEmail != $email) {
-            if($func -> checkEmailExists($conn,$email)){
-                $errors[] = "Email exists.Please use another email address ";
-            }else{
-                $emailStatus = $func->changeAdminEmail($conn, $email);
-            }
-
-        }
-        //change pw
-        if($adminPw != $pw){
-            $pwStatus = $func->changeAdminPassword($conn, $pw);
-        }
-
-
-    }
-    $_POST['name'] = '';
-    $_POST['email'] = '';
-    $_POST['pw'] = '';
-    $_POST['Rpw'] = '';
-
-    //  print_r( $errors);
-
-}
-
 ?>
 
 <html>
@@ -144,7 +73,7 @@ if(isset($_POST['accountsetting'])) {
 
 
                 <div class="table-responsive" id="showAllUsers">
-                    <form action="AccountSetting.php" class="was-validated" method="post">
+                    <form action="accountProcess.php" class="was-validated" method="post">
 
                     <table class="table table-striped text-dark text-center" id="dataTable">
                     <tbody>
@@ -189,6 +118,12 @@ if(isset($_POST['accountsetting'])) {
 
                     </table>
 
+                        <div class="text-capitalize bg-light text-danger text-center" >
+                            <h4>Instructions</h4>
+                            <h6 class="bg-danger text-light">Password Must be greter than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter</h6>
+
+                        </div>
+
                         <div class=" d-flex justify-content-center" >
 
                             <button
@@ -222,4 +157,27 @@ if(isset($_POST['accountsetting'])) {
 </body>
 </html>
 
-<!---->
+<?php
+
+//account update error Message
+if(isset($_SESSION['status_acsetting_update_err'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_acsetting_update_code_err']?>",
+            text: "<?php echo $_SESSION['status_acsetting_update_err']?>",
+            icon: "<?php echo $_SESSION['status_acsetting_update_code_err']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+    <?php
+}
+
+unset($_SESSION['status_acsetting_update_code_err']);
+unset($_SESSION['status_acsetting_update_err']);
+?>

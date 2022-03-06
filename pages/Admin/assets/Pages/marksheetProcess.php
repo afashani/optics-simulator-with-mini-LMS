@@ -70,6 +70,16 @@ if(isset($_POST['addMarksheet'])){
         echo "I am in empty errors";
         $statusActivity= addMarksheet($conn,$activityId,$marksheetPathToDB);
 
+        if($statusActivity){
+            //sesssion
+            $_SESSION['status_marksheet_add']="Marksheet Added successfully";
+            $_SESSION['status_marksheet_add_code']='success';
+        }else{
+            //sesssion
+            $_SESSION['status_marksheet_add_err']="Marksheet Added Failed";
+            $_SESSION['status_marksheet_add_code_err']='error';
+        }
+
         sleep(3);
 
         header("location:Activities.php");
@@ -78,18 +88,14 @@ if(isset($_POST['addMarksheet'])){
 
     }else {
 
-//        $_SESSION['status_product-err']=$errors;
-//        $_SESSION['status_product_err_code']='error';
+        //sesssion
 
-//        unset( $_SESSION['status_product-err']);
-//        unset($_SESSION['status_product_err_code']);
-        //  print_r($errors);
-//        $errors=null;
-        print_r($errors);
-        header("location:adtivityA.php");
+        $errorM=$errors[0];
+        $_SESSION['status_marksheet_add_err']=$errorM;
+        $_SESSION['status_marksheet_add_code_err']='error';
 
+        header("location:Activities.php");
 
-        print_r($errors);
     }
 
 
@@ -102,6 +108,13 @@ if(isset($_GET['marksheet_id'])){
     $statusDelete=deleteMarksheet($conn,$marksheetId);
 
     if($statusDelete){
+        //sesssion
+        $_SESSION['status_marksheet_delete']="Marksheet Deleted successfully";
+        $_SESSION['status_marksheet_delete_code']='success';
+        header("location:Activities.php");
+    }else{
+        $_SESSION['status_marksheet_delete_err']="Marksheet Deleted Failed. Please Try Again later";
+        $_SESSION['status_marksheet_delete_code_err']='error';
         header("location:Activities.php");
     }
 

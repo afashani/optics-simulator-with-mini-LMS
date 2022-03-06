@@ -32,8 +32,7 @@ if(!isset($_SESSION['admin_id'])) {
 
     <script src="../../Inc/JS/header.js" type="application/javascript"></script>
     <script src="../../Inc/JS/search.js" type="application/javascript"></script>
-    <!--  Sweet alert js -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body>
