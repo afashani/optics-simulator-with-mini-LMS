@@ -133,11 +133,9 @@ if(isset($_POST['addActivity'])){
 
     }else {
 
-        $_SESSION['status_activity_err']=$errors;
+        $_SESSION['status_activity_err']=$errors[0];
         $_SESSION['status_activity_code_err']='error';
 
-        $_SESSION['status_product-err']=$errors;
-       $_SESSION['status_product_err_code']='error';
 
         header("location:Activities.php");
 
@@ -199,32 +197,23 @@ if(isset($_POST['updateActivity'])){
         $fileUploadStatus=move_uploaded_file($fileTPName, $uploadDir);
         $statusActivity=updateActivity($conn, $activityId);
 
+        //sesssion
+        $_SESSION['status_activity_update']="Activity Updated successfully";
+        $_SESSION['status_activity_update_code']='success';
 
         sleep(3);
-        //sesssion
-//        $_SESSION['status_product']="Product Added successfully'";
-//        $_SESSION['status_product_code']='success';
-
-//        unset( $_SESSION['status_product']);
-//        unset($_SESSION['status_product_code']);
         header("location:Activities.php");
 
 
 
     }else {
 
-//        $_SESSION['status_product-err']=$errors;
-//        $_SESSION['status_product_err_code']='error';
 
-//        unset( $_SESSION['status_product-err']);
-//        unset($_SESSION['status_product_err_code']);
-        //  print_r($errors);
-//        $errors=null;
-        print_r($errors);
-       // header("location:adtivityA.php");
+        //sesssion
+        $_SESSION['status_activity_update_err']=$errors[0]."<br>"."Activity Updated successfully";
+        $_SESSION['status_activity_update_code_err']='error';
+        header("location:Activities.php");
 
-
-        print_r($errors);
     }
 
 
@@ -245,7 +234,16 @@ if(isset($_POST['updateDueDate'])){
     $updateStatus=updateDueDate($conn,$activityId,$date);
 
     if($updateStatus){
+
+        //sesssion
+        $_SESSION['status_activity_duedate']="Deadline Extended successfully'";
+        $_SESSION['status_activity_duedate_code']='success';
+
         header("location:Activities.php");
+    }else{
+        //sesssion
+        $_SESSION['status_activity_duedate_err']="Deadline Extended Failed. Please try again'";
+        $_SESSION['status_activity_duedate_code_err']='error';
     }
 
 }

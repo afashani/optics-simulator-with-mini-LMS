@@ -138,5 +138,278 @@ unset($_SESSION['status_activity']);
 unset($_SESSION['status_activity_code']);
 ?>
 
+<?php
+//add activity error Message
+if(isset($_SESSION['status_activity_err'])){
 
-<!---->
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_activity_code_err']?>",
+            text: "<?php echo $_SESSION['status_activity_err']?>",
+            icon: "<?php echo $_SESSION['status_activity_code_err']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+
+    <?php
+}
+
+unset($_SESSION['status_activity_err']);
+unset($_SESSION['status_activity_code_err']);
+?>
+
+<?php
+//add activity due date Success Message
+if(isset($_SESSION['status_activity_duedate'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_activity_duedate_code']?>",
+            text: "<?php echo $_SESSION['status_activity_duedate']?>",
+            icon: "<?php echo $_SESSION['status_activity_duedate_code']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+
+    <?php
+}
+
+unset($_SESSION['status_activity_duedate_code']);
+unset($_SESSION['status_activity_duedate']);
+?>
+
+<?php
+//add activity due date error Message
+if(isset($_SESSION['status_activity_duedate_err'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_activity_duedate_code_err']?>",
+            text: "<?php echo $_SESSION['status_activity_duedate_err']?>",
+            icon: "<?php echo $_SESSION['status_activity_duedate_code_err']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+
+    <?php
+}
+
+unset($_SESSION['status_activity_duedate_code_err']);
+unset($_SESSION['status_activity_duedate_err']);
+?>
+
+
+<?php
+//add activity file update  Success Message
+if(isset($_SESSION['status_activity_update'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_activity_update_code']?>",
+            text: "<?php echo $_SESSION['status_activity_update']?>",
+            icon: "<?php echo $_SESSION['status_activity_update_code']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+
+    <?php
+}
+
+unset($_SESSION['status_activity_update_code']);
+unset($_SESSION['status_activity_update']);
+?>
+
+<?php
+//add activity file update error Message
+if(isset($_SESSION['status_activity_update_err'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_activity_update_code_err']?>",
+            text: "<?php echo $_SESSION['status_activity_update_err']?>",
+            icon: "<?php echo $_SESSION['status_activity_update_code_err']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+
+    <?php
+}
+
+unset($_SESSION['status_activity_update_err']);
+unset($_SESSION['status_activity_update_code_err']);
+?>
+
+
+<?php
+//delete marksheet file   Success Message
+if(isset($_SESSION['status_marksheet_delete'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_marksheet_delete_code']?>",
+            text: "<?php echo $_SESSION['status_marksheet_delete']?>",
+            icon: "<?php echo $_SESSION['status_marksheet_delete_code']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+
+    <?php
+}
+
+unset($_SESSION['status_marksheet_delete_code']);
+unset($_SESSION['status_marksheet_delete']);
+?>
+
+<?php
+//delete marksheet file  error Message
+if(isset($_SESSION['status_marksheet_delete_err'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_marksheet_delete_code_err']?>",
+            text: "<?php echo $_SESSION['status_marksheet_delete_err']?>",
+            icon: "<?php echo $_SESSION['status_marksheet_delete_code_err']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+    <?php
+}
+
+unset($_SESSION['status_marksheet_delete_err']);
+unset($_SESSION['status_marksheet_delete_code_err']);
+?>
+
+
+<?php
+//add marksheet file   Success Message
+if(isset($_SESSION['status_marksheet_add'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_marksheet_add_code']?>",
+            text: "<?php echo $_SESSION['status_marksheet_add']?>",
+            icon: "<?php echo $_SESSION['status_marksheet_add_code']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+
+    <?php
+}
+
+unset($_SESSION['status_marksheet_add']);
+unset($_SESSION['status_marksheet_add_code']);
+?>
+
+<?php
+//delete marksheet file  error Message
+if(isset($_SESSION['status_marksheet_add_err'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_marksheet_add_code_err']?>",
+            text: "<?php echo $_SESSION['status_marksheet_add_err']?>",
+            icon: "<?php echo $_SESSION['status_marksheet_add_code_err']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+    <?php
+}
+
+unset($_SESSION['status_marksheet_add_err']);
+unset($_SESSION['status_marksheet_add_code_err']);
+?>
+
+
+<?php
+//delete activity file   Success Message
+if(isset($_SESSION['status_ac_delete'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_ac_delete_code']?>",
+            text: "<?php echo $_SESSION['status_ac_delete']?>",
+            icon: "<?php echo $_SESSION['status_ac_delete_code']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+
+    <?php
+}
+
+unset($_SESSION['status_ac_delete_code']);
+unset($_SESSION['status_ac_delete']);
+?>
+
+<?php
+//delete activity file  error Message
+if(isset($_SESSION['status_ac_delete_err'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_ac_delete_code_err']?>",
+            text: "<?php echo $_SESSION['status_ac_delete_err']?>",
+            icon: "<?php echo $_SESSION['status_ac_delete_code_err']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+    <?php
+}
+
+unset($_SESSION['status_ac_delete_err']);
+unset($_SESSION['status_ac_delete_code_err']);
+?>

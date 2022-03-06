@@ -180,15 +180,15 @@ if(isset($_POST['adminLogin'])) {
 
 <?php
     //message for log in after data changes
-if(isset($_SESSION['status_account_data']) &&  $_SESSION['status_account_data']="Your Account Updated successfully.Please log in.."){
+if(isset($_SESSION['status_acsetting_update'])){
 
     ?>
 
     <script type="application/javascript">
 
         swal({
-            title: "<?php echo  $_SESSION['status_account_data_code']?>",
-            text: "<?php echo $_SESSION['status_account_data']?>",
+            title: "<?php echo  $_SESSION['status_acsetting_update_code']?>",
+            text: "<?php echo $_SESSION['status_acsetting_update']?>",
             icon: "warning",
             button: "Ok",
         });
@@ -199,6 +199,9 @@ if(isset($_SESSION['status_account_data']) &&  $_SESSION['status_account_data']=
     <?php
 }
 
-unset($_SESSION['status_account_data_code']);
-unset($_SESSION['status_account_data']);
+unset($_SESSION['status_acsetting_update']);
+unset($_SESSION['status_acsetting_update_code']);
 ?>
+
+
+
