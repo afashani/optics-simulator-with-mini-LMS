@@ -46,18 +46,7 @@ if(isset($_POST['accountsetting'])) {
         $errors[] = "Password are missed match. Please check your Password ";
     }
 
-    if(!isset($_POST['psw']) || strlen($_POST['psw']) < 8){
-        $errors[] = 'Password Must be >= 8';
-    }
-    elseif(!preg_match("#[0-9]+#",$_POST['psw'])) {
-        $errors[] = 'Your Password Must Contain At Least 1 Number!';
-    }
-    elseif(!preg_match("#[A-Z]+#",$_POST['psw'])) {
-        $errors[] = 'Your Password Must Contain At Least 1 Capital Letter!';
-    }
-    elseif(!preg_match("#[a-z]+#",$_POST['psw'])) {
-        $errors[''] = 'Your Password Must Contain At Least 1 Lowercase Letter';
-    }
+
 
     if (!($func->emailValidator($_POST['email']))) {
 
@@ -84,7 +73,23 @@ if(isset($_POST['accountsetting'])) {
         }
         //change pw
         if ($adminPw != $pw) {
-            $pwStatus = $func->changeAdminPassword($conn, $pw);
+            if(!isset($_POST['psw']) || strlen($_POST['psw']) < 8){
+                $errors[] = 'Password Must be >= 8';
+            }
+            elseif(!preg_match("#[0-9]+#",$_POST['psw'])) {
+                $errors[] = 'Your Password Must Contain At Least 1 Number!';
+            }
+            elseif(!preg_match("#[A-Z]+#",$_POST['psw'])) {
+                $errors[] = 'Your Password Must Contain At Least 1 Capital Letter!';
+            }
+            elseif(!preg_match("#[a-z]+#",$_POST['psw'])) {
+                $errors[''] = 'Your Password Must Contain At Least 1 Lowercase Letter';
+            }
+
+            if(empty($errors)){
+                $pwStatus = $func->changeAdminPassword($conn, $pw);
+            }
+
         }
 
         $_SESSION['status_acsetting_update']="Account Update Successfully";

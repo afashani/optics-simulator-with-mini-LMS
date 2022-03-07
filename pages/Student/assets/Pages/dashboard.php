@@ -47,11 +47,18 @@ require_once '../Includes/header.php';
             margin: auto;
 
         }
+
+        body{
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
     </style>
 
 </head>
 
-<body>
+<body class="bg">
 <!--  dashboard content goes here  -->
 
 
@@ -68,9 +75,9 @@ require_once '../Includes/header.php';
                             <div class="carousel-item active justify-content-center">
                                 <a href="../../../simulator.php">
                                     <img src="../../Inc/Img/simu.jpg" class="d-block  image1 mb-2" alt="...">
-                                    <div class="carousel-caption d-none d-md-block text-dark mt-2 pt-2 bg-info">
+                                    <div class="carousel-caption  text-dark mt-2 pt-2 bg-info">
                                         <h2 class="text-light">Simulator</h2>
-                                        <p class="text-light text-capitalize">convex and concave lenses simulation.</p>
+                                        <p class="text-light text-capitalize d-none d-md-block">convex and concave lenses simulation.</p>
                                     </div>
                                 </a>
                             </div>
@@ -78,9 +85,9 @@ require_once '../Includes/header.php';
                             <div class="carousel-item  justify-content-center">
                                 <a href="../Pages/Activities.php">
                                     <img src="../../Inc/Img/activity.png" class="d-block  image1 mb-2" alt="...">
-                                    <div class="carousel-caption d-none d-md-block bg-info mt-2 pt-2">
+                                    <div class="carousel-caption  bg-info mt-2 pt-2">
                                         <h2 class="text-light">Activity</h2>
-                                        <p class="text-light text-capitalize">convex and concave lenses simulation</p>
+                                        <p class="text-light text-capitalize d-none d-md-block">convex and concave lenses simulation</p>
                                     </div>
                                 </a>
                             </div>
@@ -88,18 +95,18 @@ require_once '../Includes/header.php';
                             <div class="carousel-item  justify-content-center">
                                 <a href="../Pages/Tutorial.php">
                                     <img src="../../Inc/Img/tutorial.png" class="d-block  image1 mb-2" alt="...">
-                                    <div class="carousel-caption d-none d-md-block bg-info mt-2 pt-2">
+                                    <div class="carousel-caption bg-info mt-2 pt-2">
                                         <h2 class="text-light">Tutorials</h2>
-                                        <p class="text-light">Some representative placeholder content for the first slide.</p>
+                                        <p class="text-light text-capitalize  d-none d-md-block ">Some representative placeholder content for the first slide.</p>
                                     </div>
                                 </a>
                             </div>
                             <div class="carousel-item  justify-content-center">
                                 <a href="../Pages/Marksheet.php">
                                     <img src="../../Inc/Img/msheet.png" class="d-block  image1 nb-2" alt="...">
-                                    <div class="carousel-caption d-none d-md-block text-light mt-2 pt-2 bg-info">
+                                    <div class="carousel-caption text-light mt-2 pt-2 bg-info">
                                         <h2>Mark Sheets</h2>
-                                        <p>Some representative placeholder content for the first slide.</p>
+                                        <p class="text-light text-capitalize  d-none d-md-block">Some representative placeholder content for the first slide.</p>
                                     </div>
                                 </a>
                             </div>
@@ -118,5 +125,6 @@ require_once '../Includes/header.php';
         </div>
     </div>
 </div>
+
 
 </body>

@@ -14,10 +14,10 @@
     font-family: "Exo 2";
 }
 
-#header-top{
-    width: 20%;
-    min-height: 5vh;
-}
+/*#header-top{*/
+/*    width: 20%;*/
+/*    min-height: 5vh;*/
+/*}*/
 
 #nav-dashboard{
     /*  background-color: red;*/
@@ -25,7 +25,7 @@
 }
 
 .admin-nav{
-    width: 220px;
+    width: 20%;
     min-height: 100vh;
     overflow: hidden;
     background-color: var(--borderColor);

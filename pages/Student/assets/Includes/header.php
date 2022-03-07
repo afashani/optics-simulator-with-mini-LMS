@@ -6,11 +6,7 @@ if(!isset($_SESSION['stdId'])) {
     exit();
 }
 
-
-
 ?>
-
-
 
 <html lang="en">
 <head>
@@ -36,13 +32,15 @@ if(!isset($_SESSION['stdId'])) {
     <!--  Sweet alert js -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+
+
 </head>
 
 <body>
 
 <div class=" container-fluid ">
     <div class="row header ">
-        <div class="admin-nav bg-info p-0 text-dark">
+        <div class="admin-nav bg-info p-0 text-dark col-lg-2 col-md-2 col-sm-0 col-xs-0 d-none d-xl-block d-lg-block d-md-none d-sm-none" >
 
             <h4 class="text-dark bg-light text-center p-2">  Menu </h4>
 
@@ -101,7 +99,7 @@ if(!isset($_SESSION['stdId'])) {
 
         <!--  top header -->
 
-        <div class="col bg-light ">
+        <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 bg-light m-auto " style="  min-height: 100vh;">
             <div class="row border border-light border-2">
                 <div class="col-lg-12  pt-lg-5 justify-content-between d-flex" id="header-top">
                     <a href="#" class="text-dark" id="open-nav">

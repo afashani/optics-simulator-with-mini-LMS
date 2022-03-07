@@ -46,7 +46,7 @@ function viewMarksheets($connection): String
 
 function viewSingleMarksheet($connection, $tutorialId){
     $file="";
-    $query= "select tute_file  from tutorial WHERE tutorial_id={$tutorialId}";
+    $query= "select *  from marksheet WHERE marksheet_id={$tutorialId}";
 
     $result = mysqli_query($connection, $query);
 
