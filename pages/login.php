@@ -3,7 +3,11 @@
 require_once 'Student/assets/Includes/ConfigDB.php';
 require_once 'Student/assets/Includes/Functions.php';
 
-session_start();
+//print_r($_SESSION);
+if(!isset($_SESSION))
+{
+    session_start();
+}
 //connection object
 $newConnection=new ConfigDB();
 //create connection
@@ -17,6 +21,8 @@ $func=new Functions();
 //    exit();
 //}
 
+//$_SESSION['from_simulator']
+//have to set alert
 
 //form sumbsiion login
 if(isset($_POST['studentlogin'])) {
@@ -100,9 +106,16 @@ if(isset($_POST['studentlogin'])) {
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../assets/css/main.css"> 
+<link rel="stylesheet" href="../assets/css/main.css">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!--   alert js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+    <!--  Sweet alert js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
@@ -177,3 +190,28 @@ if(isset($_POST['studentlogin'])) {
 	</div>
 </body>
 </html>
+
+<?php
+
+//account update success Message
+if(isset($_SESSION['status_acsetting_update'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_acsetting_update_code']?>",
+            text: "<?php echo $_SESSION['status_acsetting_update']?>",
+            icon: "<?php echo $_SESSION['status_acsetting_update_code']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+    <?php
+}
+
+unset($_SESSION['status_acsetting_update_code']);
+unset($_SESSION['status_acsetting_update']);
+?>

@@ -18,10 +18,14 @@ $dueDate="";
 $time_remaining="";
 $lastMod="";
 $fileName="";
+$lastActivities="No Activities";
 
 $tableData=viewAnswerScripts($conn,0);
+$pageName="Activity";
+
 if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
 
+    //view answer scripts
     if($_GET['res_type']=="ac"){
         $activityId=$_GET['res_id'];
         $tableData=viewAnswerScripts($conn,$activityId);
@@ -30,7 +34,9 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
 
         $dueDate=$activityData[0];
         $lastMod=$activityData[1];
-        $fileName=$activityData[2];
+        $filePath=$activityData[2];
+        $fileName=$activityData[3];
+
 
         $currentDate=date_create();
         $current= date_format($currentDate,"Y-m-d H:i:s");
@@ -39,13 +45,11 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
     }
 
 
+
 }
-
-//array_push($data,$deadline);
-//array_push($data,$added_date);;
-//array_push($data,$fileName);
-
 ?>
+
+
 
 <html>
 
@@ -78,7 +82,7 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
 
             <div class="card-header bg-primary text-light">
 
-                <h3 class="text-light">View Activity</h3>
+                <h3 class="text-light">View <?php echo $pageName;?></h3>
 
             </div>
 
@@ -87,26 +91,27 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
 
                 <table class="table  text-capitalize ">
                     <tbody class="font-weight-bold">
-                    <tr class="border border-0 ">
-                        <td class="bg-primary text-light ">Submission Status</td>
-                        <td class="bg-light text-dark">Activity Added</td>
+
+
+
+
+
+                    <tr class='border border-0 '>
+                        <td class='bg-primary text-light '>Submission Status</td>
+                        <td class='bg-light text-dark'>Activity Added</td>
                     </tr>
 
                     <tr class="border border-success border-5">
                         <td class="bg-primary text-light">Due date</td>
                         <td class="bg-light text-dark">
-                            <?php echo $dueDate; ?>
+                            <form method="post" action="activityProcess.php" >
+                                <input type="datetime-local" name="date" value="<?php echo $dueDate; ?>">
+                                <input type="hidden" name="activityID" value="<?php echo $activityId; ?>">
+                                <button type="submit" class="btn btn-primary ml-2" name="updateDueDate">Change Deadline</button>
+                            </form>
+
                         </td>
                     </tr>
-
-<!--                    <tr class="border border-success border-5">-->
-<!--                        <td class="bg-primary text-light">Change Due date</td>-->
-<!--                        <td class="bg-light text-dark">-->
-<!--                            <input type="datetime-local" name="date">-->
-<!---->
-<!--                            <a href="updateRes.php?type=acdup&activity_id=--><?php //echo  $_GET['res_id'];?><!--"  class="btn btn-secondary ml-4 text-light rounded-pill"> Change Due Date</a>-->
-<!--                        </td>-->
-<!--                    </tr>-->
 
 
                     <tr class="border border-success border-5">
@@ -120,14 +125,14 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
                     </tr>
 
                     <tr class="border border-success border-5">
-                        <td class="bg-primary text-light">File Name</td>
-                        <td class="bg-light text-dark"> <?php echo $fileName; ?></td>
+                        <td class="bg-primary text-light">Activity File</td>
+                        <td class="bg-light text-dark"> <a href="<?php echo $filePath; ?>" target="_blank"><?php echo  $fileName; ?></a></td>
                     </tr>
 
                     <tr class="border border-success border-5">
                         <td class="bg-primary text-light">Upload</td>
                         <td class="bg-light text-dark">
-                            <form action="activitySubmission.php" enctype="multipart/form-data"  >
+                            <form action="activityProcess.php" enctype="multipart/form-data" method="post" >
 
                                 <div class="frame">
                                     <div class="center">
@@ -136,14 +141,15 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
                                         <div class=" border border-success border-2">
 
                                                     <span>
-                                                        <input type="file" class="upload-input" >
+                                                        <input type="file" class="upload-input" name="updateActivityFile" >
                                                     <i class="fas fa-solid fa-upload"></i>
                                                     </span>
 
+                                            <input type="hidden" name="activityId" value="<?php echo  $_GET['res_id'];?>" >
 
                                         </div>
 
-                                        <a  class="btn btn-primary  rounded-pill mt-2" href="updateRes.php?type=acflup&activity_id=<?php echo  $_GET['res_id'];?>">Update file</a>
+                                        <button name="updateActivity" type="submit" class="btn btn-primary  rounded-pill mt-2">Update file</button>
 
                                     </div>
                                 </div>

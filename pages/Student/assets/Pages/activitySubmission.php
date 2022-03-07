@@ -4,6 +4,7 @@
 require_once '../Includes/header.php';
 require_once '../Includes/ConfigDB.php';
 require_once '../Includes/activityfunc.php';
+require_once '../Includes/Functions.php';
 
 //session_start();
 //connection object
@@ -11,11 +12,63 @@ $newConnection=new ConfigDB();
 //create connection
 $conn=$newConnection ->createConnection();
 
-$tableData=viewActivity($conn);
+$activityFilePath="";
+$deadline="";
+$added_time="";
+$activityName="";
+$activitySubmitStatus=false;
+$activity_id=0;
+$submissonStatus="No Submission Found.";
+$currentDate=date_create();
+$current= date_format($currentDate,"Y-m-d H:i:s");
+$isOverDueStaus="font-weight-bold";
+$uploadButtonName="Upload File";
+
+if(isset($_GET['activityId'])){
+    $activity_id=$_GET['activityId'];
+    $tableData=viewSingleActivity($conn,$activity_id);
+
+    $activityFilePath=$tableData[0];
+    $deadline=$tableData[1];
+    $Activityadded_time=$tableData[2];
+    $activityName=$tableData[3];
+
+    $timeRemain=differnceOfDays($current, $deadline);
+
+    //check if answer already added
+    $activitySubmitStatus=checkAnswerAvaliblabe($conn);
+
+    if($activitySubmitStatus){
+        $submissonStatus= "Submmited fot Grading";
+        $uploadButtonName="Update File";
+        //over due or not
+        $isOverDue=isOverDue($conn,$activity_id);
+
+        if($isOverDue){
+            $timeRemaining="Answer was submitted ".$timeRemain." late";
+        }else{
+            $timeRemaining="Answer was submitted ".$timeRemain." early";
+            $isOverDueStaus="";
+        }
+
+        //get marksheet sumbit time
+        $answerSubmmionTime= getAnswerAddedTIme($conn,$activity_id );
+
+    }else{
+        $timeRemaining=$timeRemain;
+    }
+
+
+
+}
+
+
+
+
 
 ?>
 
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 
 <head>
 
@@ -46,64 +99,67 @@ $tableData=viewActivity($conn);
 <div class="row  ">
     <div class="col-12 ">
 
-            <div class="card my-2 border-success bg-light d-flex justify-content-center">
+            <div class="card my-2 border-info bg-light d-flex justify-content-center">
 
-                <div class="card-header bg-success text-light">
+                <div class="card-header bg-info text-light">
 
                     <h3 class="text-light">Submission Status</h3>
 
                 </div>
 
 
-                <div class="card-body border border-success border-2">
+                <div class="card-body border border-info border-2">
+
 
                     <table class="table  text-capitalize ">
                         <tbody>
-                            <tr class="border border-0 ">
-                                <td class="bg-success text-light ">Submission Status</td>
-                                <td class="bg-light text-dark">Submission for gradding</td>
+                            <tr class="border border-0 border-5">
+                                <td class="bg-info text-light ">Submission Status</td>
+                                <td class="bg-light text-dark"><?php  if($activityFilePath) {echo $submissonStatus ;} ?> </td>
                             </tr>
 
                             <tr class="border border-success border-5">
-                                <td class="bg-success text-light">Due date</td>
-                                <td class="bg-light text-dark">Saturday, 15 January 2022, 12:00 AM</td>
+                                <td class="bg-info text-light">Due date</td>
+                                <td class="bg-light text-dark"> <?php  echo $deadline?> </td>
                             </tr>
 
                             <tr class="border border-success border-5">
-                                <td class="bg-success text-light">Time Remaning</td>
-                                <td class="bg-light text-dark">Assignment was submitted 16 days 9 hours late</td>
+                                <td class="bg-info text-light">Time Remaning</td>
+                                <td class="bg-light text-dark <?php echo  $isOverDueStaus; ?> "><?php  echo $timeRemaining?></td>
                             </tr>
 
                             <tr class="border border-success border-5">
-                                <td class="bg-success text-light">last Modified</td>
-                                <td class="bg-light text-dark">Monday, 31 January 2022, 9:30 AM</td>
+                                <td class="bg-info text-light">last Modified</td>
+                                <td class="bg-light text-dark"><?php  if(!$activitySubmitStatus) {echo $Activityadded_time ; } else {echo $answerSubmmionTime ;}?></td>
                             </tr>
 
                             <tr class="border border-success border-5">
-                                <td class="bg-success text-light">File Name</td>
-                                <td class="bg-light text-dark">file name</td>
+                                <td class="bg-info text-light">File Name</td>
+                                <td class="bg-light text-dark"> <a href="<?php  echo $activityFilePath?>" target="_blank"> <?php echo $activityName; ?></td>
                             </tr>
 
-                            <tr class="border border-success border-5">
-                                <td class="bg-success text-light">Upload</td>
+                            <tr class="border border-info border-5">
+                                <td class="bg-info text-light">Upload</td>
                                 <td class="bg-light text-dark">
-                                    <form action="activitySubmission.php" enctype="multipart/form-data"  >
-
+                                    <form action="processAnswer.php" enctype="multipart/form-data" method="post"  class="was-validated">
+                                        <span class="m-2 text-danger">You must have to upload pdf file</span>
                                         <div class="frame">
                                             <div class="center">
 
 
-                                                <div class=" border border-success border-2">
+
+                                                <div class=" border border-info border-2">
 
                                                     <span>
-                                                        <input type="file" class="upload-input" >
+                                                        <input type="file" class="upload-input" name="answerfile">
                                                     <i class="fas fa-solid fa-upload"></i>
                                                     </span>
-
+                                                        <input type="hidden" name="activityName" value="<?php echo $activityName; ?>">
+                                                        <input type="hidden" name="activityID" value="<?php echo $activity_id; ?>">
 
                                                 </div>
 
-                                                <button  class="btn btn-success  rounded-pill mt-2" name="uploadbutton">Upload file</button>
+                                                <button  class="btn btn-info  rounded-pill mt-2" name="<?php if($activitySubmitStatus){echo "updateAnswer";}else{echo "addAnswer";} ?>"> <?php echo $uploadButtonName; ?></button>
 
                                             </div>
                                         </div>

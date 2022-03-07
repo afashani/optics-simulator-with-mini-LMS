@@ -63,16 +63,16 @@ if(isset($_GET['std_id'])){
 
         <div class=" card my-2  bg-light">
 
-            <div class="card-header  text-light bg-primary">
+            <div class="card-header  text-dark bg-light">
 
-                    <h2>Student Details
+                    <h2>View Student
 
                     </h2>
 
             </div>
 
 
-            <div class="card-body bg-primary">
+            <div class="card-body bg-light">
 
 
 

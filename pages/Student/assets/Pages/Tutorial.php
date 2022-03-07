@@ -39,9 +39,9 @@ $tableData=viewTutorials($conn);
 <div class="row">
     <div class="col-lg-12">
 
-        <div class="card my-2 border-success bg-success">
+        <div class="card my-2 border-info bg-light">
 
-            <div class="card-header  text-light">
+            <div class="card-header bg-light text-dark">
 
 
                 <div class="col-lg-12">
@@ -52,7 +52,7 @@ $tableData=viewTutorials($conn);
             </div>
 
 
-            <div class="card-body">
+            <div class="card-body bg-light">
                 <div class="search-container mb-2">
                     <form action="G12.php"  method="get">
                         <div class="input-group rounded">

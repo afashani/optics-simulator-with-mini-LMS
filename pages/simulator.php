@@ -1,3 +1,16 @@
+<?php
+if(!isset($_SESSION)){
+    session_start();
+}
+
+$isDisplay="";
+if(!isset( $_SESSION['stdId'])){
+    header("location:login.php");
+    $_SESSION['from_simulator']="You have to log in before use simulator";
+}
+
+?>
+
 <!DOCTYPE html>
 <head>
     <title>Optics Simulator</title>

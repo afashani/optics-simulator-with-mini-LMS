@@ -15,7 +15,7 @@ function viewTutorials($connection): String
 
             //title, , tutorialId
             $title = $row['tutorial_name'];
-            $tutorial_id = $row['tutorial_id'];
+            $tutorial_url = $row['tute_fpath'];
 
             $data=$data."  <tr>
                                   
@@ -23,9 +23,10 @@ function viewTutorials($connection): String
                                           
                                     <td>
                                         <a
-                                                type='submit'
-                                                class='btn btn-primary mb-2  text-light align-content-left'
-                                                href='../Includes/process.php?tutorialId={$tutorial_id}'
+                                                
+                                                class='btn btn-info mb-2  text-light align-content-left'
+                                                href='$tutorial_url'
+                                                target='_blank'
                                           
                                                 >
                                            View
