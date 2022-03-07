@@ -3,6 +3,8 @@
 require_once 'Student/assets/Includes/ConfigDB.php';
 require_once 'Student/assets/Includes/Functions.php';
 
+
+
 session_start();
 //connection object
 $newConnection=new ConfigDB();

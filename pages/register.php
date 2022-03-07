@@ -97,6 +97,8 @@ if(isset($_POST['submit'])){
         $_POST['psw']='';
         $_POST['psw_repeat']='';
         $_POST['grade']='';
+
+        header("Location: verification.php?email=$email");
     }
 
 }

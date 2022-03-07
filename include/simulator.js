@@ -21,7 +21,7 @@ function mark(x, colour="white", d=10) {
     
 }
 
-function ray(x1, y1, x2, y2, v=true) {
+function ray(x1, y1, x2, y2, v=true, clr) {
     m = (y2-y1)/(x2-x1);
     stroke("yellow");
        
@@ -45,11 +45,11 @@ function draw(){
     background("black");
 
     //principle axis
-    stroke("Blue");
+    stroke("blue");
     line(0, 256, 1350, 256);
 
     //lens axis
-    stroke("Blue");
+    stroke("blue");
     line(675, 0, 675, 675);
     mark(-focalLength);
     mark(-focalLength*2);
@@ -57,7 +57,7 @@ function draw(){
     mark(focalLength, "white");
     
     fill("white");
-    stroke("red");
+    stroke("green");
     textAlign(CENTER);
     // Focal length labelling
     text('F = '+ round(focalLength), 675+focalLength, 280);
@@ -76,27 +76,27 @@ function draw(){
 
     // Light Rays
     // Line 1 - Through Focal Length distance
-    ray(675, 256-object.height, 675+focalLength, 256);
-    stroke("yellow");
+    ray(675, 256-object.height, 675+focalLength, 256, "red");
+    //stroke("yellow");
     drawingContext.setLineDash([]);
     
     line(675+object.position, 256-object.height, 675, 256-object.height);
 
     // Line 2 - Through Optical axis
-    ray(675, 256, 675+image.position, 256+image.height);
-    stroke("yellow");
+    ray(675, 256, 675+image.position, 256+image.height, "red");
+    //stroke("yellow");
     drawingContext.setLineDash([]);
     line(675+object.position, 256-object.height, 675, 256);
     
     // Line 3 - Through F'
-    ray(675, 256+image.height, 675+image.position, 256+image.height);
-    stroke("yellow");
+    ray(675, 256+image.height, 675+image.position, 256+image.height, "blue");
+    //stroke("yellow");
     drawingContext.setLineDash([]);
     line(675+object.position, 256-object.height, 675, 256+image.height);
 
     //object
     fill("white");
-    stroke("red");
+    stroke("#352315");
     rectMode(CENTER);
     rect(675+object.position, 256-object.height/2, object.width, object.height);
     fill("white");
@@ -105,7 +105,8 @@ function draw(){
     text('H = '+ abs(round(object.height)), 675+object.position, 256-object.height-object.height/abs(object.height)*25);
 
     // Image
-    fill("darkgray");
+    fill("#666666");
+    stroke("#666666");
     rect(675+image.position, 256+image.height/2, image.width, image.height);
     fill("green");
     stroke("green");
