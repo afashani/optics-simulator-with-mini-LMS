@@ -1,0 +1,116 @@
+:root{
+
+    --headerColor:#F2F2F2;
+    --borderColor:#0554F2;
+    --mainColor:#0583F2;
+    --extraColor:#0554F2;
+    --buttonColor:#F2B705;
+
+
+}
+
+
+*{
+    font-family: "Exo 2";
+}
+
+#header-top{
+    width: 20%;
+    min-height: 5vh;
+}
+
+#nav-dashboard{
+    /*  background-color: red;*/
+    color: var(--mainColor);
+}
+
+.admin-nav{
+    width: 220px;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: var(--borderColor);
+    transition: 0.3s all ease-in-out;
+}
+
+
+.admin-main-link{
+    background-color:var(--extraColor);
+    color: var(--extraColor);
+
+}
+
+.admin-main-link:hover{
+    background-color: var(--headerColor);
+}
+
+.nav-active{
+    background-color: green;
+}
+
+
+.student-group , .resources-group  {
+    display: none;
+
+}
+
+.student-group a , .resources-group a {
+    color: var(--borderColor);
+    background-color: var(--mainColor);
+}
+
+.student-group:hover, .resources-group:hover {
+    background-color: var(--mainColor);
+
+}
+
+.animate{
+    width: 0;
+    transition: 0.3s all ease-in-out;
+}
+
+.remove-hidden{
+    display: block;
+    background-color: var(--borderColor);
+    color: var(--borderColor);
+
+
+    transition: 0.3s all ease-in-out;
+
+}
+
+.sub-link:hover{
+    background-color: var(--mainColor);
+    color:var(--extraColor);
+}
+
+.admin-image{
+    width: 50%;
+    height: 50%;
+}
+
+
+#listGroup a{
+    background-color:var(--borderColor) ;
+    color: white;
+}
+
+.list-group a:hover{
+    background-color: var(--buttonColor);
+    color: var(--extraColor);
+}
+
+.admin-nav h4{
+    color: var(--mainColor);
+}
+
+/*
+header top
+ */
+
+#header-top{
+    background-color: var(--headerColor);
+}
+
+#ViewAccount{
+    background-color: var(--buttonColor);
+}

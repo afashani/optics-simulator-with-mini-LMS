@@ -1,0 +1,68 @@
+:root{
+
+    --headerColor:#F2F2F2;
+    --borderColor:#0554F2;
+    --mainColor:#0583F2;
+    --extraColor:#0554F2;
+    --buttonColor:#F2B705;
+
+
+}
+/*
+
+buttons
+main
+headders
+text
+
+*/
+
+
+*{
+    font-family: "Exo 2";
+}
+
+body{
+    background-image:url("../Img/logIn1.jpg");
+    max-height: available;
+    max-width: available;
+
+
+}
+
+#Loginbody{
+    opacity: 0.8;
+    border-radius: 2px;
+}
+
+#loginHeader{
+    background-color: var(--extraColor);
+
+}
+
+#loginButton input{
+    background-color: var(--extraColor);
+}
+
+#loginBody{
+    background-color: var(--headerColor);
+
+}
+
+.loginInputs input{
+    color: var(--extraColor);
+}
+
+/*
+login erros
+ */
+
+#adminLoginAlert{
+    background-color: red;
+    text-align: center;
+}
+
+#adminLoginAlert pre{
+    color: white;
+
+}

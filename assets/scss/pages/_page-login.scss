@@ -6,41 +6,53 @@ body {
     background-repeat: no-repeat;
 
     .card0 {
-        box-shadow: 0px 4px 8px 0px #757575;
+        //box-shadow: 0px 4px 8px 0px #757575;
         border-radius: 0px;
         
         .image {
             
-            width: 600px;
-            height: 100%;
+            width: 100% !important;
+            height: 100vh;
             
+            
+        }
+        .home-btn{
+            background-color:#15154B ;       
         }
 
         .card1 {
             margin: 0px 40px;
         
             .btn-blue {
-                background-color: green!important;
+                background-color: #15154B!important;
                 width: 100px;
                 color: #FFF !important;
                 border-radius: 200px;
             }
             
             .btn-blue:hover {
-                background-color: #FFF !important;
-                cursor: pointer;
-                color: black !important;
-                border-width: 1px;
-                border-color: green;
+                background-color: #243D76 !important;
+                //cursor: pointer;
+                color: white !important;
+                //border-width: 1px;
+                
                 
             }
         }
     }
 }
 
+.form-box{ 
+    padding: 25px !important;
+    margin: 0 !important;
+    
+    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2) !important;
+}
 
-
-
+h1{
+    text-align: center !important;
+}
 
 .logo {
     margin-top: 20px;
@@ -94,7 +106,7 @@ input {
 
 input:focus {
     box-shadow: none !important;
-    border: 1px solid #7AAD37;
+    border: 1px solid #15154B;
     outline-width: 0;
 }
 
