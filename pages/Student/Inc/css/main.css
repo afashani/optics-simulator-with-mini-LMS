@@ -1,3 +1,10 @@
+body{
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .add-btn{
     float: right;
 }
@@ -13,10 +20,7 @@
 dashboard
  */
 
- .countsInfo{
-     background-color: var(--headerColor);
 
-}
 
 .card-deck .card-header{
     /*background-color: var(--headerColor);*/
@@ -40,20 +44,3 @@ all buttons (expect add buttons)
     color: white;
 }
 
-/*
-search drop down list
-
-.search-dropdown-list{
-    display: block;
-    color: var(--buttonColor);
-    background-color: var(--extraColor);
-
-    transition: 0.3s all ease-in-out;
-
-}
- */
-
-.tenor-gif-embed{
-    width: 100px;
-    height: 100px;
-}

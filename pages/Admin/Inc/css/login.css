@@ -19,38 +19,36 @@ text
 
 
 *{
-    font-family: "Exo 2";
+    font-family: "Exo 2", sans-serif;
 }
 
 body{
-    background-image:url("../Img/logIn1.jpg");
-    max-height: available;
-    max-width: available;
-
+    background:url("../Img/logIn2.webp") no-repeat center fixed;
+    background-size: cover;
 
 }
 
 #Loginbody{
-    opacity: 0.8;
+
     border-radius: 2px;
+    border: black solid 2px;
 }
 
-#loginHeader{
-    background-color: var(--extraColor);
 
-}
+/*#loginButton input{*/
+/*    background-color: var(--extraColor);*/
 
-#loginButton input{
-    background-color: var(--extraColor);
-}
+/*}*/
 
 #loginBody{
     background-color: var(--headerColor);
+
 
 }
 
 .loginInputs input{
     color: var(--extraColor);
+
 }
 
 /*

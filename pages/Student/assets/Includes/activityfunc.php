@@ -1,5 +1,8 @@
 <?php
 
+if(!isset($_SESSION)){
+    session_start();
+}
 function viewActivity($connection): String
 {
 
@@ -22,9 +25,9 @@ function viewActivity($connection): String
             $isMarksheetAvailbale= empty($marksheet_id) ? "disabled":"";
 
             $data=$data."  <tr>
-                                    <td>{$added_date}</td>
+                                    <td class='d-none d-lg-table-cell'>{$added_date}</td>
                                     <td>{$title}</td>
-                                    <td>{$deadline}</td>             
+                                    <td class='d-none d-lg-table-cell'>{$deadline}</td>             
                                     <td>
                                         <a
                                                 type='submit'
@@ -102,7 +105,7 @@ function getAnswerUploadPath($connection, $activityId):string{
         $data .=$row['answer_fpath'];
 
     }
-    return $data."/";
+    return $data;
 }
 
 function checkAnswerAvaliblabe($connection ):bool{
@@ -122,30 +125,21 @@ function checkAnswerAvaliblabe($connection ):bool{
     return $data;
 }
 
-function addAnswerScript($connection,$fileName):bool
+function addAnswerScript($connection,$fileName,$activityId):bool
 {
 
-    $std_id= isset($_SESSION['stdId']) ?  $_SESSION['stdId']: 'G120003';
+    $std_id= isset($_SESSION['stdId']) ?  $_SESSION['stdId']: 1;
 
-    //get answer id new
-    $answerId='';
-    $query1="select answer_id  from answer  ORDER BY `answer_id` DESC LIMIT 1";
-    $resul1t=mysqli_query($connection,$query1);
-
-    if(mysqli_num_rows($resul1t) > 0){
-        $row = mysqli_fetch_assoc($resul1t);
-        $answerId =$row['answer_id'];
-
-    }
-    $answerId+=1;
-
-    $data = false;
+    $query1 = "INSERT INTO student_activity (`student_id`,`activity_id`) 
+    VALUE ('{$std_id}',{$activityId})";
+    echo $query1;
+    mysqli_query($connection,$query1);
+    $answerId=0;
 
     //add asnwer script
 
-    $query2 = "INSERT INTO answer (`answer_id`,`file_name`,`student_id`,submission_time) 
-    VALUE ({$answerId},'{$fileName}','{$std_id}',now())";
-
+    $query2 = "INSERT INTO answer (`file_name`,`student_id`,submission_time) 
+    VALUE ('{$fileName}','{$std_id}',now())";
 
 
     $result=mysqli_query($connection,$query2);
@@ -167,6 +161,7 @@ function getAnswerAddedTIme($connection,$answerID):String{
 
     $query= "select submission_time  from activityscriptsviews WHERE answer_id={$answerID}";
 
+
     $result = mysqli_query($connection, $query);
 
 
@@ -177,6 +172,7 @@ function getAnswerAddedTIme($connection,$answerID):String{
     }
     return $data;
 }
+
 function isOverDue($connection,$activity_id):bool{
     $data=false;
 
@@ -244,7 +240,7 @@ function deleteLastFile($connection, $activity_id):bool{
     return  $data;
 }
 
-function updateActivity($connection):bool
+function updateActivity($connection,$activityId):bool
 {
     $data = false;
     $std_id= isset($_SESSION['stdId']) ?  $_SESSION['stdId']: 'G120003';
@@ -260,6 +256,8 @@ function updateActivity($connection):bool
     }
 
 
+    $query = "INSERT INTO lms.student_activity (student_id, activity_id)  VALUES ('{$std_id}',{$activityId})";
+    mysqli_query($connection,$query);
     return $data;
 
 

@@ -40,7 +40,7 @@ $tableData= viewStudent($conn,12);
 <body>
 <!-- Order body-->
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
         <div class="card my-2 border-primary">
 
@@ -59,7 +59,7 @@ $tableData= viewStudent($conn,12);
                 <div class="search-container mb-2">
                     <form action="G12.php"  method="get">
                         <div class="input-group rounded">
-                            <input type="search" class="form-control rounded searchBar" placeholder="Enter Student Name, Mobile or Email Address" aria-label="Search"
+                            <input type="search" class="form-control rounded searchBar" placeholder="Enter Student Name" aria-label="Search"
                                    aria-describedby="search-addon" />
                             <button class="input-group-text border-0" id="search-addon" name="searchOrderButton">
                                 <i class="fas fa-search"></i>
@@ -70,13 +70,13 @@ $tableData= viewStudent($conn,12);
 
 
             <div class="table-responsive" id="showAllUsers">
-                 <table class=" table table-striped text-dark text-center" id="dataTable">
+                 <table class=" table table-striped text-dark text-center col-lg-12 col-md-12 col-sm-12 col-xs-12 " id="dataTable">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Mobile</th>
-                            <th>Email</th>
-                            <th>View</th>
+                            <th class="" >Name</th>
+                            <th class=" d-none d-lg-table-cell ">Mobile</th>
+                            <th class=" d-none d-lg-table-cell ">Email</th>
+                            <th class="">View</th>
                         </tr>
                         </thead>
                      <tbody class="text-center ">

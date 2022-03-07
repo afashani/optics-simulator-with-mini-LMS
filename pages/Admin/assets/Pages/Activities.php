@@ -46,15 +46,16 @@ $tableData= viewActivities($conn);
 
             <div class="card-header  text-dark">
 
-                <div class="row">
+                <div class="row  ">
 
-                    <div class="col-lg-8">
-                        <h4>Activities</h4>
+<!--                    col-lg-8 col-md-8 col-sm-8 col-xs-8  justify-content-xs-start-->
+                    <div class="col-12 col-md-8  col-sm-8 col-xs-8 justify-content-start ">
+                        <h4 class=" ">Activities</h4>
                     </div>
 
-                    <div class="col-lg-4">
-                        <h4 class="mt-2">
-                        <a class="btn btn-secondary p-2  text-center text-light font-weight-bolder border border-secondary border-2"
+                    <div class="col-6 col-md-4 col-sm-4 col-xs-4 justify-content-end">
+                        <h4 >
+                        <a class="btn btn-secondary text-center text-light font-weight-bolder border border-secondary border-2"
                             href="addActivity.php"
                         >Add Activity
 
@@ -80,13 +81,13 @@ $tableData= viewActivities($conn);
 
 
                 <div class="table-responsive" id="showAllUsers">
-                    <table class="table table-striped text-dark " id="dataTable">
+                    <table class="table table-striped text-dark text-center " id="dataTable">
                     <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Deadline</th>
-                        <th>View Activity</th>
-                        <th>View Marksheet</th>
+                        <th class=" d-none d-lg-table-cell ">Deadline</th>
+                        <th >Activity</th>
+                        <th class="d-none d-lg-table-cell">Marksheet</th>
                         <th>Delete</th>
 
                     </tr>

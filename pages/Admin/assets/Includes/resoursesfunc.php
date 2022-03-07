@@ -25,7 +25,7 @@ function viewActivities($connection): String
 
             $data=$data."  <tr >
                                     <td>{$name}</td>
-                                    <td>{$deadline}</td>
+                                    <td class='d-none d-lg-table-cell'>{$deadline}</td>
                                       
                                     <td>
                                         <a
@@ -39,7 +39,7 @@ function viewActivities($connection): String
 
                                     </td>
                                     
-                                     <td>
+                                     <td class='d-none d-lg-table-cell'>
                                         <a
                                                 type='submit'
                                                 class='btn btn-primary mb-2  text-light '
@@ -159,7 +159,7 @@ function viewAnswerScripts($connection,$activityId):String{
             $data = $data . "  <tr >
                                     <td>{$name}</td>
                                     <td>{$upload_time}</td>
-                                     <td>{$overdue}</td>
+                                     <td class='d-none d-lg-table-cell'>{$overdue}</td>
                                       
                                     <td>
                                         <a
@@ -273,7 +273,7 @@ function getlastActivityId($connection):int
 //print_r($data);
 
 echo $data;
-    return  $data+1;
+    return  $data;
 }
 
 function isActivityAvailbale($connection,$activityName):int
@@ -295,7 +295,7 @@ function isActivityAvailbale($connection,$activityName):int
     return  $data;
 }
 
-function addActivity($connection,$id,$name,$fpath,$deadline):bool
+function addActivity($connection,$name,$fpath,$deadline):bool
 {
 
     $d=strtotime($deadline);
@@ -303,8 +303,8 @@ function addActivity($connection,$id,$name,$fpath,$deadline):bool
 
     $ansPath="ans".$name;
     $data = false;
-    $query = "INSERT INTO activity (`activity_id`,`activity_name`,`activity_fpath`,`deadline`,`answer_fpath`) 
-    VALUES ({$id},'{$name}','{$fpath}','{$deadlineN}','{$ansPath}')";
+    $query = "INSERT INTO activity (`activity_name`,`activity_fpath`,`deadline`,`answer_fpath`) 
+    VALUES ('{$name}','{$fpath}','{$deadlineN}','{$ansPath}')";
 
     echo $query;
     $result = mysqli_query($connection, $query);
@@ -434,7 +434,8 @@ function deleteRes($connection, $type, $id):bool{
     }
 
     if($type=="AC"){
-        $query = "DELETE from activity WHERE activity_id='{$id}' ";
+        $query = "DELETE from activity WHERE activity_id={$id} ";
+        $query = "DELETE from admin_activity WHERE activity_id={$id} ";
     }else{
         $query = "DELETE from tutorial WHERE tutorial_id='{$id}' ";
     }
@@ -471,12 +472,12 @@ function getlastTuteId($connection):int
     return  $data+1;
 }
 
-function addTute($connection,$id,$name,$fpath):bool
+function addTute($connection,$name,$fpath):bool
 {
 
     $data = false;
-    $query = "INSERT INTO tutorial (`tutorial_id`,`tutorial_name`,`tute_fpath`) 
-    VALUES ({$id},'{$name}','{$fpath}')";
+    $query = "INSERT INTO tutorial (`tutorial_name`,`tute_fpath`) 
+    VALUES ('{$name}','{$fpath}')";
 
    // echo $query;
     $result = mysqli_query($connection, $query);
@@ -547,12 +548,22 @@ function addMarksheet($connection,$activity_id,$marksheetFName):bool
 {
     $adminId= $_SESSION['admin_id'];
     $data = false;
-    $marksheet_id=$activity_id;
+    $marksheet_id=0;
     //add marksheet (marksheetid, file name)
 
-    $query1 = "INSERT INTO marksheet (`marksheet_id`,`file_name`) 
-    VALUE ({$marksheet_id},'{$marksheetFName}')";
+    $query1 = "INSERT INTO marksheet (`file_name`) 
+    VALUE ('{$marksheetFName}')";
 
+    $q="SELECT marksheet_id FROM marksheet ORDER BY marksheet_id DESC LIMIT 1";
+    $result1=mysqli_query($connection,$q);
+    if (mysqli_num_rows($result1) > 0) {
+        while ($row = mysqli_fetch_assoc($result1)) {
+            $marksheet_id=$row['marksheet_id'];
+
+        }
+    }
+
+    $marksheet_id+=1;
     //add admin_marksheet (admin id, marksheet_id)
 
     $query2 = "INSERT INTO admin_marksheet (`marksheet_id`,`admin_id`) 
@@ -606,6 +617,9 @@ function deleteMarksheet($connection,$marksheet_id):bool{
 
     unlink($marksheetFpath);
 
+    // delete from admin marksheet table
+    $query4 = "DELETE FROM `admin_marksheet` WHERE marksheet_id={$marksheet_id} ";
+    mysqli_query($connection, $query4);
     //deleet marksheet table data
     $query3 = "DELETE FROM `marksheet` WHERE marksheet_id={$marksheet_id} ";
     mysqli_query($connection, $query3);
@@ -640,4 +654,42 @@ function updateDueDate($connection,$activityId,$date):bool{
 
 
    return true;
+}
+
+//get answer path
+function getanswerPath($connection, $activityId):string{
+
+    //need student if
+    $std_id= isset($_SESSION['stdId']) ? $_SESSION['stdId'] :1;
+    //need answer f path form activity
+    $path='../../../../resources/answerScripts/';
+    $query1 = "SELECT answer_fpath FROM `activity` WHERE `activity_id`={$activityId} ";
+    $result = mysqli_query($connection, $query1);
+    if (mysqli_num_rows($result) > 0) {
+
+        while ($row = mysqli_fetch_assoc($result)) {
+
+
+            $path .=$row['answer_fpath'];
+
+        }
+
+    }
+    $path.="/";
+    //get answer filename
+    $query1 = "SELECT file_name FROM lms.`answer` WHERE `student_id`='{$std_id}' ";
+    $result = mysqli_query($connection, $query1);
+    if (mysqli_num_rows($result) > 0) {
+
+        while ($row = mysqli_fetch_assoc($result)) {
+
+
+            $path .=$row['file_name'];
+
+        }
+
+    }
+    $path.=".pdf";
+
+    return $path;
 }

@@ -59,9 +59,9 @@ $lastActivities=getlastActivities($conn)
 <body>
 <!-- Order body-->
 <div class="row">
-    <div class="col-lg-12 mt-4">
-        <div class="card-deck">
-            <div class="card my-2 border-primary bg-light d-flex justify-content-center">
+    <div class="col-lg-12 ">
+
+            <div class="card m-2 border-primary bg-light d-flex justify-content-center">
 
                 <div class="card-header bg-primary text-light d-flex ">
 
@@ -71,13 +71,13 @@ $lastActivities=getlastActivities($conn)
                 </div>
 
 
-                <div class="card-body bg-light border border-light border-2">
+                <div class="card-body  table-responsive bg-light border border-light border-2">
 
                     <form enctype="multipart/form-data" action="activityProcess.php" method="post">
                     <table class="table  text-capitalize ">
                         <tbody class="font-weight-bold">
 
-                        <tr class="border border-success border-5">
+                        <tr class="border border-success border-2">
                             <td class="bg-primary text-light">Previous Activities</td>
                             <td class="bg-light text-dark">
                                 <div class="dropdown">
@@ -100,7 +100,7 @@ $lastActivities=getlastActivities($conn)
 
 
 
-                            <tr class="border border-success border-5">
+                            <tr class="border border-success border-2">
                                 <td class="bg-primary text-light">Due date</td>
                                 <td class="bg-light text-dark">
                                     <input type="datetime-local" class="" name="deadline" />
@@ -111,36 +111,33 @@ $lastActivities=getlastActivities($conn)
 
 
 
-                            <tr class="border border-success border-5">
+                            <tr class="border border-success border-2">
                                 <td class="bg-primary text-light">File Name </td>
                                 <td class="bg-light text-dark">
                                     <input type="text" class="" name="fileName" />
                                 </td>
                             </tr>
 
-                            <tr class="border border-success border-5">
-                                <td class="bg-primary text-light">Upload</td>
-                                <td class="bg-light text-dark">
+                            <tr class="border border-success border-2">
+                                <td class="bg-primary text-light col-4 col-md-4  col-sm-4 col-xs-4">Upload</td>
+                                <td class="bg-light text-dark col-8 col-md-8  col-sm-8 col-xs-8">
 
 
-                                        <div class="frame">
-                                            <?php echo $fileName; ?>
-                                            <div class="center">
+                                                <?php echo $fileName; ?>
 
 
-                                                <div class=" border border-success border-2">
+
+                                                    <div class=" border border-success border-2">
 
                                                             <span>
-                                                                <input type="file" class="upload-input" name="activityFile" >
+                                                                <input type="file" class="w-75" name="activityFile" >
                                                             <i class="fas fa-solid fa-upload"></i>
                                                             </span>
 
 
-                                                </div>
+                                                    </div>
 
 
-                                            </div>
-                                        </div>
 
                                 </td>
                             </tr>
@@ -157,9 +154,9 @@ $lastActivities=getlastActivities($conn)
 
 
 
-                    <button  class=" btn btn-primary rounded-2 m-2 border border-dark  " type="submit" name="addActivity">Add Activity</button>
+                    <button  class=" btn btn-primary rounded-2  border border-dark  " type="submit" name="addActivity">Add Activity</button>
 
-                    <a class=" btn btn-secondary border border-dark text-light  rounded-2  font-weight-bolder m-2"  href="Activities.php">
+                    <a class=" btn btn-secondary border border-dark text-light  rounded-2  font-weight-bolder ml-2"  href="Activities.php">
                         Back
                     </a>
 
@@ -167,7 +164,7 @@ $lastActivities=getlastActivities($conn)
                 </form>
             </div>
 
-        </div>
+
     </div>
 </div>
 

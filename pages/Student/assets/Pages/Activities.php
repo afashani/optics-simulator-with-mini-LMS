@@ -84,10 +84,11 @@ $tableData=viewActivity($conn);
                         $content=" <table class='table table-striped text-dark text-center' id='dataTable'>
                     <thead>
                     <tr>
-                        <th>Date</th>
+                        <th class='d-none d-lg-table-cell'>Date</th>
                         <th>Title</th>
-                        <th>Deadline</th>
-                        <th></th>
+                        <th class='d-none d-lg-table-cell'>Deadline</th>
+                        <th>View Activity</th>
+                        <th>View Marksheet</th>
 
 
                     </tr>

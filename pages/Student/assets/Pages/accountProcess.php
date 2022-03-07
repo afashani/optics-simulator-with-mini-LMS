@@ -48,18 +48,7 @@ if(isset($_POST['accountsetting'])) {
         $errors[] = "Retype-Password is Missing /Invalid (Minimum should be 8 characters)";
     }
 
-    if(!isset($_POST['psw']) || strlen($_POST['psw']) < 8){
-        $errors[] = 'Password Must be >= 8';
-    }
-    elseif(!preg_match("#[0-9]+#",$_POST['psw'])) {
-        $errors[] = 'Your Password Must Contain At Least 1 Number!';
-    }
-    elseif(!preg_match("#[A-Z]+#",$_POST['psw'])) {
-        $errors[] = 'Your Password Must Contain At Least 1 Capital Letter!';
-    }
-    elseif(!preg_match("#[a-z]+#",$_POST['psw'])) {
-        $errors[''] = 'Your Password Must Contain At Least 1 Lowercase Letter';
-    }
+
 
     if ( ($_POST['pw'] != $_POST['Rpw'])) {
 
@@ -97,7 +86,23 @@ if(isset($_POST['accountsetting'])) {
         }
         //change pw
         if($studentPw != $pw){
-            $pwStatus = $function->changeStudentPassword($conn, $pw);
+            if(!isset($_POST['psw']) || strlen($_POST['psw']) < 8){
+                $errors[] = 'Password Must be >= 8';
+            }
+            elseif(!preg_match("#[0-9]+#",$_POST['psw'])) {
+                $errors[] = 'Your Password Must Contain At Least 1 Number!';
+            }
+            elseif(!preg_match("#[A-Z]+#",$_POST['psw'])) {
+                $errors[] = 'Your Password Must Contain At Least 1 Capital Letter!';
+            }
+            elseif(!preg_match("#[a-z]+#",$_POST['psw'])) {
+                $errors[''] = 'Your Password Must Contain At Least 1 Lowercase Letter';
+            }
+
+            if(empty($errors)){
+                $pwStatus = $function->changeStudentPassword($conn, $pw);
+            }
+
         }
 
         $_SESSION['status_acsetting_update']="Account Update Successfully";

@@ -21,8 +21,8 @@ function viewStudent($connection,$grade): String
 
             $data=$data."  <tr>
                                     <td>{$name}</td>
-                                    <td>{$mobile}</td>
-                                    <td>{$email}</td>             
+                                    <td class='d-none d-lg-table-cell '>{$mobile}</td>
+                                    <td class='d-none d-lg-table-cell '>{$email}</td>             
                                     <td>
                                         <a
                                                 type='submit'

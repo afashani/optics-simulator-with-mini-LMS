@@ -33,15 +33,17 @@ if(!isset($_SESSION['admin_id'])) {
     <script src="../../Inc/JS/header.js" type="application/javascript"></script>
     <script src="../../Inc/JS/search.js" type="application/javascript"></script>
 
+    <!--  Sweet alert js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
 
-<div class=" container-fluid ">
+<div class=" container-fluid w-auto  ">
     <div class="row header ">
-        <div class="admin-nav p-0 text-white">
+        <div class="col-lg-2 col-md-2 col-sm-0 col-xs-0 d-none d-xl-block d-lg-block d-md-none d-sm-none admin-nav p-0 text-white">
 
-            <h4 class="text-white text-center p-2">  Menu </h4>
+            <h4 class="text-dark text-center p-2 bg-light">  Menu </h4>
 
             <div class="list-group list-group-flush " id="listGroup">
 
@@ -117,9 +119,9 @@ if(!isset($_SESSION['admin_id'])) {
 
         <!--  top header -->
 
-        <div class="col bg-light ">
+        <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 bg-light min-vh-100 vh-100   ">
             <div class="row border border-light border-2">
-                <div class="col-lg-12  pt-lg-5 justify-content-between d-flex" id="header-top">
+                <div class="col-lg-12   justify-content-between d-flex" id="header-top">
                     <a href="#" class="text-dark" id="open-nav">
                         <h3>
                             <i class="fas fa-bars"></i>
@@ -139,6 +141,7 @@ if(!isset($_SESSION['admin_id'])) {
                     </h6>
                 </div>
             </div>
+
 
 
 
