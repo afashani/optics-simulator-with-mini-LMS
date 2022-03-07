@@ -107,31 +107,38 @@ if(isset($_POST['studentlogin'])) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+	<div>
 	    <div class="card card0 border-0">
-	        <div class="row d-flex">
+	        <div >
 	            <div class="col-lg-6">
-	                <div class="pb-5">
-	                    <div class="row">
-	                    	<!-- <img src="../assets/images/logo.png" class="logo"> -->
-	                    </div>
-	                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
-	                    	<img src="../assets/images/background/login-background.jpg" class="image">
+	                <div >
+	                    
+	                    <div class="row border-line">
+	                    	<img src="../assets/images/students.jpg" class="image">
 	                    </div>
 	                </div>
 	            </div>
+				<br><br><br><br><br>
 	            <div class="col-lg-6">
-	                <div class="card card1 border-0 px-4 py-5">
+                        <div class="container">
+                                <div class="col-md-12">
+                                    <button class=" btn btn-primary home-btn"><i class="fa fa-home"></i> Home</button>
+                                </div>
+                        </div>
+                        <br> 
+	                <div class="card card1 border-0 px-4 py-5 form-box">
+                     
+                   
 	                    <div class="row mb-4 px-3">
-	                        <h2 class="mb-0 mr-4 mt-2">Sign In to Your Account</h2>
+	                        <h1 >Sign In to Your Account</h1>
 	                    </div>
 						<div class="row mb-4 px-3">
 	                    	<small class="font-weight-bold">Don't have an account ?
-	                    		<a href="register.php" style="color: green;">Create one here</a>
+	                    		<a href="register.php" style="color: #243D76;">Create one here</a>
 	                    	</small>
 	                    </div>
 	                <form action="login.php" method="post" class="was-validated">
-
+                    
                         <div >
 
                             <?php
@@ -146,26 +153,20 @@ if(isset($_POST['studentlogin'])) {
                         </div>
 	                    <div class="row px-3">
 	                    	<label class="mb-1">
-	                            <h6 class="mb-0 text-sm">Email Address</h6>
+	                            <h3 class="mb-0 text-sm"><b>Email Address</b></h3>
 	                        </label>
 	                        <input class="mb-4" type="text" name="email" placeholder="Enter Your Email Address" required>
 	                    </div>
 	                    <div class="row px-3">
 	                    	<label class="mb-1">
-	                            <h6 class="mb-0 text-sm">Password</h6> 
+	                            <h3 class="mb-0 text-sm"><b>Password</b></h3> 
 	                        </label>
 	                        <input type="password" name="password" placeholder="Enter Your password" required>
 	                    </div>
-	                    <!-- <div class="row px-3 mb-4">
-	                        <div class="custom-control custom-checkbox custom-control-inline">
-	                        	<input type="checkbox" name="remember_me_checkbox" class="custom-control-input">
-	                        	<label for="remember_me_checkbox" class="custom-control-label text-sm">Remember me</label>
-	                        </div>
-	                        <a href="#" class="ml-auto mb-0 text-sm" style="color: #333;">Forgot Password?</a>
-	                    </div> -->
+	                   
 	                    <div class="row mb-3 px-3" style="margin-top: 20px;">
-	                    	<button type="submit" name="studentlogin" class="btn btn-blue text-center">Login</button>
-	                    </div>
+	                    	<button type="submit" name="studentlogin" class="btn btn-blue text-center"><b>Login</b></button>
+	                    </div> <br>
 	                </form>    
 	                    
 	                </div>

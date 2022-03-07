@@ -78,8 +78,8 @@ if(isset($_POST['submit'])){
 
         $grade = $_POST['grade'];
 
-        $queryCheckIndex = "SELECT * FROM student WHERE student_id = '". mysqli_real_escape_string($connection,$index) ."' AND email = '". mysqli_real_escape_string($connection,$email) ."'" ;
-        $resultCheckIndex = mysqli_query($connection,$queryCheckIndex);
+        $queryCheckIndex = "SELECT * FROM student WHERE student_id = '". mysqli_real_escape_string($conn,$index) ."' AND email = '". mysqli_real_escape_string($conn,$email) ."'" ;
+        $resultCheckIndex = mysqli_query($conn,$queryCheckIndex);
         if (!mysqli_num_rows($resultCheckIndex) == 1)
         {
             $errors['index'] = '<p class = "errors">Already Registered With This Index Number</p>'; //Fail
@@ -125,39 +125,23 @@ if(isset($_POST['submit'])){
     <!-- <link rel="stylesheet" href="../assets/scss/main.css"> -->
 </head>
 <body>
-<header class="header">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a href="#" class="navbar-brand">
-                <!-- <img src="../assets/images/logo.png" alt="logo" width="100"> -->
-            </a>
-        </div>
-    </nav>
-</header>
 
-
-
-<div class="container">
-    <div class="row align-items-center" >
-        <div class="col-md-5 back-img">
-            <h1>Create your Account</h1>
-            <img src="../assets/images/background/register-background.jpg" alt="" class="img-fluid mb-3 d-none d-md-block">
+<div >
+    <div class="row " >
+        <div class="col-md-6 back-img">
+            
+            <img src="../assets/images/register2.jpg" alt="" class="img-fluid mb-3 d-none d-md-block">
 
 
         </div>
-        <div class="col-md-1 ">
-            <div class="vl"></div>
-        </div>
+        <div class="ml-4"></div>
         <!-- Registration Form -->
-        <div class="col-md-6  ml-auto">
+        <div class="col-md-5 ml-3 my-3">
 
             <div style="display:inline-block;  ">
-                <h2 style="font-weight: bold; ">Sign Up</h2>
+            <h1>Create Student Account</h1>
             </div>
-            <div style="display:block; float:right; padding-right:340px; ">
-                <h2>Now</h2>
-
-            </div>
+            
             <br>
             <br>
 
@@ -165,7 +149,8 @@ if(isset($_POST['submit'])){
 
             <form action="" method="POST">
                 <div class="row">
-
+                
+                <p>Have already an account?  <a href="login.php" style="color:#243D76 ;"><b>Login here</b></a>.</p>
                     <!-- index number -->
                     <break>
                         <label for="index"><b>Index Number</b></label>
@@ -206,7 +191,7 @@ if(isset($_POST['submit'])){
 
                         <label for="grade"><b>Grade</b></label>
 
-                        <select id="grade" name="grade" class="form-control bg-white border-md border-left-0 pl-03"  value="<?php if(isset($_POST['grade'])) {echo $_POST['grade'];} ?>" >
+                        <select id="grade" name="grade" class="form-control bg-white border-md  pl-03"  value="<?php if(isset($_POST['grade'])) {echo $_POST['grade'];} ?>" >
                             <option>Select Your Grade</option>
                             <option value="12">Grade 12</option>
                             <option value="13">Grade 13</option>
@@ -231,18 +216,16 @@ if(isset($_POST['submit'])){
                         <hr>
 
                         <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-
-                        <button name="submit" class="register-btn btn btn-blue text-center">Sign Up</button>
+                        <div class="col-md-12 text-center">
+                            <button name="submit" class="register-btn btn btn-blue text-center">Sign Up</button>
+                        </div>
+                        
                 </div>
             </form>
         </div>
     </div>
 
 </div>
-<div class="bg-blue py-4">
-    <div class="row px-3" >
-        <small class="ml-4 ml-sm-5 mb-2" style="text-align: center;">Copyright &copy; 2021. All rights reserved.</small>
-    </div>
-</div>
+
 </body>
 </html>
