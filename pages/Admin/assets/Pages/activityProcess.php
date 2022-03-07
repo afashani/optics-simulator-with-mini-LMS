@@ -17,22 +17,11 @@ $time_remaining="";
 $lastMod="";
 $fileName="Only pdf/ doc allowed here ";
 
-if(isset($_GET['std_id'])){
-    $std_id=$_GET['std_id'];
-    $studentDetails= getSingleStudentDetail($conn,$std_id);
-
-
-    $name=$studentDetails[0];
-    $address=$studentDetails[1];
-    $tele=$studentDetails[2];
-    $class=$studentDetails[3];
-    $email=$studentDetails[4];
-}
 
 //last activities
 $lastActivities=getlastActivities($conn);
 
-//add product button pressed
+//add activity button pressed
 if(isset($_POST['addActivity'])){
 
     $errors=[];
@@ -56,17 +45,20 @@ if(isset($_POST['addActivity'])){
     //   echo " newFileName".$newFileName;
 
     //get upload directory
-    $uploadDir="../../../../resources/activities/".$newFileName.".pdf";
+    $uploadDir="../../../../resources/activities/".$newFileName.$fileType;
+
+    echo $uploadDir;
+
+    if(isset($uploadDir)) {
+        $twoPart = explode("/", $uploadDir);
+        $newData = "." . $twoPart[1];
 
 
-    $fileUploadStatus=move_uploaded_file($fileTPName, $uploadDir);
+        $uploadDir = $newData;
 
+    }
 
-    if(!$fileUploadStatus){
-        $errors[]="ActivityNot Upload.. Please try again later";
-
-
-    }elseif($fileSize >= 5000000){
+  if($fileSize >= 5000000){
         //5mb
         $errors[]="File must be less than 5MB . Please try again ";
 
@@ -106,34 +98,6 @@ if(isset($_POST['addActivity'])){
     }
 
 
-    //insert data to admin table
-
-//    //check length and data type
-//    if($func -> inputLengthChecker(3,75,$productName)){
-//        $errors[]= "Product Length invalid";
-//    }
-//    if($func -> inputLengthChecker(3,1500,$productDes)){
-//        $errors[]= "Product Description Length invalid";
-//    }
-//    if($func -> inputLengthChecker(1,11,$productQty)){
-//        $errors[]= "Product QTYLength invalid";
-//    }
-//
-//
-//    //check data type  (if can true)
-//    if(!($func -> numberChecker($productQty))){
-//        $errors[]= "Product QTY Must be a number";
-//    }
-//    if(!($func -> numberChecker($productPrice))){
-//        $errors[]= "Product Price Must be a number";
-//    }
-//    if(($func -> numberChecker($productName))){
-//        $errors[]= "Product Name must be a Word";
-//    }
-//    if(($func -> numberChecker($productDes))){
-//        $errors[]= "Product Description must be the Words";
-//    }
-
 
 //check data already have or not
     $checkDataExtist=isActivityAvailbale($conn,$actvityTitle);
@@ -147,7 +111,7 @@ if(isset($_POST['addActivity'])){
     if(empty($errors)){
 
 
-
+        $fileUploadStatus=move_uploaded_file($fileTPName, $uploadDir);
         echo "I am in empty errors";
         $statusActivity=addActivity($conn, $newActivityId,$actvityTitle,$activityPathToDB,$deadline);
 
@@ -158,8 +122,8 @@ if(isset($_POST['addActivity'])){
 
         sleep(3);
         //sesssion
-//        $_SESSION['status_product']="Product Added successfully'";
-//        $_SESSION['status_product_code']='success';
+        $_SESSION['status_activity']="Activity Added successfully'";
+        $_SESSION['status_activity_code']='success';
 
 //        unset( $_SESSION['status_product']);
 //        unset($_SESSION['status_product_code']);
@@ -169,19 +133,117 @@ if(isset($_POST['addActivity'])){
 
     }else {
 
-//        $_SESSION['status_product-err']=$errors;
-//        $_SESSION['status_product_err_code']='error';
-
-//        unset( $_SESSION['status_product-err']);
-//        unset($_SESSION['status_product_err_code']);
-        //  print_r($errors);
-//        $errors=null;
-        print_r($errors);
-        header("location:adtivityA.php");
+        $_SESSION['status_activity_err']=$errors[0];
+        $_SESSION['status_activity_code_err']='error';
 
 
-        print_r($errors);
+        header("location:Activities.php");
+
+
     }
 
+
+}
+
+//update activity button pressed
+if(isset($_POST['updateActivity'])){
+
+    $errors=[];
+
+    $activityId=$_POST['activityId'];
+    //get images
+
+    $fileName = $_FILES['updateActivityFile']['name'];
+    $fileType=$_FILES['updateActivityFile']['type'];
+    $fileSize=$_FILES['updateActivityFile']['size'];
+    $fileTPName=$_FILES['updateActivityFile']['tmp_name'];
+
+
+
+
+    //delet last file (resource file)
+    deleteLastFile($conn, $activityId);
+
+    //get file name
+    $newFileName=getActivityFpath($conn,$activityId);
+    $nNewFileName=explode(".",$newFileName);
+    $newFileName=$nNewFileName[0];
+
+
+
+
+    $allowed = array('pdf', 'doc', 'docx');
+    $ext = pathinfo($fileName, PATHINFO_EXTENSION);
+    if (!in_array($ext, $allowed)) {
+        $errors[]= "Invalid type.You must have to upload doc/pdf file";
+    }
+
+        if($fileSize >= 5000000){
+        //5mb
+        $errors[]="File must be less than 5MB . Please try again ";
+
+        }
+
+
+
+    if(empty($errors)){
+
+        $realFileType=explode("/",$fileType);
+        $fileType=$realFileType[1];
+        echo $fileType;
+
+        //get upload directory
+        $uploadDir="../../../../resources/activities/".$newFileName.".".$fileType;
+        $fileUploadStatus=move_uploaded_file($fileTPName, $uploadDir);
+        $statusActivity=updateActivity($conn, $activityId);
+
+        //sesssion
+        $_SESSION['status_activity_update']="Activity Updated successfully";
+        $_SESSION['status_activity_update_code']='success';
+
+        sleep(3);
+        header("location:Activities.php");
+
+
+
+    }else {
+
+
+        //sesssion
+        $_SESSION['status_activity_update_err']=$errors[0]."<br>"."Activity Updated successfully";
+        $_SESSION['status_activity_update_code_err']='error';
+        header("location:Activities.php");
+
+    }
+
+
+}
+
+if(isset($_POST['updateDueDate'])){
+    $activityId=$_POST['activityID'];
+    $date=$_POST['date'];
+
+    if(isset($date)){
+        $twoPart=explode("T",$date);
+        $newData=$twoPart[0]." ". $twoPart[1].":00";
+        $date=$newData;
+
+    }
+
+    //update due date
+    $updateStatus=updateDueDate($conn,$activityId,$date);
+
+    if($updateStatus){
+
+        //sesssion
+        $_SESSION['status_activity_duedate']="Deadline Extended successfully'";
+        $_SESSION['status_activity_duedate_code']='success';
+
+        header("location:Activities.php");
+    }else{
+        //sesssion
+        $_SESSION['status_activity_duedate_err']="Deadline Extended Failed. Please try again'";
+        $_SESSION['status_activity_duedate_code_err']='error';
+    }
 
 }

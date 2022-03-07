@@ -138,8 +138,6 @@ $lastActivities=getlastActivities($conn)
 
                                                 </div>
 
-                                                <a  class="btn btn-primary  rounded-pill mt-2" href="addActivity.php?type=acadd">Upload file</a>
-
 
                                             </div>
                                         </div>

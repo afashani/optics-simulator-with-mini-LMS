@@ -44,7 +44,7 @@ if(isset($_GET['std_id'])){
     <meta content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> add Activity | Admin </title>
+    <title> add Tutorial | Admin </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -58,94 +58,70 @@ if(isset($_GET['std_id'])){
 </head>
 <body>
 <!-- Order body-->
-<div class="row">
-    <div class="col-lg-12 ">
+<div class="row d-flex justify-content-center m-5">
+    <div class="col-lg-8 ">
 
-        <div class=" d-flex card my-2 w-100 justify-content-center align-items-center bg-primary">
+        <div class="card my-2 border-primary bg-light d-flex justify-content-center">
 
-            <div class="card-header  text-light">
+            <div class="card-header bg-primary text-light d-flex ">
+
+                <h3 class="text-light justify-content-start">Add Tutorials</h3>
 
 
-                <div class="col-lg-12">
-                    <h2>Student Details
-
-                    </h2>
-                </div>
             </div>
 
 
-            <div class="card-body">
+            <div class="card-body bg-light border border-light border-2">
+
+                <form  action="tuteProcess.php" method="post">
+                    <table class="table  text-capitalize ">
+                        <tbody class="font-weight-bold">
 
 
 
-                <div class="table-responsive bg-light" id="showAllUsers">
-                    <table class="table table-bordered text-dark text-center  bg-light" id="dataTable">
 
-                        <tr>
-                            <td class="col-4">Student Id</td>
-                            <td class="col-5 text-center">
-                                <input type="text" name="id" value="<?php if(isset($std_id)){echo $std_id;} ?>" readonly/>
+
+                        <tr class="border border-success border-5">
+                            <td class="bg-primary text-light">Tutorial Name</td>
+                            <td class="bg-light text-dark">
+                                <input type="text" class="" name="name" />
+
                             </td>
-
                         </tr>
 
-                        <tr>
-                            <td class="col-4">Name</td>
-                            <td class="col-5 text-center">
-                                <input type="text" name="name" value="<?php if(isset($name)){echo $name;} ?>"  readonly/>
-                            </td>
 
+
+
+                        <tr class="border border-success border-5">
+                            <td class="bg-primary text-light">Tutorial Link </td>
+                            <td class="bg-light text-dark">
+                                <input type="text" class="" name="link" />
+                            </td>
                         </tr>
 
-                        <tr>
-                            <td class="col-4">Address</td>
-                            <td class="col-5 text-center">
-                                <input type="text" name="address" value="<?php if(isset($address)){echo $address;} ?>"  readonly/>
-                            </td>
 
-                        </tr>
 
-                        <tr>
-                            <td class="col-4"> Contact Number</td>
-                            <td class="col-5 text-center">
-                                <input type="text" name="number" value="<?php if(isset($tele)){echo $tele;} ?>"  readonly/>
-                            </td>
 
-                        </tr>
 
-                        <tr>
-                            <td class="col-4"> Class</td>
-                            <td class="col-5 text-center">
-                                <input type="text" name="class" value="<?php if(isset($class)){echo $class;} ?>"  readonly/>
-                            </td>
-
-                        </tr>
-
-                        <tr>
-                            <td class="col-4"> Email</td>
-                            <td class="col-5 text-center">
-                                <input type="email" name="email" value="<?php if(isset($email)){echo $email;} ?>"  readonly/>
-                            </td>
-
-                        </tr>
+                        </tbody>
 
                     </table>
 
-
-                </div>
             </div>
+            <div class="card-footer d-flex justify-content-center">
 
-            <div class="card-footer">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"  >
-                        <a class="page-link" href="Tutorial.php">
-                            Back
-                        </a>
-                    </li>
-                </ul>
+
+
+                <button  class=" btn btn-primary rounded-2 m-2 border border-dark  " type="submit" name="addTute">Add Tutorial</button>
+
+                <a class=" btn btn-secondary border border-dark text-light  rounded-2  font-weight-bolder m-2"  href="Tutorial.php">
+                    Back
+                </a>
 
             </div>
+            </form>
         </div>
+
     </div>
 </div>
 

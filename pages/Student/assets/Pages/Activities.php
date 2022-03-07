@@ -27,10 +27,17 @@ $tableData=viewActivity($conn);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!--   alert js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
     <link rel="stylesheet" href="../../Inc/css/main.css" type="text/css">
     <link rel="stylesheet" href="../../Inc/css/header.css" type="text/css">
 
     <script src="../../Inc/JS/search.js" type="application/javascript"></script>
+
+    <!--  Sweet alert js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 <body>
@@ -38,9 +45,9 @@ $tableData=viewActivity($conn);
 <div class="row">
     <div class="col-lg-12">
 
-        <div class="card my-2 border-success bg-success">
+        <div class="card my-2 border-info bg-light">
 
-            <div class="card-header  text-light">
+            <div class="card-header  text-dark">
 
 
                 <div class="col-lg-12">
@@ -65,7 +72,7 @@ $tableData=viewActivity($conn);
                 </div>
 
 
-                <div class="table-responsive bg-success" id="showAllUsers">
+                <div class="table-responsive " id="showAllUsers">
 
 
                     <?php
@@ -113,3 +120,101 @@ $tableData=viewActivity($conn);
 </html>
 
 <!---->
+
+<?php
+//added answer file  success Message
+if(isset($_SESSION['status_answer_add'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_answer_add_code']?>",
+            text: "<?php echo $_SESSION['status_answer_add']?>",
+            icon: "<?php echo $_SESSION['status_answer_add_code']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+    <?php
+}
+
+unset($_SESSION['status_answer_add']);
+unset($_SESSION['status_answer_add_code']);
+?>
+
+<?php
+//added answer file  error Message
+if(isset($_SESSION['status_answer_add_err'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_answer_add_code_err']?>",
+            text: "<?php echo $_SESSION['status_answer_add_err']?>",
+            icon: "<?php echo $_SESSION['status_answer_add_code_err']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+    <?php
+}
+
+unset($_SESSION['status_answer_add_err']);
+unset($_SESSION['status_answer_add_code_err']);
+?>
+
+
+<?php
+//update answer file  success Message
+if(isset($_SESSION['status_answer_update'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_answer_update_code']?>",
+            text: "<?php echo $_SESSION['status_answer_update']?>",
+            icon: "<?php echo $_SESSION['status_answer_update_code']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+    <?php
+}
+
+unset($_SESSION['status_answer_update']);
+unset($_SESSION['status_answer_update_code']);
+?>
+
+<?php
+//added answer file  error Message
+if(isset($_SESSION['status_answer_update_err'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_answer_update_code_err']?>",
+            text: "<?php echo $_SESSION['status_answer_update_err']?>",
+            icon: "<?php echo $_SESSION['status_answer_update_code_err']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+    <?php
+}
+
+unset($_SESSION['status_answer_update_err']);
+unset($_SESSION['status_answer_update_code_err']);
+?>
+

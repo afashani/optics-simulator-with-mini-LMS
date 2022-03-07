@@ -56,9 +56,9 @@ $tableData= viewTutorials($conn);
 
                     <div class="col-lg-4">
                         <h4 class="mt-2">
-                            <a class="btn-dark p-2  text-center text-light font-weight-bolder border border-secondary border-2"
+                            <a class="btn btn-secondary p-2  text-center text-light font-weight-bolder border border-secondary border-2"
                                href="addTute.php"
-                            >Add Tutorial
+                            >Add Tutorials
 
                             </a>
                         </h4>
@@ -116,3 +116,151 @@ $tableData= viewTutorials($conn);
 </html>
 
 <!---->
+
+<?php
+//add tute    Success Message
+if(isset($_SESSION['status_tute_add'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_tute_add_code']?>",
+            text: "<?php echo $_SESSION['status_tute_add']?>",
+            icon: "<?php echo $_SESSION['status_tute_add_code']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+
+    <?php
+}
+
+unset($_SESSION['status_tute_add_code']);
+unset($_SESSION['status_tute_add']);
+?>
+
+<?php
+//add tute error Message
+if(isset($_SESSION['status_tute_add_err'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_tute_add_code_err']?>",
+            text: "<?php echo $_SESSION['status_marksheet_add_err']?>",
+            icon: "<?php echo $_SESSION['status_tute_add_code_err']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+    <?php
+}
+
+unset($_SESSION['status_tute_add_err']);
+unset($_SESSION['status_tute_add_code_err']);
+?>
+
+
+<?php
+//add tute    Success Message
+if(isset($_SESSION['status_tute_add'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_tute_add_code']?>",
+            text: "<?php echo $_SESSION['status_tute_add']?>",
+            icon: "<?php echo $_SESSION['status_tute_add_code']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+
+    <?php
+}
+
+unset($_SESSION['status_tute_add_code']);
+unset($_SESSION['status_tute_add']);
+?>
+
+<?php
+//add tute error Message
+if(isset($_SESSION['status_tute_add_err'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_tute_add_code_err']?>",
+            text: "<?php echo $_SESSION['status_marksheet_add_err']?>",
+            icon: "<?php echo $_SESSION['status_tute_add_code_err']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+    <?php
+}
+
+unset($_SESSION['status_tute_add_err']);
+unset($_SESSION['status_tute_add_code_err']);
+?>
+
+<?php
+//delete tute Success Message
+if(isset($_SESSION['status_tute_delete'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_tute_delete_code']?>",
+            text: "<?php echo $_SESSION['status_tute_delete']?>",
+            icon: "<?php echo $_SESSION['status_tute_delete_code']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+
+    <?php
+}
+
+unset($_SESSION['status_tute_delete']);
+unset($_SESSION['status_tute_delete_code']);
+?>
+
+<?php
+//delete tute error Message
+if(isset($_SESSION['status_tute_delete_err'])){
+
+    ?>
+
+    <script type="application/javascript">
+
+        swal({
+            title: "<?php echo $_SESSION['status_tute_delete_code_err']?>",
+            text: "<?php echo $_SESSION['status_marksheet_add_err']?>",
+            icon: "<?php echo $_SESSION['status_tute_delete_code_err']?>",
+            button: "Ok",
+        });
+    </script>
+
+
+    <?php
+}
+
+unset($_SESSION['status_tute_delete_code_err']);
+unset($_SESSION['status_tute_delete_err']);
+?>

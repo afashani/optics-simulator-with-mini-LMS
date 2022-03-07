@@ -12,5 +12,7 @@
     <orderEntry type="library" name="sweetalert" level="application" />
     <orderEntry type="library" name="all" level="application" />
     <orderEntry type="library" name="dropzone" level="application" />
+    <orderEntry type="library" name="jquery-confirm" level="application" />
+    <orderEntry type="library" name="jquery-3.2.1.slim" level="application" />
   </component>
 </module>

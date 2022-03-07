@@ -29,49 +29,54 @@ if(!isset($_SESSION['stdId'])) {
     <link rel="stylesheet" href="../../Inc/css/header.css" type="text/css">
 
     <script src="../../Inc/JS/header.js" type="application/javascript"></script>
+    <!--   alert js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
     <!--  Sweet alert js -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body>
 
 <div class=" container-fluid ">
     <div class="row header ">
-        <div class="admin-nav bg-success p-0 text-dark">
+        <div class="admin-nav bg-info p-0 text-dark">
 
             <h4 class="text-dark bg-light text-center p-2">  Menu </h4>
 
-            <div class="list-group list-group-flush bg-success " id="listGroup">
+            <div class="list-group list-group-flush bg-info " id="listGroup">
 
-                <a class="list-group-item text-white admin-main-link bg-success" href='../../../index.php' id="nav-dashboard" >
+                <a class="list-group-item text-white admin-main-link bg-info" href='../../../index.php' id="nav-dashboard" >
                     <i class=" fas fa-clipboard-list"></i> &nbsp; Home Page
                 </a>
                 <!-- have to look on active -->
-                <a class="list-group-item text-white admin-main-link bg-success" href='../Pages/dashboard.php' id="nav-dashboard" >
+                <a class="list-group-item text-white admin-main-link bg-info" href='../Pages/dashboard.php' id="nav-dashboard" >
                               <i class=" fas fa-clipboard-list"></i> &nbsp; Dashboard
                 </a>
 
                 <!-- Simulator -->
-                <a  class="list-group-item list-group-flush admin-main-link bg-success" href='../../../simulator.php' id="nav-student" >
+                <a  class="list-group-item list-group-flush admin-main-link bg-info" href='../../../simulator.php' id="nav-student" >
                     <i class="fas fa-user-friends"></i>&nbsp;&nbsp; Simulator
                 </a>
 
 
                 <!-- Resorses -->
-                <a  class="list-group-item text-light admin-main-link bg-success " id="nav-resources">
+                <a  class="list-group-item text-light admin-main-link bg-info " id="nav-resources">
                     <i class="fa fa-suitcase" aria-hidden="true"></i>
                     &nbsp; Resourses
                 </a>
 
                 <!-- Resorses group -->
-                <div class="list-group list-group-flush resources-group text-right text-white bg-success" id="nav-resources-list" >
+                <div class="list-group list-group-flush resources-group text-right text-white bg-info" id="nav-resources-list" >
 
-                    <a href=../Pages/Activities.php#'  class="list-group-item bg-success sub-link">
+                    <a href=../Pages/Activities.php#'  class="list-group-item bg-info sub-link">
                         <i class="fas fa-book" aria-hidden="true"></i>
                         &nbsp; Activities
                     </a>
 
-                    <a href='../Pages/Tutorial.php'class="list-group-item bg-success sub-link">
+                    <a href='../Pages/Tutorial.php'class="list-group-item bg-info sub-link">
                         <i class="fa fa-video" aria-hidden="true"></i>
                         Tutorials
                     </a>
@@ -84,7 +89,7 @@ if(!isset($_SESSION['stdId'])) {
                 </div>
 
                 <!-- Setting -->
-                <a  class="list-group-item text-light admin-main-link bg-success " href="../Pages/AccountSetting.php" >
+                <a  class="list-group-item text-light admin-main-link bg-info " href="../Pages/AccountSetting.php" >
                     <i class="fa fa-cog" aria-hidden="true"></i>
                     &nbsp; Setting
                 </a>

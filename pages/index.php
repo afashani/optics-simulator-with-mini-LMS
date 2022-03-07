@@ -39,53 +39,31 @@
 <body id="bg">
 <div class="page-wrapper">
 
-	<!-- Header Top ==== -->
-   <!-- <header class="header rs-nav header-transparent"> -->
-		<!-- <div class="top-bar">
-			<div class="container">
-				<div class="row d-flex justify-content-between"> -->
-					<!-- <div class="topbar-left">
-						<ul>
-							<li><a href="faq-1.html">Admin</a></li>
-							<li><a href="#"></i>Student</a></li>
-						</ul>
-					</div> -->
-					
-				<!-- </div>
-			</div>
-		</div> -->
-		<!-- <div class="sticky-header navbar-expand-lg">
-            <div class="menu-bar clearfix">
-                <div class="container clearfix"> -->
-                    <!-- <div class="nav-search-bar">
-                        <form action="#">
-                            
-                        </form>
-						
-                    </div> -->
+	
 					<!-- Navigation Menu ==== -->
 					<?php include '../include/header2.php' ?>
 					<!-- Navigation Menu END ==== -->
-                <!-- </div>
-            </div>
-        </div> -->
-    <!-- </header> -->
+               
 	
     <!-- Header Top END ==== -->
     <!-- Content -->
-	<div class="content">
-		<h1 class="heading">Welcome To Wisdom Institution</h1>
-        <?php
+	
+    <div class="content">
+        <div class = "bg-light head">
+            <h1 class=" heading">Welcome To Wisdom Institution</h1>
+        </div>
+            <?php
 
-        if(isset( $_SESSION['stdname'])){
-            $content="";
-        }else{
-            $content="<a class='sign-in' style='margin: 15px;' href='login.php'>Sign In</a>
-		<a class='sign-up' style='margin: 15px;' href='register.php'>Sign Up</a>";
-        }
-        echo $content;
+            if(isset( $_SESSION['stdname'])){
+                $content="";
+            }else{
+                $content="<a class='sign-in' style='margin: 15px;' href='login.php'>Sign In</a>
+            <a class='sign-up' style='margin: 15px;' href='register.php'>Sign Up</a>";
+            }
+            echo $content;
 
-        ?>
+            ?>
+        
 
 	</div>
 
@@ -97,7 +75,7 @@
 	</footer>
     <!-- Footer END ==== -->
 	
-</div>
+</d>
 
 <!-- External JavaScripts -->
 
