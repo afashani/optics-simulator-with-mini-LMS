@@ -62,6 +62,7 @@ if(isset($_POST['accountsetting'])) {
 
         //   $hpassword = $func->encryptInput($password);
         //change email
+        $isSomethingChanged=false;
 
         if ($adminEmail != $email) {
             if ($func->checkEmailExists($conn, $email)) {
@@ -69,10 +70,13 @@ if(isset($_POST['accountsetting'])) {
                 $_SESSION['status_acsetting_update_code_err']='error';
             } else {
                 $emailStatus = $func->changeAdminEmail($conn, $email);
+                $isSomethingChanged=true;
             }
+
+
         }
         //change pw
-        if ($adminPw != $pw) {
+        else if ($adminPw != $pw) {
             if(!isset($_POST['psw']) || strlen($_POST['psw']) < 8){
                 $errors[] = 'Password Must be >= 8';
             }
@@ -88,15 +92,24 @@ if(isset($_POST['accountsetting'])) {
 
             if(empty($errors)){
                 $pwStatus = $func->changeAdminPassword($conn, $pw);
+                $isSomethingChanged=true;
+            }else{
+                $_SESSION['status_acsetting_update_err']="Wrong password pattern";
+                $_SESSION['status_acsetting_update_code_err']='error';
             }
 
         }
 
-        $_SESSION['status_acsetting_update']="Account Update Successfully";
-        $_SESSION['status_acsetting_update_code']='success';
+        if($isSomethingChanged){
+            $_SESSION['status_acsetting_update']="Account Update Successfully";
+            $_SESSION['status_acsetting_update_code']='success';
 
+            unset($_SESSION['admin_id']);
+            header("location:../../index.php");
+        }else{
+            header("location:AccountSetting.php");
+        }
 
-        header("location:../../index.php");
     }
 
     else{
