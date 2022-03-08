@@ -101,15 +101,15 @@ require_once '../Includes/header.php';
                                     </div>
                                 </a>
                             </div>
-                            <div class="carousel-item  justify-content-center">
-                                <a href="../Pages/Marksheet.php">
-                                    <img src="../../Inc/Img/msheet.png" class="d-block  image1 nb-2" alt="...">
-                                    <div class="carousel-caption text-light mt-2 pt-2 bg-info">
-                                        <h2>Mark Sheets</h2>
-                                        <p class="text-light text-capitalize  d-none d-md-block">Some representative placeholder content for the first slide.</p>
-                                    </div>
-                                </a>
-                            </div>
+<!--                            <div class="carousel-item  justify-content-center">-->
+<!--                                <a href="../Pages/Marksheet.php">-->
+<!--                                    <img src="../../Inc/Img/msheet.png" class="d-block  image1 nb-2" alt="...">-->
+<!--                                    <div class="carousel-caption text-light mt-2 pt-2 bg-info">-->
+<!--                                        <h2>Mark Sheets</h2>-->
+<!--                                        <p class="text-light text-capitalize  d-none d-md-block">Some representative placeholder content for the first slide.</p>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </div>-->
                         </div>
                         <button class="carousel-control-prev text-success bg-info" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -46,11 +46,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages/Admin/Inc/Img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/include" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Sem 3.1\Project -II\optics-simulator-with-mini-LMS\include" />
       <recent name="D:\Sem 3.1\Project -II\optics-simulator-with-mini-LMS\pages\Admin\Inc\Img" />
     </key>
   </component>
@@ -68,7 +69,7 @@
       <workItem from="1646635237490" duration="6842000" />
       <workItem from="1646654468354" duration="2028000" />
       <workItem from="1646659018872" duration="7955000" />
-      <workItem from="1646724188729" duration="2718000" />
+      <workItem from="1646724188729" duration="4602000" />
     </task>
     <servers />
   </component>

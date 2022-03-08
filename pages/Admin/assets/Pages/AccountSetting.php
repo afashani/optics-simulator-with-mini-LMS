@@ -81,7 +81,7 @@ $adminPw="************";
                     <tr>
                         <td class="col-4">Name</td>
                         <td class="col-5 text-center">
-                         <input type="text" name="name" value="Admin" readonly/>
+                         <input type="text" name="name" size="40" value="Admin" readonly/>
                         </td>
 
 
@@ -91,7 +91,7 @@ $adminPw="************";
                         <td>Email</td>
                         <td>
                             <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Enter valid email">
-                                <input type="text" name="email" value="<?php if(isset($adminEmail)){echo $adminEmail;} ?>"/>
+                                <input type="text" name="email" size="40" value="<?php if(isset($adminEmail)){echo $adminEmail;} ?>"/>
                             </button>
                         </td>
 
@@ -101,7 +101,7 @@ $adminPw="************";
                         <td>
 
                             <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Password Must be greter than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter">
-                                <input type="password" name="pw" value="<?php if(isset($adminPw)){echo $adminPw;} ?>"/>
+                                <input type="password" name="pw" size="40" value="<?php if(isset($adminPw)){echo $adminPw;} ?>"/>
                             </button>
                         </td>
 
@@ -112,7 +112,7 @@ $adminPw="************";
                         <td>Retype-Password</td>
                         <td>
                             <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Type password again">
-                            <input type="password" name="Rpw" value="<?php if(isset($adminPw)){echo $adminPw;} ?>"/>
+                            <input type="password" name="Rpw" size="40" value="<?php if(isset($adminPw)){echo $adminPw;} ?>"/>
                             </button>
                         </td>
 
