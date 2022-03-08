@@ -43,14 +43,14 @@ if(!isset($_SESSION)){
 </head>
 <body class="headbody">
 <header>
-    <div class="">
-        <div class="row logorow">
-            <div class="col-md-12">
+    <!-- <div class=""> -->
+        <!-- <div class="row logorow"> -->
+            <!-- <div class="col-md-12">
                 <div class="logoimg">
                  <img class="img-logo" src="../assets/images/light-beam-logo.png" width="100%" height="75px" alt="">
                 </div>
                  <a href=""></a>
-            </div>
+            </div> -->
 <!--            <div class="col-md-6 d-flex justify-content-end">-->
 <!---->
 <!--                --><?php
@@ -64,15 +64,13 @@ if(!isset($_SESSION)){
 <!---->
 <!---->
 <!--            </div>-->
-        </div>
+        <!-- </div> -->
         <nav class="navbar navbar-expand-lg navbar-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-<<<<<<< HEAD
                 <img class="img-logo" src="../assets/images/logo-new.png" width="100%" height="75px" alt="">
                    <div class="col-2"></div>
                         <li><a class="navbar-brand" href="../pages/index.php" >Home</a></li>
@@ -120,65 +118,6 @@ if(!isset($_SESSION)){
 
                             </div>
                         </li>
-=======
-                    <li><a class="navbar-brand" href="../pages/index.php" >Home</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Pages
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
-                            <li><a class="dropdown-item" href="../pages/Student/assets/Pages/AccountSetting.php">Profile</a></li>
-
-                            <li><a class="dropdown-item" href="../pages/Student/assets/Pages/Activities.php">Activities</a></li>
-
-                            <li><a class="dropdown-item" href="#">About Us</a></li>
-                            <li><a class="dropdown-item" href="#">FAQ's</a></li>
-                            <li><a class="dropdown-item" href="#">Contact US</a></li>
-
-                            <!-- <li class="dropdown-submenu">
-                              <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
-                              <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
-                                <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
-                              </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                              <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>
-                              <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
-                                <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
-                              </ul>
-                            </li> -->
-
-
-
-
-
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-<!--                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                            Dashboard-->
-<!--                        </a>-->
-<!--                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">-->
-<!--                            <a class="dropdown-item" href="#">Dashboard</a>-->
-<!--                            <a class="dropdown-item" href="#">Courses</a>-->
-<!--                        </div>-->
-                        <a class="dropdown-item" href="../pages/Student/assets/Pages/dashboard.php">Dashboard</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Optics Simulator
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">How to Use</a>
-
-
-                            <a class="dropdown-item" href="../pages/simulator.php">Simulator</a>
-
-                        </div>
-                    </li>
->>>>>>> 34a9011d23e783f006251483c4224e2b429ca913
                 </ul>
 <!--                <form class="form-inline my-2 my-lg-0">-->
 <!--                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
@@ -193,7 +132,7 @@ if(!isset($_SESSION)){
                     }else{
                         $name="Student Login";
                     }
-                    echo "<a  class='btn btn-primary' href='../pages/Student/assets/Pages/dashboard.php'>{$name}</a>";
+                    echo "<a  style = 'background-color : #15154B ;' class='sign-in' href='../pages/Student/assets/Pages/dashboard.php'>{$name}</a>";
                     ?>
                     </h3>
 
@@ -202,7 +141,7 @@ if(!isset($_SESSION)){
                 </div>
         </nav>
 
-    </div>
+    <!-- </div> -->
 </header>
 
 </body>

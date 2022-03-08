@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a55498de-b2f8-4c70-b89e-6b8dad731ea7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/header2.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/header2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Includes/resoursesfunc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Includes/resoursesfunc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/AccountSetting.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/AccountSetting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/accountProcess.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/accountProcess.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/AccountSetting.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/AccountSetting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/accountProcess.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/accountProcess.php" afterDir="false" />
-    </list>
+    <list default="true" id="a55498de-b2f8-4c70-b89e-6b8dad731ea7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,11 +46,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages/Admin/Inc/Img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/include" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Sem 3.1\Project -II\optics-simulator-with-mini-LMS\include" />
       <recent name="D:\Sem 3.1\Project -II\optics-simulator-with-mini-LMS\pages\Admin\Inc\Img" />
     </key>
   </component>
@@ -76,7 +69,7 @@
       <workItem from="1646635237490" duration="6842000" />
       <workItem from="1646654468354" duration="2028000" />
       <workItem from="1646659018872" duration="7955000" />
-      <workItem from="1646724188729" duration="2718000" />
+      <workItem from="1646724188729" duration="4602000" />
     </task>
     <servers />
   </component>
