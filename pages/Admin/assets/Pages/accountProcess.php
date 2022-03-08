@@ -91,7 +91,8 @@ if(isset($_POST['accountsetting'])) {
             }
 
             if(empty($errors)){
-                $pwStatus = $func->changeAdminPassword($conn, $pw);
+
+                $pwStatus = $func->changeAdminPassword($conn, sha1($pw));
                 $isSomethingChanged=true;
             }else{
                 $_SESSION['status_acsetting_update_err']="Wrong password pattern";
