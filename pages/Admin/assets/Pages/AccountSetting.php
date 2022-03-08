@@ -118,9 +118,9 @@ $adminPw="************";
 
                     </table>
 
-                        <div class="text-capitalize bg-light text-danger text-center" >
+                        <div class="text-capitalize bg-light text-dark text-center" >
                             <h4>Instructions</h4>
-                            <h6 class="bg-danger text-light">Password Must be greter than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter</h6>
+                            <h6 class="">Password Must be greter than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter</h6>
 
                         </div>
 
