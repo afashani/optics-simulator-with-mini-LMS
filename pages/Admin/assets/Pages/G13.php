@@ -71,12 +71,12 @@ $tableData= viewStudent($conn,13);
 
 
                 <div class="table-responsive" id="showAllUsers">
-                    <table class="table table-striped text-dark" id="dataTable">
+                    <table class="table table-striped text-dark text-center" id="dataTable">
                     <thead>
                     <tr>
                         <th>Student Id</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th class=" d-none d-lg-table-cell ">Name</th>
+                        <th class=" d-none d-lg-table-cell ">Email</th>
                         <th>View</th>
                     </tr>
                     </thead>

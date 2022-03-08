@@ -90,7 +90,6 @@ if(isset($_POST['adminLogin'])) {
     <meta charset="UTF-8">
     <meta name="description" content="Free Web tutorials">
     <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="author" content="John Doe">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" >
@@ -114,14 +113,14 @@ if(isset($_POST['adminLogin'])) {
 
 <body >
 
-    <div class="container h-100">
-        <div class="row h-100 align-items-center justify-content-center"  >
+    <div class="container h-100 border border-dark border-2" style="opacity: 0.8">
+        <div class="row h-100 align-items-center justify-content-center border border-dark border-2"  >
 
-            <div class="col-lg-5">
+            <div class="col-lg-5 mt-2">
                     <div class="card border-primary shadow-lg ">
-                        <div class="card-header text-center" id="loginHeader">
+                        <div class="card-header bg-dark text-center" id="loginHeader">
 
-                            <h3 class="m-0 text-light">
+                            <h3 class="m-0 text-light ">
                                 <i class="fas fa-user-cog"></i>
                                 &nbsp; Admin Panel Login
                             </h3>
@@ -159,7 +158,7 @@ if(isset($_POST['adminLogin'])) {
                                 <div class='form-group text-dark' id='loginButton'>
 
 
-                                    <input type='submit' name='adminLogin' class='btn btn-block btn-lg rounded-0 text-light'  value='Admin Login' id='adminLoginBtn'  >
+                                    <input type='submit' name='adminLogin' class='btn btn-block btn-lg rounded-0 text-light btn-dark'  value='Admin Login' id='adminLoginBtn'  >
 
                                 </div>
 

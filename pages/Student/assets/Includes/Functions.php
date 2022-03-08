@@ -116,8 +116,10 @@ class Functions
     function vertifyStudent($connection, $email, $pw): bool
     {
 
+        $hashedPw=sha1($pw);
         $status=false;
-        $query= "select student_id,student_name  from student where student.email='{$email}' AND student.password='{$pw}'";
+        $query= "select student_id,student_name  from student where student.email='{$email}' AND student.password='{$hashedPw}'";
+
 
         $result = mysqli_query($connection, $query);
         $resultSet = $connection->query( $query );
@@ -207,6 +209,7 @@ class Functions
     }
     function changeStudentPassword($connection, $password): bool
     {
+        $password=sha1($password);
         $std_id=$_SESSION['stdId'];
         $status=false;
         $query= "UPDATE student

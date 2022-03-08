@@ -157,10 +157,10 @@ $countTutorials*=4;
 
 <body>
     <!--  dashboard content goes here  -->
-    <div class="row bg-white  mt-5 mb-5">
-        <div class="col-12">
-            <div class="card-deck mt-2 text-center font-weight-bold  ">
-                <div class="card border border-primary border-2 mt-5 mb-5 ">
+    <div class="row bg-white  mx-auto d-flex align-content-center ">
+        <div class="col-12 mx-auto">
+            <div class="card-deck mt-5 text-center font-weight-bold  ">
+                <div class="card border border-primary border-2  mb-2 ">
 
                     <div class="card-header bg-primary text-white ">
                         <h2>Students</h2>
@@ -172,7 +172,7 @@ $countTutorials*=4;
 
                 </div>
 
-                <div class="card countsInfo border border-primary border-2 mt-5 mb-5">
+                <div class="card countsInfo border border-primary border-2 mb-2 ">
 
                     <div class="card-header bg-primary text-white ">
                         <h2>Resources</h2>

@@ -45,16 +45,17 @@ if(isset($_POST['addActivity'])){
     //   echo " newFileName".$newFileName;
 
     //get upload directory
-    $uploadDir="../../../../resources/activities/".$newFileName.$fileType;
+    $uploadDir="../../../../resources/activities/".$newFileName;
+    $activityPathToDB = $newFileName;
+    //echo $uploadDir;
 
-    echo $uploadDir;
-
-    if(isset($uploadDir)) {
-        $twoPart = explode("/", $uploadDir);
+    if(isset($fileType)) {
+        $twoPart = explode("/", $fileType);
         $newData = "." . $twoPart[1];
 
 
-        $uploadDir = $newData;
+        $uploadDir .= $newData;
+        $activityPathToDB.= $newData;
 
     }
 
@@ -73,11 +74,10 @@ if(isset($_POST['addActivity'])){
     //get last activity id
 
     $newActivityId=0;
-    $newActivityId= (getlastActivityId($conn));
+//    $newActivityId= (getlastActivityId($conn));
     //echo "| activity id |".$newActivityId;
     $actvityTitle=$_POST['fileName'];
     //  echo "| actvityTitle |".$actvityTitle;
-    $activityPathToDB = $newFileName;
     // echo " |activityPathToDB |".$activityPathToDB;
     $deadline=$_POST['deadline'];
     //  echo "   date  ".$deadline;
@@ -113,9 +113,9 @@ if(isset($_POST['addActivity'])){
 
         $fileUploadStatus=move_uploaded_file($fileTPName, $uploadDir);
         echo "I am in empty errors";
-        $statusActivity=addActivity($conn, $newActivityId,$actvityTitle,$activityPathToDB,$deadline);
-
-        echo $statusActivity;
+        $statusActivity=addActivity($conn,$actvityTitle,$activityPathToDB,$deadline);
+        $newActivityId= (getlastActivityId($conn));
+//        echo $statusActivity;
         addActivityAdminId($conn,$newActivityId);
         //a
         //update admin activity table
@@ -210,7 +210,7 @@ if(isset($_POST['updateActivity'])){
 
 
         //sesssion
-        $_SESSION['status_activity_update_err']=$errors[0]."<br>"."Activity Updated successfully";
+        $_SESSION['status_activity_update_err']=$errors[0];
         $_SESSION['status_activity_update_code_err']='error';
         header("location:Activities.php");
 

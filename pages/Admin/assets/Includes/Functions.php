@@ -94,6 +94,7 @@ class Functions
     function vertifyAdmin($connection, $email, $pw): bool
     {
 
+        $pw=sha1($pw);
         $status=false;
         $query= "select admin_id from `admin` where email='{$email}' AND password='{$pw}'";
 
@@ -245,6 +246,7 @@ class Functions
     }
     function changeAdminPassword($connection, $password): bool
     {
+        $password=sha1($password);
         $admin_id=$_SESSION['admin_id'];
         $status=false;
         $query= "UPDATE admin

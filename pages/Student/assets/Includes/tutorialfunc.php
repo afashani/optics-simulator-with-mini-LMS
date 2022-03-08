@@ -47,7 +47,7 @@ function viewTutorials($connection): String
 
 function viewSingleTutorial($connection, $tutorialId){
     $file="";
-    $query= "select tute_file  from tutorial WHERE tutorial_id={$tutorialId}";
+    $query= "select tute_fpath  from tutorial WHERE tutorial_id={$tutorialId}";
 
     $result = mysqli_query($connection, $query);
 

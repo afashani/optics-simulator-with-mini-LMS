@@ -39,7 +39,7 @@ if(isset($_GET['activityId'])){
     $activitySubmitStatus=checkAnswerAvaliblabe($conn);
 
     if($activitySubmitStatus){
-        $submissonStatus= "Submmited fot Grading";
+        $submissonStatus= "Submmited for Grading";
         $uploadButtonName="Update File";
         //over due or not
         $isOverDue=isOverDue($conn,$activity_id);
@@ -53,6 +53,7 @@ if(isset($_GET['activityId'])){
 
         //get marksheet sumbit time
         $answerSubmmionTime= getAnswerAddedTIme($conn,$activity_id );
+
 
     }else{
         $timeRemaining=$timeRemain;
@@ -139,30 +140,24 @@ if(isset($_GET['activityId'])){
                             </tr>
 
                             <tr class="border border-info border-5">
-                                <td class="bg-info text-light">Upload</td>
-                                <td class="bg-light text-dark">
+                                <td class="bg-info text-light col-4 col-md-4  col-sm-4 col-xs-3">Upload</td>
+                                <td class="bg-light text-dark col-8 col-md-8  col-sm-8 col-xs-8">
                                     <form action="processAnswer.php" enctype="multipart/form-data" method="post"  class="was-validated">
-                                        <span class="m-2 text-danger">You must have to upload pdf file</span>
-                                        <div class="frame">
-                                            <div class="center">
+                                        <span class=" text-danger">You must have to upload pdf file</span>
 
-
-
-                                                <div class=" border border-info border-2">
 
                                                     <span>
-                                                        <input type="file" class="upload-input" name="answerfile">
+                                                        <input type="file" class="upload-input w-75" name="answerfile">
                                                     <i class="fas fa-solid fa-upload"></i>
                                                     </span>
                                                         <input type="hidden" name="activityName" value="<?php echo $activityName; ?>">
                                                         <input type="hidden" name="activityID" value="<?php echo $activity_id; ?>">
 
-                                                </div>
+
 
                                                 <button  class="btn btn-info  rounded-pill mt-2" name="<?php if($activitySubmitStatus){echo "updateAnswer";}else{echo "addAnswer";} ?>"> <?php echo $uploadButtonName; ?></button>
 
-                                            </div>
-                                        </div>
+
                                     </form>
                                 </td>
                             </tr>

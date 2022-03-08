@@ -4,7 +4,7 @@ require_once '../Includes/ConfigDB.php';
 require_once '../Includes/activityfunc.php';
 require_once '../Includes/Functions.php';
 
-if(isset($_SESSION)){
+if(!isset($_SESSION)){
     session_start();
 }
 
@@ -49,12 +49,12 @@ if(isset($_POST['addAnswer'])){
 
     //get upload path
     $uploadDir=getAnswerUploadPath($conn,$activityId);
-    $uploadDir.= $aFileName;
-
     //create directory if not extist
     if (!file_exists($uploadDir)) {
         mkdir($uploadDir, 0777, true);
     }
+    $uploadDir.= "/";
+
     $uploadDir.= "/".$newFileName.".pdf";
 
     if($fileSize >= 5000000){
@@ -82,7 +82,7 @@ if(isset($_POST['addAnswer'])){
 
         $fileUploadStatus=move_uploaded_file($fileTPName, $uploadDir);
 
-        $statusActivity=addAnswerScript($conn,$newFileName);
+        $statusActivity=addAnswerScript($conn,$newFileName,$activityId);
 
 
         $_SESSION['status_answer_add']="Answer added successfully";
@@ -169,7 +169,7 @@ if(isset($_POST['updateAnswer'])){
         //else error
 
         //change submiison time
-        updateActivity($conn);
+        updateActivity($conn,$activityId);
 
 
         $_SESSION['status_answer_update']="Answer updated successfully";

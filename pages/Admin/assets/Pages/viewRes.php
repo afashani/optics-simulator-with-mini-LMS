@@ -75,7 +75,7 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
 
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-12 form-control-sm">
 
         <div class="card-deck">
         <div class="card my-2 border-primary bg-light d-flex justify-content-center">
@@ -101,58 +101,53 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
                         <td class='bg-light text-dark'>Activity Added</td>
                     </tr>
 
-                    <tr class="border border-success border-5">
+                    <tr class="border border-success border-2">
                         <td class="bg-primary text-light">Due date</td>
-                        <td class="bg-light text-dark">
-                            <form method="post" action="activityProcess.php" >
-                                <input type="datetime-local" name="date" value="<?php echo $dueDate; ?>">
-                                <input type="hidden" name="activityID" value="<?php echo $activityId; ?>">
-                                <button type="submit" class="btn btn-primary ml-2" name="updateDueDate">Change Deadline</button>
+                        <td class="bg-light text-dark w-75">
+                            <form method="post" class="w-75" action="activityProcess.php" >
+                                <input type="datetime-local" name="date" class="w-100" value="<?php echo $dueDate; ?>">
+                                <input type="hidden" name="activityID" class="w-75" value="<?php echo $activityId; ?>">
+                                <button type="submit" class="btn btn-primary mt-2" name="updateDueDate">Change Deadline</button>
                             </form>
 
                         </td>
                     </tr>
 
 
-                    <tr class="border border-success border-5">
+                    <tr class="border border-success border-2">
                         <td class="bg-primary text-light">Time Remaning</td>
                         <td class="bg-light text-dark"> <?php echo $time_remaining; ?></td>
                     </tr>
 
-                    <tr class="border border-success border-5">
+                    <tr class="border border-success border-2">
                         <td class="bg-primary text-light">last Modified</td>
                         <td class="bg-light text-dark"> <?php echo $lastMod; ?></td>
                     </tr>
 
-                    <tr class="border border-success border-5">
+                    <tr class="border border-success border-2">
                         <td class="bg-primary text-light">Activity File</td>
                         <td class="bg-light text-dark"> <a href="<?php echo $filePath; ?>" target="_blank"><?php echo  $fileName; ?></a></td>
                     </tr>
 
-                    <tr class="border border-success border-5">
-                        <td class="bg-primary text-light">Upload</td>
-                        <td class="bg-light text-dark">
-                            <form action="activityProcess.php" enctype="multipart/form-data" method="post" >
-
-                                <div class="frame">
-                                    <div class="center">
+                    <tr class="border border-success border-2">
+                        <td class="bg-primary text-light col-4 col-md-4  col-sm-4 col-xs-3">Upload</td>
+                        <td class="bg-light text-dark col-8 col-md-8  col-sm-8 col-xs-8 ">
+                            <form action="activityProcess.php" class="w-75" enctype="multipart/form-data" method="post" >
 
 
                                         <div class=" border border-success border-2">
 
                                                     <span>
-                                                        <input type="file" class="upload-input" name="updateActivityFile" >
+                                                        <input type="file" class="w-75" name="updateActivityFile" >
                                                     <i class="fas fa-solid fa-upload"></i>
                                                     </span>
 
-                                            <input type="hidden" name="activityId" value="<?php echo  $_GET['res_id'];?>" >
+                                            <input type="hidden" name="activityId" class="w-75" value="<?php echo  $_GET['res_id'];?>" >
 
                                         </div>
 
                                         <button name="updateActivity" type="submit" class="btn btn-primary  rounded-pill mt-2">Update file</button>
 
-                                    </div>
-                                </div>
                             </form>
                         </td>
                     </tr>
@@ -205,7 +200,7 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
                         <tr>
                             <th>Student</th>
                             <th>Upload Time</th>
-                            <th>Overdue</th>
+                            <th class='d-none d-lg-table-cell'>Overdue</th>
                             <th>View Answer</th>
 
                         </tr>

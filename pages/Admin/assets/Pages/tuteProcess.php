@@ -21,7 +21,7 @@ if(isset($_POST['addTute'])){
 
     //get latedt id and assign new id
     $newTuteId=getlastTuteId($conn);
-    $status=addTute($conn,$newTuteId,$name,$link);
+    $status=addTute($conn,$name,$link);
 
     if($status){
         $_SESSION['status_tute_add']="Tutorial Added successfully";
