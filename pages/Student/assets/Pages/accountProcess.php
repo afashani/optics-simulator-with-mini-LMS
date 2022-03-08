@@ -71,21 +71,25 @@ if(isset($_POST['accountsetting'])) {
         //   $hpassword = $func->encryptInput($password);
 
         //change name
+
+        $isSomethingChanged=false;
         if($studentName != $name) {
             $nameStatus = $function->changeStudentName($conn, $name);
+            $isSomethingChanged=true;
         }
         //change email
-        if($studentEmail != $email) {
+        else if($studentEmail != $email) {
             if($function -> checkEmailExists($conn,$email)){
                 $_SESSION['status_acsetting_update_err']="Email exists.Please use another email address ";
                 $_SESSION['status_acsetting_update_code_err']='error';
             }else{
                 $emailStatus = $function->changeStudentEmail($conn, $email);
+                $isSomethingChanged=true;
             }
 
         }
         //change pw
-        if($studentPw != $pw){
+        else if($studentPw != $pw){
             if(!isset($_POST['psw']) || strlen($_POST['psw']) < 8){
                 $errors[] = 'Password Must be >= 8';
             }
@@ -101,10 +105,18 @@ if(isset($_POST['accountsetting'])) {
 
             if(empty($errors)){
                 $pwStatus = $function->changeStudentPassword($conn, $pw);
+                $isSomethingChanged=true;
+            }else{
+                $_SESSION['status_acsetting_update_err']="Wrong Password Pattern ";
+                $_SESSION['status_acsetting_update_code_err']='error';
             }
 
         }
 
+
+    }
+
+    if( $isSomethingChanged){
         $_SESSION['status_acsetting_update']="Account Update Successfully";
         $_SESSION['status_acsetting_update_code']='success';
 
@@ -112,7 +124,6 @@ if(isset($_POST['accountsetting'])) {
         unset($_SESSION['stdname']);
 
         header("location:../../../login.php");
-
     }else{
         $_SESSION['status_acsetting_update_err']=$errors[0];
         $_SESSION['status_acsetting_update_code_err']='error';

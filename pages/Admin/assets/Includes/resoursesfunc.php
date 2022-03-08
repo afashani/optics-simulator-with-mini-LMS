@@ -276,7 +276,7 @@ echo $data;
     return  $data;
 }
 
-function isActivityAvailbale($connection,$activityName):int
+function isActivityAvailbale($connection,$activityName):bool
 {
 
     $data = false;
@@ -320,7 +320,7 @@ function addActivity($connection,$name,$fpath,$deadline):bool
     return  $data;
 }
 
-function addActivityAdminId($connection,$id,):bool
+function addActivityAdminId($connection,$id):bool
 {
     $adminId= $_SESSION['admin_id'];
     $data = false;

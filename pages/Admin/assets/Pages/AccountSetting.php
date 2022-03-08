@@ -90,14 +90,19 @@ $adminPw="************";
                     <tr>
                         <td>Email</td>
                         <td>
-                            <input type="text" name="email" value="<?php if(isset($adminEmail)){echo $adminEmail;} ?>"/>
+                            <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Enter valid email">
+                                <input type="text" name="email" value="<?php if(isset($adminEmail)){echo $adminEmail;} ?>"/>
+                            </button>
                         </td>
 
                     </tr>
                     <tr>
                         <td>Password</td>
                         <td>
-                            <input type="password" name="pw" value="<?php if(isset($adminPw)){echo $adminPw;} ?>"/>
+
+                            <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Password Must be greter than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter">
+                                <input type="password" name="pw" value="<?php if(isset($adminPw)){echo $adminPw;} ?>"/>
+                            </button>
                         </td>
 
 
@@ -106,7 +111,9 @@ $adminPw="************";
                     <tr>
                         <td>Retype-Password</td>
                         <td>
+                            <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Type password again">
                             <input type="password" name="Rpw" value="<?php if(isset($adminPw)){echo $adminPw;} ?>"/>
+                            </button>
                         </td>
 
 
@@ -118,11 +125,11 @@ $adminPw="************";
 
                     </table>
 
-                        <div class="text-capitalize bg-light text-danger text-center" >
-                            <h4>Instructions</h4>
-                            <h6 class="bg-danger text-light">Password Must be greter than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter</h6>
-
-                        </div>
+<!--                        <div class="text-capitalize bg-light text-dark text-center" >-->
+<!--                            <h4>Instructions</h4>-->
+<!--                            <h6 class="">Password Must be greter than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter</h6>-->
+<!---->
+<!--                        </div>-->
 
                         <div class=" d-flex justify-content-center" >
 
