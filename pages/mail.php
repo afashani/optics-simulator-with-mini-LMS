@@ -17,7 +17,7 @@ try {
 	$mail->Host	 = 'smtp.gmail.com;';					
 	$mail->SMTPAuth = true;							
 	$mail->Username = 'mailwisdominstitution@gmail.com';				
-	$mail->Password = 'Wisdom1234';						
+	$mail->Password = 'Wisdom123456';						
 	$mail->SMTPSecure = 'tls';							
 	$mail->Port	 = 587;
 
