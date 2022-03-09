@@ -73,34 +73,25 @@ if(!isset($_SESSION)){
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <img class="img-logo" src="../assets/images/logo-new.png" width="100%" height="75px" alt="">
                    <div class="col-2"></div>
-                        <li><a class="navbar-brand" href="../pages/index.php" >Home</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Pages
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
-                                <li><a class="dropdown-item" href="../pages/Student/assets/Pages/AccountSetting.php">Profile</a></li>
+                        <li class="nav-item dropdown"><a class="navbar-brand" href="../pages/index.php" >Home</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="navbar-brand dropdown-toggle" href="#"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Pages
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+                                    <li><a class="dropdown-item" href="../pages/Student/assets/Pages/AccountSetting.php">Profile</a></li>
+                                    <li><a class="dropdown-item" href="../pages/Student/assets/Pages/Activities.php">Activities</a></li>
+                                    <li><a class="dropdown-item" href="#">About Us</a></li>
+                                    <li><a class="dropdown-item" href="#">FAQ's</a></li>
+                                    <li><a class="dropdown-item" href="#">Contact US</a></li>
 
-                                <li><a class="dropdown-item" href="../pages/Student/assets/Pages/Activities.php">Activities</a></li>
-
-                                <li><a class="dropdown-item" href="#">About Us</a></li>
-                                <li><a class="dropdown-item" href="#">FAQ's</a></li>
-                                <li><a class="dropdown-item" href="#">Contact US</a></li>
-
-                            
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-    <!--                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-    <!--                            Dashboard-->
-    <!--                        </a>-->
-    <!--                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">-->
-    <!--                            <a class="dropdown-item" href="#">Dashboard</a>-->
-    <!--                            <a class="dropdown-item" href="#">Courses</a>-->
-    <!--                        </div>-->
-                            <a class="dropdown-item" href="../pages/Student/assets/Pages/dashboard.php">Dashboard</a>
-                        </li>
-                        <li class="nav-item dropdown">
+                                    
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="navbar-brand" href="../pages/Student/assets/Pages/dashboard.php">Dashboard</a>
+                            </li>
+                            <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Optics Simulator
                             </a>

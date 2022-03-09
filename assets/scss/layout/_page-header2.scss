@@ -13,13 +13,17 @@ header{
 
     
     }
-    .navbar-brand{
+    .navbar-collapse{
+    .navbar-brand,.nav-item{
         font-size: large;
         color: white !important;
         &:hover{
             color: rgb(190, 190, 190);
+            background-color: black;
+            height: 100%;
         }
     
+    }
     }
     // .col-md-6{
     //     a{
