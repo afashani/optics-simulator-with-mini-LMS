@@ -75,13 +75,15 @@
   background-color: #0318189a;
 }
 
-.headbody header .navbar-brand {
+.headbody header .navbar-collapse .navbar-brand, .headbody header .navbar-collapse .nav-item {
   font-size: large;
   color: white !important;
 }
 
-.headbody header .navbar-brand:hover {
+.headbody header .navbar-collapse .navbar-brand:hover, .headbody header .navbar-collapse .nav-item:hover {
   color: #bebebe;
+  background-color: black;
+  height: 100%;
 }
 
 .headbody header .dropdown a {

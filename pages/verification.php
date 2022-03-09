@@ -13,23 +13,23 @@ $mail = new PHPMailer(true);
 
 $OTP = rand(100000,999999);
 
-// echo$OTP;
+echo$OTP;
 
 try {
 	$mail->SMTPDebug = 0;									
 	$mail->isSMTP();											
 	$mail->Host	 = 'smtp.gmail.com;';					
 	$mail->SMTPAuth = true;							
-	$mail->Username = 'mailwisdominstitution@gmail.com';				
-	$mail->Password = 'Wisdom123456';						
+	$mail->Username = 'maheshikaj97@gmail.com';				
+	$mail->Password = 'Sanoja1969';						
 	$mail->SMTPSecure = 'tls';							
 	$mail->Port	 = 587;
 
-	$mail->setFrom('mailwisdominstitution@gmail.com', 'Wisdom Institution');		
+	$mail->setFrom('maheshikaj97@gmail.com', 'Wisdom Institution');		
 	$mail->addAddress($_GET['email'], "verification");
 	
 	$mail->isHTML(true);								
-	$mail->Subject = 'Subject';
+	$mail->Subject = 'Verify Your Account - Wisdom Institution';
 	$mail->Body = "OTP $OTP";
 	$mail->AltBody = 'Body in plain text for non-HTML mail clients';
 	$mail->send();
@@ -175,6 +175,8 @@ for (let i = 0; i < inputs.length; i++)
 
         num = parseInt(num);
 
+        console.log(num);
+        console.log(<?php echo$OTP;?>);
 
         if(num == <?php echo$OTP;?>){
 

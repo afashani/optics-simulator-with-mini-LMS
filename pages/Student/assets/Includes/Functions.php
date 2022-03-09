@@ -116,9 +116,13 @@ class Functions
     function vertifyStudent($connection, $email, $pw): bool
     {
 
-        $hashedPw=sha1($pw);
+        $pw=sha1($pw);
         $status=false;
-        $query= "select student_id,student_name  from student where student.email='{$email}' AND student.password='{$hashedPw}'";
+<<<<<<< HEAD
+        $query= "select student_id,student_name  from student where student.email='{$email}' AND student.password='{$pw}'";
+=======
+        $query= "select student_id,student_name  from student where (student.email='{$email}' AND student.password='{$hashedPw}' AND student.confirm=1)";
+>>>>>>> 38c5ac3485c2f4da32476610a44de5cae49ed558
 
 
         $result = mysqli_query($connection, $query);
