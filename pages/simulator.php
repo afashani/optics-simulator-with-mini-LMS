@@ -30,14 +30,15 @@ if(!isset( $_SESSION['stdId'])){
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
     <style> 
     #bg-simulator{
-        background-color: ;
+        background-color:white ;
     }
     main{
         position: relative;
+        
     }
         canvas#defaultCanvas0{
             position: relative;
@@ -48,15 +49,38 @@ if(!isset( $_SESSION['stdId'])){
         table{
           background: rgba(255, 255, 255, 0.671);
         }
+
+        .img-lens{
+            position: relative ;
+            align: center;
+            z-index: 1000;
+            padding-right: 400px;
+            /* object-position: 200px 500px; */
+        }
+
+            
+        
     </style>
 </head>
 <body id="bg-simulator">
 
+
     <script src="../include/p5.js" type="text/javascript"></script>
     <script src="../include/simulator.js" type="text/javascript"></script>
     <?php include '../include/header2.php'?>
+
     
-    <main>
+            <div>
+                <div>
+                    <img src = "../assets/images/introsim.png" class="img-lens">
+                </div>
+            </div>
+        
+    
+
+    
+    <main style = "background-color : #0318189a;">
+    
     </main>   
     
     <div class="row">

@@ -118,10 +118,7 @@ class Functions
 
         $hashedPw=sha1($pw);
         $status=false;
-
-
         $query= "select student_id,student_name  from student where (student.email='{$email}' AND student.password='{$hashedPw}' AND student.confirm=1)";
-
 
 
         $result = mysqli_query($connection, $query);
@@ -181,7 +178,7 @@ class Functions
         $status=false;
         $query= "UPDATE student
                     SET student_name = '{$name}'
-                    WHERE student_id = '{$std_id}'";
+                    WHERE student_id = {$std_id}";
 
         $result = $connection->query($query);
 
@@ -199,7 +196,7 @@ class Functions
         $status=false;
         $query= "UPDATE student
                     SET email = '{$email}'
-                    WHERE student_id = '{$std_id}'";
+                    WHERE student_id = {$std_id}";
 
         $result = $connection->query($query);
 
@@ -217,7 +214,7 @@ class Functions
         $status=false;
         $query= "UPDATE student
                     SET password = '{$password}'
-                    WHERE student_id = '{$std_id}'";
+                    WHERE student_id = {$std_id}";
 
         $result = $connection->query($query);
 

@@ -81,7 +81,7 @@ if(!isset($_SESSION)){
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
                                     <li><a class="dropdown-item" href="../pages/Student/assets/Pages/AccountSetting.php">Profile</a></li>
                                     <li><a class="dropdown-item" href="../pages/Student/assets/Pages/Activities.php">Activities</a></li>
-                                    <li><a class="dropdown-item" href="#">About Us</a></li>
+                                    <li><a class="dropdown-item" href="../pages/aboutus.php">About Us</a></li>
                                     <li><a class="dropdown-item" href="#">FAQ's</a></li>
                                     <li><a class="dropdown-item" href="#">Contact US</a></li>
 
