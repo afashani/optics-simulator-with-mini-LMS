@@ -75,7 +75,7 @@
 	</footer>
     <!-- Footer END ==== -->
 	
-</d>
+</div>
 
 <!-- External JavaScripts -->
 

@@ -65,7 +65,6 @@ if(isset($_POST['studentlogin'])) {
 
 
             //redirect
-            sleep(1);
             header('location:Student/assets/Pages/dashboard.php');
             exit();
         }

@@ -69,7 +69,7 @@ $tableData= viewTutorials($conn);
 
             <div class="card-body bg-light">
                 <div class="search-container mb-2">
-                    <form action="G12.php"  method="get">
+                    <form >
                         <div class="input-group rounded">
                             <input type="search" class="form-control rounded searchBar" placeholder="Enter Tutorial Title" aria-label="Search"
                                    aria-describedby="search-addon" />
@@ -81,8 +81,8 @@ $tableData= viewTutorials($conn);
                 </div>
 
 
-                <div class="table-responsive" id="showAllUsers">
-                    <table class="table table-striped text-dark text-center" id="dataTable">
+                <div class="table-responsive" >
+                    <table class="table table-striped text-dark text-center  dataTable" id="dataTable">
                     <thead>
                     <tr>
 

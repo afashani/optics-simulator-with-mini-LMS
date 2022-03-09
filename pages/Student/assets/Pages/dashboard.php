@@ -97,7 +97,7 @@ require_once '../Includes/header.php';
                                     <img src="../../Inc/Img/tutorial.png" class="d-block  image1 mb-2" alt="...">
                                     <div class="carousel-caption bg-info mt-2 pt-2">
                                         <h2 class="text-light">Tutorials</h2>
-                                        <p class="text-light text-capitalize  d-none d-md-block ">Some representative placeholder content for the first slide.</p>
+                                        <p class="text-light text-capitalize  d-none d-md-block ">more about convex and concave lenses</p>
                                     </div>
                                 </a>
                             </div>

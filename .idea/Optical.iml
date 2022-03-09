@@ -16,5 +16,6 @@
     <orderEntry type="library" name="dropzone" level="application" />
     <orderEntry type="library" name="jquery-confirm" level="application" />
     <orderEntry type="library" name="jquery-3.2.1.slim" level="application" />
+    <orderEntry type="library" name="canvasjs" level="application" />
   </component>
 </module>

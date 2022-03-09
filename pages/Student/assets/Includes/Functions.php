@@ -178,7 +178,7 @@ class Functions
         $status=false;
         $query= "UPDATE student
                     SET student_name = '{$name}'
-                    WHERE student_id = {$std_id}";
+                    WHERE student_id = '{$std_id}'";
 
         $result = $connection->query($query);
 
@@ -196,7 +196,7 @@ class Functions
         $status=false;
         $query= "UPDATE student
                     SET email = '{$email}'
-                    WHERE student_id = {$std_id}";
+                    WHERE student_id = '{$std_id}'";
 
         $result = $connection->query($query);
 
@@ -214,7 +214,7 @@ class Functions
         $status=false;
         $query= "UPDATE student
                     SET password = '{$password}'
-                    WHERE student_id = {$std_id}";
+                    WHERE student_id = '{$std_id}'";
 
         $result = $connection->query($query);
 
