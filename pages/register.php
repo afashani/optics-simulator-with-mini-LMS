@@ -96,13 +96,13 @@ if(isset($_POST['submit'])){
         $query = "INSERT INTO `student`(`student_id`,`student_name`, `tele`,`email`, `password`,`class`) VALUES('{$index}', '{$name}', '{$contact_num}', '{$email}', '{$hashed_password}','{$grade}')";
         $result = mysqli_query($conn, $query);
 
-        // $_POST['index']='';
-        // $_POST['name']='';
-        // $_POST['contact_num']='';
-        // $_POST['email']='';
-        // $_POST['psw']='';
-        // $_POST['psw_repeat']='';
-        // $_POST['grade']='';
+        $_POST['index']='';
+        $_POST['name']='';
+        $_POST['contact_num']='';
+        $_POST['email']='';
+        $_POST['psw']='';
+        $_POST['psw_repeat']='';
+        $_POST['grade']='';
 
         header("Location: verification.php?email=$email");
     }
@@ -138,7 +138,7 @@ if(isset($_POST['submit'])){
     <div class="row " >
         <div class="col-md-6 back-img">
             
-            <img src="../assets/images/register2.jpg" alt="" class="img-fluid mb-3 d-none d-md-block">
+            <img src="../assets/images/register2_1.jpg" alt="" class="img-fluid mb-3 d-none d-md-block">
 
 
         </div>
@@ -171,7 +171,7 @@ if(isset($_POST['submit'])){
                         ?>
 
                         <label for="name"><b>Name</b></label>
-                        <input type="text" placeholder="Enter your Name" name="name" id="name"  value="<?php if(isset($_POST['name'])) {echo $_POST['name'];} ?> " title="Enter strings only">
+                        <input type="text" placeholder="Enter your Name" name="name" id="name"  value="<?php if(isset($_POST['name'])) {echo $_POST['name'];}  ?>" >
                         <?php
                         if(isset($errors['name'])){
                             echo $errors['name'];
