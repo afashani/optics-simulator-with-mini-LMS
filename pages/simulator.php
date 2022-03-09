@@ -1,5 +1,4 @@
-<?php
-if(!isset($_SESSION)){
+<?php if(!isset($_SESSION)){
     session_start();
 }
 
@@ -7,9 +6,7 @@ $isDisplay="";
 if(!isset( $_SESSION['stdId'])){
     header("location:login.php");
     $_SESSION['from_simulator']="You have to log in before use simulator";
-}
-
-?>
+}?>
 
 <!DOCTYPE html>
 <head>
@@ -32,8 +29,8 @@ if(!isset( $_SESSION['stdId'])){
 <link rel="stylesheet" href="../assets/css/main.css"> 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   
     <style> 
     main{
@@ -54,7 +51,7 @@ if(!isset( $_SESSION['stdId'])){
 
     <script src="../include/p5.js" type="text/javascript"></script>
     <script src="../include/simulator.js" type="text/javascript"></script>
-    <?php include '../include/header2.php' ?>
+    <?php include '../include/header2.php'?>
     
     <main>
     </main>   
@@ -82,7 +79,7 @@ if(!isset( $_SESSION['stdId'])){
    
     <!-- Footer ==== -->
         <footer>
-		<?php include '../include/footer.html' ?> 
+		<?php include '../include/footer.html'?> 
 		
 	</footer>
     <!-- Footer END ==== -->

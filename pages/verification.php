@@ -20,12 +20,12 @@ try {
 	$mail->isSMTP();											
 	$mail->Host	 = 'smtp.gmail.com;';					
 	$mail->SMTPAuth = true;							
-	$mail->Username = 'mailwisdominstitution@gmail.com';				
-	$mail->Password = 'Wisdom123456';						
+	$mail->Username = 'maheshikaj97@gmail.com';				
+	$mail->Password = 'Sanoja1969';						
 	$mail->SMTPSecure = 'tls';							
 	$mail->Port	 = 587;
 
-	$mail->setFrom('mailwisdominstitution@gmail.com', 'Wisdom Institution');		
+	$mail->setFrom('maheshikaj97@gmail.com', 'Wisdom Institution');		
 	$mail->addAddress($_GET['email'], "verification");
 	
 	$mail->isHTML(true);								

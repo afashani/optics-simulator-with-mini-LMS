@@ -11,11 +11,11 @@ $newConnection=new ConfigDB();
 $conn=$newConnection ->createConnection();
 
 $errors = array();
-
+// $error_reporting(0);
 // index number format (Format - G120001)
 if(isset($_POST['submit'])){
 
-    print_r($_POST);
+    // print_r($_POST);
     if(empty($_POST['index'])){
         $errors['index'] = '<p class = "errors">Index is Required! </p>';
     }
@@ -43,6 +43,9 @@ if(isset($_POST['submit'])){
     else if(empty($_POST['email'])){
         $errors['email'] = '<p class = "errors">Email is Required!</p>';
     }
+    if(empty($_POST['grade'])){
+        $errors['grade'] = '<p class = "errors">Grade is Required! </p>';
+    }
     if(!isset($_POST['psw']) || empty($_POST['psw'])){
         $errors['psw'] = '<p class = "errors">Password is Required!</p>';
     }
@@ -68,6 +71,8 @@ if(isset($_POST['submit'])){
     }
 
     if(empty($errors)){
+
+        
         $index = $_POST['index'];
         $name = $_POST['name'];
         $contact_num = $_POST['contact_num'];
@@ -90,13 +95,13 @@ if(isset($_POST['submit'])){
         $query = "INSERT INTO `student`(`student_id`,`student_name`, `tele`,`email`, `password`,`class`) VALUES('{$index}', '{$name}', '{$contact_num}', '{$email}', '{$hashed_password}','{$grade}')";
         $result = mysqli_query($conn, $query);
 
-        $_POST['index']='';
-        $_POST['name']='';
-        $_POST['contact_num']='';
-        $_POST['email']='';
-        $_POST['psw']='';
-        $_POST['psw_repeat']='';
-        $_POST['grade']='';
+        // $_POST['index']='';
+        // $_POST['name']='';
+        // $_POST['contact_num']='';
+        // $_POST['email']='';
+        // $_POST['psw']='';
+        // $_POST['psw_repeat']='';
+        // $_POST['grade']='';
 
         header("Location: verification.php?email=$email");
     }
@@ -165,7 +170,7 @@ if(isset($_POST['submit'])){
                         ?>
 
                         <label for="name"><b>Name</b></label>
-                        <input type="text" placeholder="Enter your Name" name="name" id="name"  value="<?php if(isset($_POST['name'])) {echo $_POST['name'];} ?>">
+                        <input type="text" placeholder="Enter your Name" name="name" id="name"  value="<?php if(isset($_POST['name'])) {echo $_POST['name'];} ?> " title="Enter strings only">
                         <?php
                         if(isset($errors['name'])){
                             echo $errors['name'];
@@ -174,7 +179,7 @@ if(isset($_POST['submit'])){
                         ?>
 
                         <label for="name"><b>Contact Number</b></label>
-                        <input type="text" placeholder="Enter your contact number" name="contact_num" id="contact-num"  value="<?php if(isset($_POST['contact_num'])) {echo $_POST['contact_num'];} ?>" >
+                        <input type="tel" placeholder="Enter your contact number" name="contact_num" id="contact-num"  value="<?php if(isset($_POST['contact_num'])) {echo $_POST['contact_num'];} ?>" title="Enter 10 digits contact number ">
                         <?php
                         if(isset($errors['contact_num'])){
                             echo $errors['contact_num'];
@@ -183,7 +188,7 @@ if(isset($_POST['submit'])){
                         ?>
 
                         <label for="email"><b>Email</b></label>
-                        <input type="text" placeholder="Enter your email" name="email" id="email"  value="<?php if(isset($_POST['email'])) {echo $_POST['email'];} ?>">
+                        <input type="email" placeholder="Enter your email" name="email" id="email"  value="<?php if(isset($_POST['email'])) {echo $_POST['email'];} ?>">
                         <?php
                         if(isset($errors['email'])){
                             echo $errors['email'];
