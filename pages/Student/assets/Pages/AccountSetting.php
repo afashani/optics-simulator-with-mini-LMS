@@ -93,7 +93,9 @@ $studentPw="************";
                             <tr>
                                 <td>Email</td>
                                 <td><label>
-                                        <input type="email" name="email" value=" <?php if(isset($studentEmail)){echo $studentEmail;} ?>">
+                                        <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Enter valid email">
+                                            <input type="email" name="email" value=" <?php if(isset($studentEmail)){echo $studentEmail;} ?>">
+                                        </button>
                                     </label></td>
 
                             </tr>
@@ -101,8 +103,11 @@ $studentPw="************";
                                 <td>Password</td>
                                 <td>
                                     <label>
-                                        <input type="password" name="pw" value=" <?php if(isset($studentPw)){echo $studentPw;} ?>">
-                                    </label></td>
+                                        <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Password Must be greter than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter">
+                                            <input type="password" name="pw" value=" <?php if(isset($studentPw)){echo $studentPw;} ?>">
+                                        </button>
+                                    </label>
+                                </td>
 
                             </tr>
 
@@ -110,7 +115,9 @@ $studentPw="************";
                                 <td>Retype-Password</td>
                                 <td>
                                     <label>
-                                        <input type="password" name="Rpw" value=" <?php if(isset($studentPw)){echo $studentPw;} ?>">
+                                        <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Enter passsword again">
+                                            <input type="password" name="Rpw" value=" <?php if(isset($studentPw)){echo $studentPw;} ?>">
+                                        </button>
                                     </label></td>
 
                             </tr>
@@ -122,11 +129,7 @@ $studentPw="************";
 
                     </table>
 
-                        <div class="text-capitalize bg-light text-danger text-center" >
-                            <h4>Instructions</h4>
-                            <h6 class="bg-danger text-light">Password Must be greter than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter</h6>
 
-                        </div>
                     <div class=" d-flex justify-content-center" >
 
                         <button

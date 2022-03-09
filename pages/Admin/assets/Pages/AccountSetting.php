@@ -81,7 +81,7 @@ $adminPw="************";
                     <tr>
                         <td class="col-4">Name</td>
                         <td class="col-5 text-center">
-                         <input type="text" name="name" value="Admin" readonly/>
+                         <input type="text" name="name" size="40" value="Admin" readonly/>
                         </td>
 
 
@@ -90,14 +90,19 @@ $adminPw="************";
                     <tr>
                         <td>Email</td>
                         <td>
-                            <input type="text" name="email" value="<?php if(isset($adminEmail)){echo $adminEmail;} ?>"/>
+                            <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Enter valid email">
+                                <input type="text" name="email" size="40" value="<?php if(isset($adminEmail)){echo $adminEmail;} ?>"/>
+                            </button>
                         </td>
 
                     </tr>
                     <tr>
                         <td>Password</td>
                         <td>
-                            <input type="password" name="pw" value="<?php if(isset($adminPw)){echo $adminPw;} ?>"/>
+
+                            <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Password Must be greter than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter">
+                                <input type="password" name="pw" size="40" value="<?php if(isset($adminPw)){echo $adminPw;} ?>"/>
+                            </button>
                         </td>
 
 
@@ -106,7 +111,9 @@ $adminPw="************";
                     <tr>
                         <td>Retype-Password</td>
                         <td>
-                            <input type="password" name="Rpw" value="<?php if(isset($adminPw)){echo $adminPw;} ?>"/>
+                            <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Type password again">
+                            <input type="password" name="Rpw" size="40" value="<?php if(isset($adminPw)){echo $adminPw;} ?>"/>
+                            </button>
                         </td>
 
 
@@ -118,9 +125,9 @@ $adminPw="************";
 
                     </table>
 
-                        <div class="text-capitalize bg-light text-danger text-center" >
+                        <div class="text-capitalize bg-light text-dark text-center" >
                             <h4>Instructions</h4>
-                            <h6 class="bg-danger text-light">Password Must be greter than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter</h6>
+                            <h6 class="">Password Must be greter than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter</h6>
 
                         </div>
 
