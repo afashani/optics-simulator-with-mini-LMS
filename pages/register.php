@@ -37,6 +37,7 @@ if(isset($_POST['submit'])){
 
     $email = $_POST['email'];
     $pattern = "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^";
+    // || !preg_match($pattern, $email)
     if (!isset($_POST['email']) || !preg_match($pattern, $email)) {
         $errors['email'] = '<p class = "errors">Invalid Email!</p>';
     }

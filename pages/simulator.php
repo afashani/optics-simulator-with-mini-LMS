@@ -36,6 +36,9 @@ if(!isset( $_SESSION['stdId'])){
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   
     <style> 
+    #bg-simulator{
+        background-color: ;
+    }
     main{
         position: relative;
     }
@@ -50,7 +53,7 @@ if(!isset( $_SESSION['stdId'])){
         }
     </style>
 </head>
-<body id="bg">
+<body id="bg-simulator">
 
     <script src="../include/p5.js" type="text/javascript"></script>
     <script src="../include/simulator.js" type="text/javascript"></script>
@@ -59,25 +62,33 @@ if(!isset( $_SESSION['stdId'])){
     <main>
     </main>   
     
-    
-    <div class="container">
-    <div class="details">
-        <h1>
-            Properties
-        </h1>
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col" class="size">Size</th>
-      <th scope="col" class="attitude">Attitude</th>
-    </tr>
-    <tr>
-          <th scope="col" class="location">Location</th>
-          <th scope="col" class="type">Type</th>
-        </tr>
-  </thead>
-</table>
-    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="container">
+                <div class="details">
+                    <br><br>
+                    <h1>
+                        Properties 
+                    </h1>
+                    <br>
+                    <table class="table  table-dark table-bordered">
+                        <thead>
+      
+                            <tr>
+                                <th style="width : 50%" class="size">Size</th>
+                                <th style="width : 50%" class="attitude">Attitude</th>
+                            </tr>
+                            <tr>
+                                <th scope="col" class="location">Location</th>
+                                <th scope="col" class="type">Type</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-3"></div>
     </div>
    
     <!-- Footer ==== -->

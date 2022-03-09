@@ -22,7 +22,7 @@ try {
 	$mail->Port	 = 587;
 
 	$mail->setFrom('mailwisdominstitution@gmail.com', 'Wisdom Institution');		
-	$mail->addAddress('amalvishwajith@gmail.com', "verification");
+	$mail->addAddress($_GET['email'], "verification");
 	
 	$mail->isHTML(true);								
 	$mail->Subject = 'Subject';

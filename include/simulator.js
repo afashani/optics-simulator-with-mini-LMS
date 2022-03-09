@@ -95,7 +95,7 @@ function draw(){
     line(675+object.position, 256-object.height, 675, 256+image.height);
 
     //object
-    fill("white");
+    fill("#51C4D3");
     stroke("#352315");
     rectMode(CENTER);
     rect(675+object.position, 256-object.height/2, object.width, object.height);
@@ -105,8 +105,8 @@ function draw(){
     text('H = '+ abs(round(object.height)), 675+object.position, 256-object.height-object.height/abs(object.height)*25);
 
     // Image
-    fill("#666666");
-    stroke("#666666");
+    fill("#AA14F0");
+    stroke("#AA14F0");
     rect(675+image.position, 256+image.height/2, image.width, image.height);
     fill("green");
     stroke("green");
