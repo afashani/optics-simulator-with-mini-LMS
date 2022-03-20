@@ -169,7 +169,7 @@ if(isset($_POST['studentlogin'])) {
 	                    </div>
 	                   
 	                    <div class="row mb-3 px-3" style="margin-top: 20px;">
-	                    	<button type="submit" name="studentlogin" class="btn btn-blue text-center"><b>Login</b></button>
+	                    	<button type="submit" name="studentlogin" class="btn btn-blue"><b>Login</b></button>
 	                    </div> <br>
 	                </form>    
 	                    
