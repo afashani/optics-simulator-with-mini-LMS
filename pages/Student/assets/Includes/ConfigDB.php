@@ -14,7 +14,8 @@ class ConfigDB
         $conn=new mysqli($db_servername,$db_username,$db_password,$db_name);
 
         if($conn -> connect_error) {
-            die();
+            header("Location:../../../../connectionError.php");
+            exit();
         }
         return $conn;
     }

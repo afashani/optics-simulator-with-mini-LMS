@@ -36,6 +36,11 @@ $tableData= viewActivities($conn);
 
     <script src="../../Inc/JS/search.js" type="application/javascript"></script>
 
+    <!--   alert js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+
 </head>
 <body>
 <!-- Order body-->
@@ -48,7 +53,6 @@ $tableData= viewActivities($conn);
 
                 <div class="row  ">
 
-<!--                    col-lg-8 col-md-8 col-sm-8 col-xs-8  justify-content-xs-start-->
                     <div class="col-12 col-md-8  col-sm-8 col-xs-8 justify-content-start ">
                         <h4 class=" ">Activities</h4>
                     </div>

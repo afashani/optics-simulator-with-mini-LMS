@@ -54,9 +54,10 @@ function viewActivities($connection): String
                                      <td>
                                         <a
                                                 type='submit'
-                                                class='btn btn-danger mb-2  text-light '
+                                                 data-title='Delete'
+                                                class='btn btn-danger mb-2 text-light deleteActivity'
                                                 href='deleteRes.php?res_type=acdelete&res_id={$id}'
-                                          
+                                    
                                                 >
                                             Delete
                                            </a>
@@ -114,7 +115,7 @@ function viewTutorials($connection): String
                                      <td>
                                         <a
                                                 type='submit'
-                                                class='btn btn-danger mb-2  text-light '
+                                                class='btn btn-danger mb-2  text-light deleteTutorials'
                                                 href='deleteRes.php?res_type=tutedelete&res_id={$id}'
                                           
                                                 >
@@ -435,13 +436,16 @@ function deleteRes($connection, $type, $id):bool{
 
     if($type=="AC"){
         $query = "DELETE from activity WHERE activity_id={$id} ";
+        mysqli_query($connection, $query);
         $query = "DELETE from admin_activity WHERE activity_id={$id} ";
+        mysqli_query($connection, $query);
     }else{
         $query = "DELETE from tutorial WHERE tutorial_id='{$id}' ";
+        mysqli_query($connection, $query);
     }
 
 
-    mysqli_query($connection, $query);
+
 
     return true;
 }

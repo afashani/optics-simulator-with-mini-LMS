@@ -35,6 +35,8 @@ if(!isset($_SESSION['admin_id'])) {
 
     <!--  Sweet alert js -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
 </head>
 
 <body>

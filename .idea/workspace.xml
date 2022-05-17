@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a55498de-b2f8-4c70-b89e-6b8dad731ea7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/404.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/connectionError.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/AccountSetting.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/AccountSetting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/answerScripts/ansActivity-01/G120002ansActivity-01.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/resources/answerScripts/ansActivity-01/G120002ansActivity-01.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/Inc/JS/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/Inc/JS/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Includes/Admin-header.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Includes/Admin-header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Includes/ConfigDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Includes/ConfigDB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Includes/resoursesfunc.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Includes/resoursesfunc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/Activities.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/Activities.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/Tutorial.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/Tutorial.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/assets/Pages/activityProcess.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/assets/Pages/activityProcess.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Includes/ConfigDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Includes/ConfigDB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/activities/adActivity-01.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +61,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/include" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Sem 3.1\Project -II\optics-simulator-with-mini-LMS\resources" />
       <recent name="D:\Sem 3.1\Project -II\optics-simulator-with-mini-LMS\include" />
       <recent name="D:\Sem 3.1\Project -II\optics-simulator-with-mini-LMS\pages\Admin\Inc\Img" />
     </key>
@@ -85,6 +97,7 @@
       <workItem from="1647536227056" duration="354000" />
       <workItem from="1647537766980" duration="254000" />
       <workItem from="1647670174939" duration="2007000" />
+      <workItem from="1647797631354" duration="6846000" />
     </task>
     <servers />
   </component>

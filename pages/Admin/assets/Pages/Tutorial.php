@@ -37,6 +37,11 @@ $tableData= viewTutorials($conn);
 
     <script src="../../Inc/JS/search.js" type="application/javascript"></script>
 
+    <!--   alert js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+
 </head>
 <body>
 <!-- Order body-->
