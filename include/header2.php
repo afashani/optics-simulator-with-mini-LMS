@@ -82,8 +82,7 @@ if(!isset($_SESSION)){
                                     <li><a class="dropdown-item" href="../pages/Student/assets/Pages/AccountSetting.php">Profile</a></li>
                                     <li><a class="dropdown-item" href="../pages/Student/assets/Pages/Activities.php">Activities</a></li>
                                     <li><a class="dropdown-item" href="../pages/aboutus.php">About Us</a></li>
-                                    <li><a class="dropdown-item" href="#">FAQ's</a></li>
-                                    <li><a class="dropdown-item" href="#">Contact US</a></li>
+                                    <li><a class="dropdown-item" href="../pages/contactus.php">Contact US</a></li>
 
                                     
                                 </ul>
