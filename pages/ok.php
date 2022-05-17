@@ -12,9 +12,9 @@ $conn=$newConnection ->createConnection();
 $sql = "UPDATE student SET confirm=1 WHERE email='{$_GET['email']}'";
 
 if ($conn->query($sql)) {
-  echo "Record updated successfully";
+  // echo "Record updated successfully";
   echo "##".$_GET['email']."##";
-  // header("Location: login.php");
+  header("Location: login.php");
   //   exit();
 } else {
   echo "Error updating record: " . $conn->error;

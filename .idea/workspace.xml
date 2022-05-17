@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a55498de-b2f8-4c70-b89e-6b8dad731ea7" name="Default Changelist" comment="" />
+    <list default="true" id="a55498de-b2f8-4c70-b89e-6b8dad731ea7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/assets/images/register2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/register2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/simulator.js" beforeDir="false" afterPath="$PROJECT_DIR$/include/simulator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/AccountSetting.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/AccountSetting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ok.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ok.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/simulator.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/simulator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/verification.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/verification.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,6 +94,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
