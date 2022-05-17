@@ -13,7 +13,7 @@ $mail = new PHPMailer(true);
 
 $OTP = rand(100000,999999);
 
-echo$OTP;
+// echo$OTP;
 
 try {
 	$mail->SMTPDebug = 0;									
@@ -147,8 +147,7 @@ input[type=number]::-webkit-outer-spin-button {
     </div>
 </div>
                                 <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
-                                <script type='text/javascript' src=''></script>
-                                <script type='text/javascript' src=''></script>
+                                
 
 
 <script type='text/Javascript'>
@@ -175,8 +174,8 @@ for (let i = 0; i < inputs.length; i++)
 
         num = parseInt(num);
 
-        console.log(num);
-        console.log(<?php echo$OTP;?>);
+        // console.log(num);
+        // console.log(<?php //echo$OTP;?>);
 
         if(num == <?php echo$OTP;?>){
 

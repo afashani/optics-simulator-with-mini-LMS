@@ -53,7 +53,7 @@ if(!isset( $_SESSION['stdId'])){
         .img-lens{
             position: relative ;
             align: center;
-            z-index: 1000;
+            
             padding-right: 400px;
             /* object-position: 200px 500px; */
         }

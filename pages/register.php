@@ -171,7 +171,11 @@ if(isset($_POST['submit'])){
                         ?>
 
                         <label for="name"><b>Name</b></label>
+<<<<<<< HEAD
+                        <input type="text" placeholder="Enter your Name" name="name" id="name"   title="Enter strings only">
+=======
                         <input type="text" placeholder="Enter your Name" name="name" id="name"  value="<?php if(isset($_POST['name'])) {echo $_POST['name'];}  ?>" >
+>>>>>>> ff1a99aac63b0c26e206d52957daf54beab3cf76
                         <?php
                         if(isset($errors['name'])){
                             echo $errors['name'];
@@ -180,7 +184,7 @@ if(isset($_POST['submit'])){
                         ?>
 
                         <label for="name"><b>Contact Number</b></label>
-                        <input type="tel" placeholder="Enter your contact number" name="contact_num" id="contact-num"  value="<?php if(isset($_POST['contact_num'])) {echo $_POST['contact_num'];} ?>" title="Enter 10 digits contact number ">
+                        <input type="tel" placeholder="Enter your contact number" name="contact_num" id="contact-num"  title="Enter 10 digits contact number ">
                         <?php
                         if(isset($errors['contact_num'])){
                             echo $errors['contact_num'];

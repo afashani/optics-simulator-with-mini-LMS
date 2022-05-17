@@ -103,7 +103,7 @@ $studentPw="************";
                                 <td>Password</td>
                                 <td>
                                     <label>
-                                        <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Password Must be greter than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter">
+                                        <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Password must be greater than or equal,must Contain At Least 1 Number,Capital Letter and Lowercase Letter">
                                             <input type="password" name="pw" value=" <?php if(isset($studentPw)){echo $studentPw;} ?>">
                                         </button>
                                     </label>

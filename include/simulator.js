@@ -151,10 +151,11 @@ function draw(){
 var tempp = Math.ceil(image.height);
 var tempp2 = Math.ceil(object.height);
 
-console.log(tempp,tempp2);
+//console.log(tempp,tempp2);
 
     if (tempp == tempp2 || tempp == Infinity) {
         $(".size").text("Size: Equal");
+        
     } else if(abs(tempp) > tempp2){
         $(".size").text("Size: Larger");
     } else{
@@ -167,14 +168,14 @@ console.log(tempp,tempp2);
         $(".attitude").text("Attitude: Upright");
     }
 
-    if (abs(image.position) == focalLength*2){
-        $(".location").text("Location: At 2F");
+    if (abs(image.position) > focalLength*2){
+        $(".location").text("Location: Beyond 2F");
     }
-    else if(abs(image.position) == Infinity){
+    else if(image.position == Infinity){
         $(".location").text("Location: At Infinity");
     }
-    else if (abs(image.position) > focalLength*2) {
-        $(".location").text("Location: Beyond 2F");
+    else if (abs(image.position) == abs(focalLength*2)) {
+        $(".location").text("Location: At 2F");
     } else if (abs(image.position) > focalLength) { 
         $(".location").text("Location: Between F and 2F");
     } else { 
