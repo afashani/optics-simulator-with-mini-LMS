@@ -20,7 +20,7 @@ $lastMod="";
 $fileName="";
 $lastActivities="No Activities";
 
-$tableData=viewAnswerScripts($conn,0);
+
 $pageName="Activity";
 
 if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
@@ -80,9 +80,9 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
         <div class="card-deck">
         <div class="card my-2 border-primary bg-light d-flex justify-content-center">
 
-            <div class="card-header bg-primary text-light">
+            <div class="card-header bg-light text-dark">
 
-                <h3 class="text-light">View <?php echo $pageName;?></h3>
+                <h3 class="">View <?php echo $pageName;?></h3>
 
             </div>
 
@@ -168,9 +168,6 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
 
             <div class="card-header  bg-primary text-light text-center">
 
-
-
-
                         <h4>View Responses </h4>
 
 
@@ -209,7 +206,7 @@ if(isset($_GET['res_type']) & isset($_GET['res_id']) ){
 
                              $tableData;
                         }else{
-                            $content= "<h2>No submission yet</h2>";
+                            $content= "<h2 class='text-dark'>No submissions yet</h2>";
 
                         }
                         echo $content;

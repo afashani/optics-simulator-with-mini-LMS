@@ -17,7 +17,7 @@ $deadline="";
 $added_time="";
 $activityName="";
 $activitySubmitStatus=false;
-$activity_id=0;
+$activity_id=1;
 $submissonStatus="No Submission Found.";
 $currentDate=date_create();
 $current= date_format($currentDate,"Y-m-d H:i:s");
@@ -53,6 +53,7 @@ if(isset($_GET['activityId'])){
 
         //get marksheet sumbit time
         $answerSubmmionTime= getAnswerAddedTIme($conn,$activity_id );
+//        $answerSubmmionTime=empty($answerSubmmionTime) ? "Now":'';
 
 
     }else{
@@ -131,7 +132,7 @@ if(isset($_GET['activityId'])){
 
                             <tr class="border border-success border-5">
                                 <td class="bg-info text-light">last Modified</td>
-                                <td class="bg-light text-dark"><?php  if(!$activitySubmitStatus) {echo $Activityadded_time ; } else {echo $answerSubmmionTime ;}?></td>
+                                <td class="bg-light text-dark"><?php  if(!$activitySubmitStatus) {echo "Activity added by ".$Activityadded_time ; } else {echo $answerSubmmionTime ;}?></td>
                             </tr>
 
                             <tr class="border border-success border-5">
@@ -143,19 +144,24 @@ if(isset($_GET['activityId'])){
                                 <td class="bg-info text-light col-4 col-md-4  col-sm-4 col-xs-3">Upload</td>
                                 <td class="bg-light text-dark col-8 col-md-8  col-sm-8 col-xs-8">
                                     <form action="processAnswer.php" enctype="multipart/form-data" method="post"  class="was-validated">
-                                        <span class=" text-danger">You must have to upload pdf file</span>
-
-
-                                                    <span>
-                                                        <input type="file" class="upload-input w-75" name="answerfile">
-                                                    <i class="fas fa-solid fa-upload"></i>
-                                                    </span>
-                                                        <input type="hidden" name="activityName" value="<?php echo $activityName; ?>">
-                                                        <input type="hidden" name="activityID" value="<?php echo $activity_id; ?>">
 
 
 
-                                                <button  class="btn btn-info  rounded-pill mt-2" name="<?php if($activitySubmitStatus){echo "updateAnswer";}else{echo "addAnswer";} ?>"> <?php echo $uploadButtonName; ?></button>
+                                        <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="You must have to upload pdf file">
+                                            <i class="fas fa-solid fa-upload"><input type="file" class="upload-input w-75 p-2" name="answerfile" /></i>
+                                        </button>
+
+
+
+                                                            <input class="w-75" type="hidden" name="activityName" value="<?php echo $activityName; ?>">
+                                                            <input class="w-75" type="hidden" name="activityID" value="<?php echo $activity_id; ?>">
+                                                            <button  class="btn btn-info justify-content-end rounded-pill mt-2"  name="<?php if($activitySubmitStatus){echo "updateAnswer";}else{echo "addAnswer";} ?>"> <?php echo $uploadButtonName; ?></button>
+
+
+
+
+
+
 
 
                                     </form>

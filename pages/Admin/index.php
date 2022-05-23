@@ -9,7 +9,13 @@ session_start();
 //connection object
 $newConnection=new ConfigDB();
 //create connection
+
+
 $conn=$newConnection ->createConnection();
+
+if( $conn == NULL){
+    header("Location:../../../../connectionError.php");
+}
 
 $func=new Functions();
 
