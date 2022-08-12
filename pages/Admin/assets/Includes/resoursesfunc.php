@@ -54,9 +54,10 @@ function viewActivities($connection): String
                                      <td>
                                         <a
                                                 type='submit'
-                                                class='btn btn-danger mb-2  text-light '
+                                                 data-title='Delete'
+                                                class='btn btn-danger mb-2 text-light deleteActivity'
                                                 href='deleteRes.php?res_type=acdelete&res_id={$id}'
-                                          
+                                    
                                                 >
                                             Delete
                                            </a>
@@ -114,7 +115,7 @@ function viewTutorials($connection): String
                                      <td>
                                         <a
                                                 type='submit'
-                                                class='btn btn-danger mb-2  text-light '
+                                                class='btn btn-danger mb-2  text-light deleteTutorials'
                                                 href='deleteRes.php?res_type=tutedelete&res_id={$id}'
                                           
                                                 >
@@ -147,12 +148,12 @@ function viewAnswerScripts($connection,$activityId):String{
         while ($row = mysqli_fetch_assoc($result)) {
 
             //added date, title, deadline, activityid
-            $id = $row['answer_id'];
+            $id = $row['activity_id'];
             $name = $row['student_name'];
             $upload_time=$row['submission_time'];
             $deadline=$row['deadline'];
             $overdue=$upload_time <= $deadline ? "Not Overdue":"Overdue";
-
+            $student_name=$row['student_name'];
 
 
 
@@ -165,7 +166,7 @@ function viewAnswerScripts($connection,$activityId):String{
                                         <a
                                                 type='submit'
                                                 class='btn btn-primary mb-2  text-light '
-                                                href='viewAnswer.php?res_type=ans&res_id={$id}'
+                                                href='viewAnswer.php?res_type=ans&ac_id={$id}&std_name={$student_name}'
                                           
                                                 >
                                             View
@@ -435,13 +436,16 @@ function deleteRes($connection, $type, $id):bool{
 
     if($type=="AC"){
         $query = "DELETE from activity WHERE activity_id={$id} ";
+        mysqli_query($connection, $query);
         $query = "DELETE from admin_activity WHERE activity_id={$id} ";
+        mysqli_query($connection, $query);
     }else{
         $query = "DELETE from tutorial WHERE tutorial_id='{$id}' ";
+        mysqli_query($connection, $query);
     }
 
 
-    mysqli_query($connection, $query);
+
 
     return true;
 }
@@ -475,9 +479,25 @@ function getlastTuteId($connection):int
 function addTute($connection,$name,$fpath):bool
 {
 
+    $tuteId=0;
+    $q="SELECT tutorial_id FROM tutorial ORDER BY `tutorial_id` DESC LIMIT 1";
+    $result = mysqli_query($connection, $q);
+
+    if (mysqli_num_rows($result) > 0) {
+
+        while ($row = mysqli_fetch_assoc($result)) {
+
+
+            $tuteId=$row['tutorial_id'];
+
+        }
+
+    }
+    $tuteId+=1;
+
     $data = false;
-    $query = "INSERT INTO tutorial (`tutorial_name`,`tute_fpath`) 
-    VALUES ('{$name}','{$fpath}')";
+    $query = "INSERT INTO tutorial (`tutorial_id`,`tutorial_name`,`tute_fpath`) 
+    VALUES ({$tuteId},'{$name}','{$fpath}')";
 
    // echo $query;
     $result = mysqli_query($connection, $query);
@@ -657,13 +677,28 @@ function updateDueDate($connection,$activityId,$date):bool{
 }
 
 //get answer path
-function getanswerPath($connection, $activityId):string{
+function getanswerPath($connection, $ansId,$std_name):string{
 
-    //need student if
-    $std_id= isset($_SESSION['stdId']) ? $_SESSION['stdId'] :1;
+    $std_id= 1;
+    //get std_id form name
+    $query1 = "SELECT student_id FROM `student` WHERE `student_name`='{$std_name}' ";
+    $result = mysqli_query($connection, $query1);
+
+    if (mysqli_num_rows($result) > 0) {
+
+        while ($row = mysqli_fetch_assoc($result)) {
+
+
+            $std_id =$row['student_id'];
+
+        }
+
+    }
+
+
     //need answer f path form activity
     $path='../../../../resources/answerScripts/';
-    $query1 = "SELECT answer_fpath FROM `activity` WHERE `activity_id`={$activityId} ";
+    $query1 = "SELECT answer_fpath FROM `activity` WHERE `activity_id`={$ansId} ";
     $result = mysqli_query($connection, $query1);
     if (mysqli_num_rows($result) > 0) {
 
@@ -677,7 +712,7 @@ function getanswerPath($connection, $activityId):string{
     }
     $path.="/";
     //get answer filename
-    $query1 = "SELECT file_name FROM lms.`answer` WHERE `student_id`='{$std_id}' ";
+    $query1 = "SELECT file_name FROM `answer` WHERE `student_id`='{$std_id}' ";
     $result = mysqli_query($connection, $query1);
     if (mysqli_num_rows($result) > 0) {
 

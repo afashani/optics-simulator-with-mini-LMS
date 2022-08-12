@@ -1,8 +1,10 @@
 .style-1 {
   border-radius: 15px;
   background: #e0e0e0;
-  -webkit-box-shadow: 5px 5px 9px #969696, -5px -5px 9px #ffffff;
-          box-shadow: 5px 5px 9px #969696, -5px -5px 9px #ffffff;
+  -webkit-box-shadow: 5px 5px 9px #969696,
+ -5px -5px 9px #ffffff;
+          box-shadow: 5px 5px 9px #969696,
+ -5px -5px 9px #ffffff;
   padding: 15px;
 }
 

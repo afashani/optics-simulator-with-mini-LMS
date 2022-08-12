@@ -36,6 +36,11 @@ $tableData= viewActivities($conn);
 
     <script src="../../Inc/JS/search.js" type="application/javascript"></script>
 
+    <!--   alert js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+
 </head>
 <body>
 <!-- Order body-->
@@ -48,7 +53,6 @@ $tableData= viewActivities($conn);
 
                 <div class="row  ">
 
-<!--                    col-lg-8 col-md-8 col-sm-8 col-xs-8  justify-content-xs-start-->
                     <div class="col-12 col-md-8  col-sm-8 col-xs-8 justify-content-start ">
                         <h4 class=" ">Activities</h4>
                     </div>
@@ -68,10 +72,10 @@ $tableData= viewActivities($conn);
 
             <div class="card-body bg-light">
                 <div class="search-container mb-2">
-                    <form action="G12.php"  method="get">
+                    <form >
                         <div class="input-group rounded">
-                            <input type="search" class="form-control rounded searchBar" placeholder="Enter Activity Title" aria-label="Search"
-                                   aria-describedby="search-addon"/>
+                            <input type="search" class="form-control rounded searchBar" placeholder="Enter Tutorial Title" aria-label="Search"
+                                   aria-describedby="search-addon" />
                             <button class="input-group-text border-0" id="search-addon" name="searchOrderButton">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -80,8 +84,8 @@ $tableData= viewActivities($conn);
                 </div>
 
 
-                <div class="table-responsive" id="showAllUsers">
-                    <table class="table table-striped text-dark text-center " id="dataTable">
+                <div class="table-responsive" >
+                    <table class="table table-striped text-dark text-center dataTable" id="dataTable">
                     <thead>
                     <tr>
                         <th>Title</th>

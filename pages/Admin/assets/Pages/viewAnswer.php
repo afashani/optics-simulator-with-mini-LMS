@@ -15,18 +15,20 @@ $func = new Functions();
 
 
 
-if (isset($_GET['res_type']) & isset($_GET['res_id'])) {
+if (isset($_GET['res_type']) & isset($_GET['ac_id'])) {
 
     //view marksheets
     if ($_GET['res_type'] == "ans") {
 
+        $std_name=$_GET['std_name'];
+
 
         //check marksheet file availbale
-        $activityId=empty($_GET['res_id']) ? 1 :$_GET['res_id'];
+        $ansId=empty($_GET['ac_id']) ? 1 :$_GET['ac_id'];
         //
 
        //get marksheet path
-        $fpath=getanswerPath($conn, $activityId);
+        $fpath=getanswerPath($conn, $ansId,$std_name);
 
         sleep(2);
         header("location:$fpath");

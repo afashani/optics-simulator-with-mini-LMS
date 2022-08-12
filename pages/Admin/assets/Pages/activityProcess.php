@@ -236,13 +236,13 @@ if(isset($_POST['updateDueDate'])){
     if($updateStatus){
 
         //sesssion
-        $_SESSION['status_activity_duedate']="Deadline Extended successfully'";
+        $_SESSION['status_activity_duedate']="Deadline Extended successfully";
         $_SESSION['status_activity_duedate_code']='success';
 
         header("location:Activities.php");
     }else{
         //sesssion
-        $_SESSION['status_activity_duedate_err']="Deadline Extended Failed. Please try again'";
+        $_SESSION['status_activity_duedate_err']="Deadline Extended Failed. Please try again";
         $_SESSION['status_activity_duedate_code_err']='error';
     }
 

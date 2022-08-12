@@ -110,9 +110,9 @@ function getAnswerUploadPath($connection, $activityId):string{
 
 function checkAnswerAvaliblabe($connection ):bool{
     $data=false;
-    $std_id= isset($_SESSION['stdId']) ?  $_SESSION['stdId']: 'G120003';
+    $std_id= isset($_SESSION['stdId']) ?  $_SESSION['stdId']:0;
 
-    $query= "select answer_id  from answer WHERE student_id={$std_id}";
+    $query= "select answer_id  from answer WHERE student_id='{$std_id}'";
 
     $result = mysqli_query($connection, $query);
 

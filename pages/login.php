@@ -15,16 +15,8 @@ $conn=$newConnection ->createConnection();
 
 $func=new Functions();
 
-////check whether user log in or not
-//if(isset($_SESSION['stdId'])) {
-//    header('location:assets/Pages/dashboard.php');
-//    exit();
-//}
 
-//$_SESSION['from_simulator']
-//have to set alert
-
-//form sumbsiion login
+//form  login
 if(isset($_POST['studentlogin'])) {
 
     $errors = [];
@@ -37,7 +29,7 @@ if(isset($_POST['studentlogin'])) {
         $errors[] = "Email is Missing /Invalid";
     }
 
-    if (!isset($_POST['password']) & strlen(trim($_POST['password']))) {
+    if (!isset($_POST['password']) & strlen(trim($_POST['password'])) < 1 ) {
 
         $errors[] = "Password is Missing /Invalid";
     }
@@ -65,7 +57,6 @@ if(isset($_POST['studentlogin'])) {
 
 
             //redirect
-            sleep(1);
             header('location:Student/assets/Pages/dashboard.php');
             exit();
         }

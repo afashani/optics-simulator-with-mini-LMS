@@ -22,16 +22,16 @@ $countTutorials=0;
 
 $countG12= $func -> countOfStudent($conn,12);
 $countG13= $func -> countOfStudent($conn,13);
-$countG12*=20;
-$countG13*=30;
+
 
 
 
 $countActivity=$func -> countOfActivities($conn);
-$countActivity*=5;
-$countTutorials=$func -> countOfTutorials($conn);
-$countTutorials*=4;
 
+$countTutorials=$func -> countOfTutorials($conn);
+
+
+$tableData=$func -> viewAnswersProgress($conn);
 ?>
 <head>
     <meta content="text/html; charset=utf-8">
@@ -159,10 +159,11 @@ $countTutorials*=4;
     <!--  dashboard content goes here  -->
     <div class="row bg-white  mx-auto d-flex align-content-center ">
         <div class="col-12 mx-auto">
+
             <div class="card-deck mt-5 text-center font-weight-bold  ">
                 <div class="card border border-primary border-2  mb-2 ">
 
-                    <div class="card-header bg-primary text-white ">
+                    <div class="card-header bg-light text-dark ">
                         <h2>Students</h2>
                     </div>
 
@@ -174,7 +175,7 @@ $countTutorials*=4;
 
                 <div class="card countsInfo border border-primary border-2 mb-2 ">
 
-                    <div class="card-header bg-primary text-white ">
+                    <div class="card-header bg-light text-dark ">
                         <h2>Resources</h2>
                     </div>
 
@@ -188,12 +189,48 @@ $countTutorials*=4;
         </div>
     </div>
 
+    <div class="row bg-white  mx-auto d-flex align-content-center mt-2 ">
+        <div class="col-12 mx-auto">
+
+
+                <div class="card border border-primary border-2  mb-2 text-center ">
+
+                    <div class="card-header bg-light text-dark ">
+                        <h2>Activities</h2>
+                    </div>
+
+                    <div class="card-body bg-white text-dark">
+                        <div class="table-responsive" >
+                            <table class="table table-striped text-dark text-center dataTable" id="dataTable">
+                                <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th class=" d-none d-lg-table-cell ">Deadline</th>
+                                    <th >Responses</th>
+
+                                </tr>
+                                </thead>
+                                <tbody class="">
+
+                                <?php echo $tableData; ?>
+
+
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+
+                </div>
 
 
 
             </div>
-        </div>
+
     </div>
+
+
 </body>
 <!--  js files here -->
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
