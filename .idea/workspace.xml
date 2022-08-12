@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a55498de-b2f8-4c70-b89e-6b8dad731ea7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/assets/images/register2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/register2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/simulator.js" beforeDir="false" afterPath="$PROJECT_DIR$/include/simulator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/Student/assets/Pages/AccountSetting.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Student/assets/Pages/AccountSetting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/ok.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ok.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/simulator.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/simulator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/verification.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/verification.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/include" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">

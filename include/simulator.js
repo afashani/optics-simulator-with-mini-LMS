@@ -60,7 +60,7 @@ function draw(){
     stroke("green");
     textAlign(CENTER);
     // Focal length labelling
-    text('F = '+ round(focalLength), 675+focalLength, 280);
+    text('F = '+ Math.trunc(focalLength), 675+focalLength, 280);
     text('2F', 675+focalLength*2, 280);
     text('-F', 675-focalLength, 280);
     text('-2F', 675-focalLength*2, 280);
@@ -101,8 +101,8 @@ function draw(){
     rect(675+object.position, 256-object.height/2, object.width, object.height);
     fill("white");
     stroke("blue");
-    text('D = '+ round(object.position), 675+object.position, 256-object.height-object.height/abs(object.height)*50);
-    text('H = '+ abs(round(object.height)), 675+object.position, 256-object.height-object.height/abs(object.height)*25);
+    text('D = '+ Math.trunc(object.position), 675+object.position, 256-object.height-object.height/abs(object.height)*50);
+    text('H = '+ abs(Math.trunc(object.height)), 675+object.position, 256-object.height-object.height/abs(object.height)*25);
 
     // Image
     fill("#AA14F0");
@@ -110,8 +110,8 @@ function draw(){
     rect(675+image.position, 256+image.height/2, image.width, image.height);
     fill("green");
     stroke("green");
-    text('D = '+ round(image.position), 675+image.position, 256+image.height+image.height/abs(image.height)*50);
-    text('H = '+ abs(round(image.height*100)/100), 675+image.position, 256+image.height+image.height/abs(image.height)*25);
+    text('D = '+ Math.trunc(image.position), 675+image.position, 256+image.height+image.height/abs(image.height)*50);
+    text('H = '+ abs(Math.trunc(image.height)), 675+image.position, 256+image.height+image.height/abs(image.height)*25);
     
 
     //lens
@@ -145,18 +145,18 @@ function draw(){
         //focalLength = -focalLength;
     }
 
-    // SALT Table
+    // Properties Table
 
 
-var tempp = Math.ceil(image.height);
-var tempp2 = Math.ceil(object.height);
+//var tempp = Math.ceil(image.height);
+//var tempp2 = Math.ceil(object.height);
 
 //console.log(tempp,tempp2);
 
-    if (tempp == tempp2 || tempp == Infinity) {
+    if (image.height == object.height || image.position == Infinity || image.position == -Infinity || object.position == focalLength) {
         $(".size").text("Size: Equal");
         
-    } else if(abs(tempp) > tempp2){
+    } else if(abs(image.height) > object.height){
         $(".size").text("Size: Larger");
     } else{
         $(".size").text("Size: Smaller");
@@ -167,14 +167,15 @@ var tempp2 = Math.ceil(object.height);
     } else { 
         $(".attitude").text("Attitude: Upright");
     }
+console.log(image.position);
+    if (image.position == Infinity || image.position == -Infinity || object.position == -focalLength){
 
-    if (abs(image.position) > focalLength*2){
-        $(".location").text("Location: Beyond 2F");
-    }
-    else if(image.position == Infinity){
         $(".location").text("Location: At Infinity");
     }
-    else if (abs(image.position) == abs(focalLength*2)) {
+    else if(abs(image.position) > (focalLength*2)){
+        $(".location").text("Location: Beyond 2F");
+    }
+    else if (abs(image.position) == abs(focalLength*2) || object.position == (-focalLength*2)) {
         $(".location").text("Location: At 2F");
     } else if (abs(image.position) > focalLength) { 
         $(".location").text("Location: Between F and 2F");
