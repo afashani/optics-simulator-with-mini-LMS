@@ -88,4 +88,4 @@ jobs:
           tenant_id: ${{ secrets.TENANT_ID }}
           accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
           label: "my-sast-scan"
-          sonar_project_key: "my-project-key"
+          sonar_project_key: "afashani_optics-simulator-with-mini-LMS"
